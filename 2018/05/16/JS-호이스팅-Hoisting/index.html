@@ -3,25 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[JS] onclick과 addEventListener 비교 | Jess2&#39;s Blog</title>
+    <title>[JS] 호이스팅(Hoisting) | Jess2&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="JavaScript" />
     
-    <meta name="description" content="onclick과 addEventListener 비교자바스크립트에서 클릭 이벤트를 줄 때 어떤 방식을 사용하는가?onclick을 사용할 수도, addEventListener를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.  onclick은 하나만, addEventListener는 여러 개를.  onclick">
+    <meta name="description" content="자바스크립트의 호이스팅(Hoisting)Hoisting이란, 선언을 현재 스크립트 또는 현재 함수의 맨 위로 이동시키는 JavaScript의 기본 동작이다. 만약, 변수가 함수 내에서 정의되었을 경우 선언이 함수 내부의 최상위로 호이스팅되고, 함수 밖에 정의되었을 경우에는 선언이 전역 컨텍스트의 최상위로 호이스팅 된다.  호이스팅 때문에 변수를 선언하기">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[JS] onclick과 addEventListener 비교">
-<meta property="og:url" content="https://jess2.github.io/2018/05/15/JS-onclick과-addEventListener-비교/index.html">
+<meta property="og:title" content="[JS] 호이스팅(Hoisting)">
+<meta property="og:url" content="https://jess2.github.io/2018/05/16/JS-호이스팅-Hoisting/index.html">
 <meta property="og:site_name" content="Jess2&#39;s Blog">
-<meta property="og:description" content="onclick과 addEventListener 비교자바스크립트에서 클릭 이벤트를 줄 때 어떤 방식을 사용하는가?onclick을 사용할 수도, addEventListener를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.  onclick은 하나만, addEventListener는 여러 개를.  onclick">
+<meta property="og:description" content="자바스크립트의 호이스팅(Hoisting)Hoisting이란, 선언을 현재 스크립트 또는 현재 함수의 맨 위로 이동시키는 JavaScript의 기본 동작이다. 만약, 변수가 함수 내에서 정의되었을 경우 선언이 함수 내부의 최상위로 호이스팅되고, 함수 밖에 정의되었을 경우에는 선언이 전역 컨텍스트의 최상위로 호이스팅 된다.  호이스팅 때문에 변수를 선언하기">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
-<meta property="og:updated_time" content="2018-05-15T15:44:10.976Z">
+<meta property="og:updated_time" content="2018-05-15T16:12:59.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[JS] onclick과 addEventListener 비교">
-<meta name="twitter:description" content="onclick과 addEventListener 비교자바스크립트에서 클릭 이벤트를 줄 때 어떤 방식을 사용하는가?onclick을 사용할 수도, addEventListener를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.  onclick은 하나만, addEventListener는 여러 개를.  onclick">
+<meta name="twitter:title" content="[JS] 호이스팅(Hoisting)">
+<meta name="twitter:description" content="자바스크립트의 호이스팅(Hoisting)Hoisting이란, 선언을 현재 스크립트 또는 현재 함수의 맨 위로 이동시키는 JavaScript의 기본 동작이다. 만약, 변수가 함수 내에서 정의되었을 경우 선언이 함수 내부의 최상위로 호이스팅되고, 함수 밖에 정의되었을 경우에는 선언이 전역 컨텍스트의 최상위로 호이스팅 된다.  호이스팅 때문에 변수를 선언하기">
 <meta name="twitter:image" content="https://jess2.github.io/images/JavaScript.png">
     
 
@@ -139,14 +139,14 @@
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-JS-onclick과-addEventListener-비교" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-JS-호이스팅-Hoisting" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [JS] onclick과 addEventListener 비교
+        [JS] 호이스팅(Hoisting)
         </h1>
     
 
@@ -156,8 +156,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2018/05/15/JS-onclick과-addEventListener-비교/" class="article-date">
-            <time datetime="2018-05-15T14:27:19.000Z" itemprop="datePublished">2018-05-15</time>
+        <a href="/2018/05/16/JS-호이스팅-Hoisting/" class="article-date">
+            <time datetime="2018-05-15T15:43:24.000Z" itemprop="datePublished">2018-05-16</time>
         </a>
     </div>
 
@@ -172,22 +172,18 @@
         
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/JavaScript.png" alt=""></p>
-<h1 id="onclick과-addEventListener-비교"><a href="#onclick과-addEventListener-비교" class="headerlink" title="onclick과 addEventListener 비교"></a>onclick과 addEventListener 비교</h1><p>자바스크립트에서 <b>클릭 이벤트</b>를 줄 때 어떤 방식을 사용하는가?<br><code>onclick</code>을 사용할 수도, <code>addEventListener</code>를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.</p>
+<h1 id="자바스크립트의-호이스팅-Hoisting"><a href="#자바스크립트의-호이스팅-Hoisting" class="headerlink" title="자바스크립트의 호이스팅(Hoisting)"></a>자바스크립트의 호이스팅(Hoisting)</h1><p><code>Hoisting</code>이란, <strong><u>선언</u>을 현재 스크립트 또는 현재 함수의 맨 위로 이동</strong>시키는 JavaScript의 기본 동작이다. 만약, 변수가 함수 내에서 정의되었을 경우 선언이 함수 내부의 최상위로 호이스팅되고, 함수 밖에 정의되었을 경우에는 선언이 전역 컨텍스트의 최상위로 호이스팅 된다.</p>
 <blockquote>
-<p><code>onclick</code>은 하나만, <code>addEventListener</code>는 여러 개를.</p>
+<p>호이스팅 때문에 변수를 선언하기 전에 사용할 수 있다.</p>
 </blockquote>
-<p><code>onclick</code>에는 하나의 콜백만 지정할 수 있지만, <code>addEventListener</code>를 사용하면 여러 개의 이벤트 리스너를 추가할 수 있다. 따라서 만약 <code>onclick</code> 이벤트 핸들러를 두 번 이상 사용한다면, 기존 이벤트 핸들러를 덮어쓰기 때문에 가장 아래에 추가한 핸들러만 제대로 작동한다. 반면, <code>addEventListener</code>는 기존 이벤트 핸들러를 덮어 쓰지 않고 얼마든지 계속해서 핸들러를 추가해도 모든 핸들러가 정상적으로 작동한다.</p>
-<p>아래의 코드를 보자.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p></p><p data-height="265" data-theme-id="0" data-slug-hash="YLzvyO" data-default-tab="js,result" data-user="je_ss2" data-embed-version="2" data-pen-title="onclick과 addEventListener 비교" class="codepen">See the Pen <a href="https://codepen.io/je_ss2/pen/YLzvyO/" target="_blank" rel="noopener">onclick과 addEventListener 비교</a> by SoyeonJung (<a href="https://codepen.io/je_ss2" target="_blank" rel="noopener">@je_ss2</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
-
-<p><code>btn</code>에 <code>onclick</code>과 <code>addEventListener</code> 이벤트 핸들러를 각각 두 개씩, 총 네 개의 핸들러를 만들었지만, <code>alert(&#39;onclick-1&#39;)</code>는 실행되지 않고 나머지 세 개만 실행되는 것을 확인할 수 있다.</p>
-<h2 id="그럼-onclick은-왜-있는거야"><a href="#그럼-onclick은-왜-있는거야" class="headerlink" title="그럼 onclick은 왜 있는거야?"></a>그럼 onclick은 왜 있는거야?</h2><p>이쯤 되면 이런 의문이 들 수 있다.</p>
-<blockquote>
-<p>클릭 이벤트를 주고 싶으면 그냥 <code>addEventListener</code>를 사용하면 되지, <code>onclick</code>은 굳이 왜 만든 것일까?</p>
-</blockquote>
-<p><code>onclick</code>은 초기 DOM Level-0에서 제공하던 기능이고, 그 이후 버전인 Level-2에서 추가된 것이 <code>addEventListener</code>이다.</p>
-<p><code>addEventListener</code>는 이벤트 캡쳐링, 버블링 같은 이벤트 방식을 설정할 수 있기 때문에 이벤트 제어에 있어서 더욱 유용하지만, <code>addEventListener</code>는 IE8 이하에서는 작동을 하지 않는다. 그래서 구형 브라우저 지원이 필요하면 <code>onclick</code>을 사용하거나 다른 방법을 찾아야 한다.</p>
+<p>JavaScript에서는 변수를 선언하기 전에 사용할 수 있다. 아래에 선언을 해도 선언한 것이 <code>Hoisting</code> 되어 위로 끌어올려지기 때문이다. 아래의 <code>Code-1</code>과 <code>Code-2</code>는 동일한 코드라고 보면 된다.</p>
+<h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code-1"></a>Code-1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span>; <span class="comment">// x에 값을 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x; <span class="comment">//출력 결과 &gt; 5</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> x; <span class="comment">// x 선언</span></span><br></pre></td></tr></table></figure>
+<h3 id="Code-2"><a href="#Code-2" class="headerlink" title="Code-2"></a>Code-2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x; <span class="comment">// x 선언</span></span><br><span class="line">x = <span class="number">5</span>; <span class="comment">// x에 값을 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x; <span class="comment">//출력 결과 &gt; 5</span></span><br></pre></td></tr></table></figure>
+<h2 id="할당은-호이스팅하지-않고-선언만-호이스팅한다"><a href="#할당은-호이스팅하지-않고-선언만-호이스팅한다" class="headerlink" title="할당은 호이스팅하지 않고, 선언만 호이스팅한다."></a>할당은 호이스팅하지 않고, 선언만 호이스팅한다.</h2><p>JavaScript는 <code>Hoisting</code>을 할 때, <strong>선언만 Hoisting하고, 할당은 Hoisting을 하지 않는다.</strong> 다음 <code>Code-3</code>과 <code>Code-4</code>는 동일한 코드라고 보면 된다.</p>
+<h3 id="Code-3"><a href="#Code-3" class="headerlink" title="Code-3"></a>Code-3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>; <span class="comment">// x를 선언하고 x에 5를 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x + <span class="string">" "</span> + y; <span class="comment">// 출력 결과 &gt; 5 undefined</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> y = <span class="number">7</span>; <span class="comment">// y를 선언하고 y에 7을 할당</span></span><br></pre></td></tr></table></figure>
+<h3 id="Code-4"><a href="#Code-4" class="headerlink" title="Code-4"></a>Code-4</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>; <span class="comment">// x를 선언하고 x에 5를 할당</span></span><br><span class="line"><span class="keyword">var</span> y; <span class="comment">// y를 선언</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x + <span class="string">" "</span> + y; <span class="comment">// 출력 결과 &gt; 5 undefined</span></span><br><span class="line"> </span><br><span class="line">y = <span class="number">7</span>; <span class="comment">// y에 7을 할당</span></span><br></pre></td></tr></table></figure>
+<p>위의 <code>Code-3</code>과 <code>Code-4</code>에서 y에 할당된 값인 7이 출력되지 않고 undefined가 출력되는 이유는, 선언만 위쪽으로 끌어 올려지고(Hoisting), 할당은 위로 끌어 올려지지 않기 때문이다. <code>hosting</code>으로 인해 y는 사용되기 전에 선언은 되었지만, 할당이 수행되지 않았기 때문에 y값은 undefined가 되는 것이다.</p>
+<p><code>Hosting</code>은 많은 개발자에게 알려지지 않거나 간과 된 JavaScript의 동작인데, 개발자가 Hosting을 이해하지 못하면 프로그램에 버그가 있을 수 있다. 따라서, 버그를 피하려면 항상 모든 범위의 시작 부분에 모든 변수를 선언하고 할당해야 한다.</p>
 
         </div>
         <footer class="article-footer">
@@ -195,7 +191,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/15/JS-onclick과-addEventListener-비교/" data-id="cjh7vrv3m0000f0j4tzlm4223" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/16/JS-호이스팅-Hoisting/" data-id="cjh7vrv420001f0j4f72om6ig" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -332,16 +328,12 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/05/16/JS-호이스팅-Hoisting/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            [JS] 호이스팅(Hoisting)
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
+        <a href="/2018/05/15/JS-onclick과-addEventListener-비교/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[JS] onclick과 addEventListener 비교</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
     
 </nav>
 
@@ -446,7 +438,7 @@
     var disqus_shortname = 'jess2';
     
     
-    var disqus_url = 'https://jess2.github.io/2018/05/15/JS-onclick과-addEventListener-비교/';
+    var disqus_url = 'https://jess2.github.io/2018/05/16/JS-호이스팅-Hoisting/';
     
     (function() {
     var dsq = document.createElement('script');
