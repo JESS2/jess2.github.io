@@ -19,6 +19,8 @@
     
 
     
+        <link rel="icon" href="/images/jessieImg.png" />
+    
 
     <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/libs/titillium-web/styles.css">
@@ -65,12 +67,12 @@
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                        
-                                    
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="https://jess2.github.io/resume/">About</a>
                                 </li>
                             
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li></ul>
+                                    
                         </ul>
                         <nav id="sub-nav">
                             <div id="search-form-wrap">
@@ -147,17 +149,17 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2018/05/15/hello-world/" class="thumbnail">
+        <a href="/2018/05/15/JS-onclick과-addEventListener-비교/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/JavaScript.png)" alt="Hello World" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] onclick과 addEventListener 비교" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jess2.github.io/2018/05/15/hello-world/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jess2.github.io/2018/05/15/JS-onclick과-addEventListener-비교/">0</span>
     
 </span>
 
@@ -168,20 +170,24 @@
         
         <div class="article-meta">
             <div class="category">
-            
+            <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
             </div>
-            <div class="date"><time datetime="2018-05-15T12:46:05.807Z" itemprop="datePublished">2018-05-15</time></div>
+            <div class="date"><time datetime="2018-05-15T14:27:19.000Z" itemprop="datePublished">2018-05-15</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/15/hello-world/">Hello World</a>
+        <a href="/2018/05/15/JS-onclick과-addEventListener-비교/">[JS] onclick과 addEventListener 비교</a>
         </h1>
     
 
         <p class="article-excerpt">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick
+            
+onclick과 addEventListener 비교자바스크립트에서 클릭 이벤트를 줄 때 어떤 방식을 사용하는가?onclick을 사용할 수도, addEventListener를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.
+
+onclick은 하나만, addEventListener는 여러 개를.
+
+onclick
         </p>
     </div>
 </article>
@@ -257,6 +263,13 @@ Quick
         
             
                 
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
 
             
                 
@@ -268,10 +281,10 @@ Quick
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/05/15/hello-world/" class="thumbnail">
+                            <a href="/2018/05/15/JS-onclick과-addEventListener-비교/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/JavaScript.png)" alt="Hello World" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] onclick과 addEventListener 비교" class="thumbnail-image"></span>
     
     
 </a>
@@ -279,9 +292,9 @@ Quick
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/05/15/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2018-05-15T12:46:05.807Z" itemprop="datePublished">2018-05-15</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/15/JS-onclick과-addEventListener-비교/" class="title">[JS] onclick과 addEventListener 비교</a></p>
+                            <p class="item-date"><time datetime="2018-05-15T14:27:19.000Z" itemprop="datePublished">2018-05-15</time></p>
                         </div>
                     </li>
                 
@@ -291,35 +304,10 @@ Quick
 
             
                 
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">archives</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-
-            
-                
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="http://hexo.io">Hexo</a>
-                    </li>
-                
-            </ul>
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a>
         </div>
     </div>
 

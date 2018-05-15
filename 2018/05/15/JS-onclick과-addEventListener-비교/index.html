@@ -3,29 +3,32 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Hello World | Jess2&#39;s Blog</title>
+    <title>[JS] onclick과 addEventListener 비교 | Jess2&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="JavaScript" />
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="onclick과 addEventListener 비교자바스크립트에서 클릭 이벤트를 줄 때 어떤 방식을 사용하는가?onclick을 사용할 수도, addEventListener를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.  onclick은 하나만, addEventListener는 여러 개를.  onclick">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://jess2.github.io/2018/05/15/hello-world/index.html">
+<meta property="og:title" content="[JS] onclick과 addEventListener 비교">
+<meta property="og:url" content="https://jess2.github.io/2018/05/15/JS-onclick과-addEventListener-비교/index.html">
 <meta property="og:site_name" content="Jess2&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="onclick과 addEventListener 비교자바스크립트에서 클릭 이벤트를 줄 때 어떤 방식을 사용하는가?onclick을 사용할 수도, addEventListener를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.  onclick은 하나만, addEventListener는 여러 개를.  onclick">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
-<meta property="og:updated_time" content="2018-05-15T13:15:24.602Z">
+<meta property="og:updated_time" content="2018-05-15T15:22:45.564Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="[JS] onclick과 addEventListener 비교">
+<meta name="twitter:description" content="onclick과 addEventListener 비교자바스크립트에서 클릭 이벤트를 줄 때 어떤 방식을 사용하는가?onclick을 사용할 수도, addEventListener를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.  onclick은 하나만, addEventListener는 여러 개를.  onclick">
 <meta name="twitter:image" content="https://jess2.github.io/images/JavaScript.png">
     
 
     
 
+    
+        <link rel="icon" href="/images/jessieImg.png" />
     
 
     <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
@@ -73,12 +76,12 @@
                                     <a class="main-nav-list-link" href="/">Home</a>
                                 </li>
                             
-                                        
-                                    
                                 <li class="main-nav-list-item" >
                                     <a class="main-nav-list-link" href="https://jess2.github.io/resume/">About</a>
                                 </li>
                             
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li></ul>
+                                    
                         </ul>
                         <nav id="sub-nav">
                             <div id="search-form-wrap">
@@ -132,18 +135,18 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    uncategorized
+    <a class="page-title-link" href="/categories/JavaScript/">JavaScript</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-hello-world" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-JS-onclick과-addEventListener-비교" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Hello World
+        [JS] onclick과 addEventListener 비교
         </h1>
     
 
@@ -153,25 +156,38 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2018/05/15/hello-world/" class="article-date">
-            <time datetime="2018-05-15T12:46:05.807Z" itemprop="datePublished">2018-05-15</time>
+        <a href="/2018/05/15/JS-onclick과-addEventListener-비교/" class="article-date">
+            <time datetime="2018-05-15T14:27:19.000Z" itemprop="datePublished">2018-05-15</time>
         </a>
     </div>
 
                 
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
+    </div>
+
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p><img src="/images/JavaScript.png" alt=""></p>
+<h1 id="onclick과-addEventListener-비교"><a href="#onclick과-addEventListener-비교" class="headerlink" title="onclick과 addEventListener 비교"></a>onclick과 addEventListener 비교</h1><p>자바스크립트에서 <b>클릭 이벤트</b>를 줄 때 어떤 방식을 사용하는가?<br><code>onclick</code>을 사용할 수도, <code>addEventListener</code>를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.</p>
+<blockquote>
+<p><code>onclick</code>은 하나만, <code>addEventListener</code>는 여러 개를.</p>
+</blockquote>
+<p><code>onclick</code>에는 하나의 콜백만 지정할 수 있지만, <code>addEventListener</code>를 사용하면 여러 개의 이벤트 리스너를 추가할 수 있다. 따라서 만약 <code>onclick</code> 이벤트 핸들러를 두 번 이상 사용한다면, 기존 이벤트 핸들러를 덮어쓰기 때문에 가장 아래에 추가한 핸들러만 제대로 작동한다. 반면, <code>addEventListener</code>는 기존 이벤트 핸들러를 덮어 쓰지 않고 얼마든지 계속해서 핸들러를 추가해도 모든 핸들러가 정상적으로 작동한다.</p>
+<p>아래의 코드를 보자.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p></p><p data-height="265" data-theme-id="0" data-slug-hash="YLzvyO" data-default-tab="js,result" data-user="je_ss2" data-embed-version="2" data-pen-title="onclick과 addEventListener 비교" class="codepen">See the Pen <a href="https://codepen.io/je_ss2/pen/YLzvyO/" target="_blank" rel="noopener">onclick과 addEventListener 비교</a> by SoyeonJung (<a href="https://codepen.io/je_ss2" target="_blank" rel="noopener">@je_ss2</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p><code>btn</code>에 <code>onclick</code>과 <code>addEventListener</code> 이벤트 핸들러를 각각 두 개씩, 총 네 개의 핸들러를 만들었지만, <code>alert(&#39;onclick-1&#39;)</code>는 실행되지 않고 나머지 세 개만 실행되는 것을 확인할 수 있다.</p>
+<h2 id="그럼-onclick은-왜-있는거야"><a href="#그럼-onclick은-왜-있는거야" class="headerlink" title="그럼 onclick은 왜 있는거야?"></a>그럼 onclick은 왜 있는거야?</h2><p>이쯤 되면 이런 의문이 들 수 있다.</p>
+<blockquote>
+<p>클릭 이벤트를 주고 싶으면 그냥 <code>addEventListener</code>를 사용하면 되지, <code>onclick</code>은 굳이 왜 만든 것일까?</p>
+</blockquote>
+<p><code>onclick</code>은 초기 DOM Level-0에서 제공하던 기능이고, 그 이후 버전인 Level-2에서 추가된 것이 <code>addEventListener</code>이다.</p>
+<p><code>addEventListener</code>는 이벤트 캡쳐링, 버블링 같은 이벤트 방식을 설정할 수 있기 때문에 이벤트 제어에 있어서 더욱 유용하지만, <code>addEventListener</code>는 IE8 이하에서는 작동을 하지 않는다. 그래서 구형 브라우저 지원이 필요하면 <code>onclick</code>을 사용하거나 다른 방법을 찾아야 한다.</p>
 
         </div>
         <footer class="article-footer">
@@ -179,7 +195,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/15/hello-world/" data-id="cjh7pmqpf0000t0j4ygwb3h69" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/15/JS-onclick과-addEventListener-비교/" data-id="cjh7rv73e0000ngj49t6imnb9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -319,6 +335,13 @@
         
             
                 
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
 
             
                 
@@ -330,10 +353,10 @@
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2018/05/15/hello-world/" class="thumbnail">
+                            <a href="/2018/05/15/JS-onclick과-addEventListener-비교/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/JavaScript.png)" alt="Hello World" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] onclick과 addEventListener 비교" class="thumbnail-image"></span>
     
     
 </a>
@@ -341,9 +364,9 @@
                         </div>
                         
                         <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/05/15/hello-world/" class="title">Hello World</a></p>
-                            <p class="item-date"><time datetime="2018-05-15T12:46:05.807Z" itemprop="datePublished">2018-05-15</time></p>
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/15/JS-onclick과-addEventListener-비교/" class="title">[JS] onclick과 addEventListener 비교</a></p>
+                            <p class="item-date"><time datetime="2018-05-15T14:27:19.000Z" itemprop="datePublished">2018-05-15</time></p>
                         </div>
                     </li>
                 
@@ -353,35 +376,10 @@
 
             
                 
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">archives</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-
-            
-                
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">links</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="http://hexo.io">Hexo</a>
-                    </li>
-                
-            </ul>
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a>
         </div>
     </div>
 
@@ -413,7 +411,7 @@
     var disqus_shortname = 'jess2';
     
     
-    var disqus_url = 'https://jess2.github.io/2018/05/15/hello-world/';
+    var disqus_url = 'https://jess2.github.io/2018/05/15/JS-onclick과-addEventListener-비교/';
     
     (function() {
     var dsq = document.createElement('script');
