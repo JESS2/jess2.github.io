@@ -3,26 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[JS] 호이스팅(Hoisting) | Jess2&#39;s Blog</title>
+    <title>[Node.js] 노드로 만들 수 있는 서버 | Jess2&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="JavaScript" />
+        <meta name="keywords" content="Node.js" />
     
-    <meta name="description" content="자바스크립트의 호이스팅(Hoisting)Hoisting이란, 선언을 현재 스크립트 또는 현재 함수의 맨 위로 이동시키는 JavaScript의 기본 동작이다. 만약, 변수가 함수 내에서 정의되었을 경우 선언이 함수 내부의 최상위로 호이스팅되고, 함수 밖에 정의되었을 경우에는 선언이 전역 컨텍스트의 최상위로 호이스팅 된다.  호이스팅 때문에 변수를 선언하기">
-<meta name="keywords" content="JavaScript">
+    <meta name="description" content="노드로 만들 수 있는 서버노드의 등장으로 인해 웹 브라우저에서 동작하는 JavaScript를 이용하여 서버까지 구현이 가능해졌다. 하나의 언어로 애플리케이션 전체를 구현할 수 있게 된 것이다.  서버가 뭔데?  다른 곳에 있는 단말에 데이터를 달라고 요청하는 프로그램을 클라이언트(Client), 다른 곳에서 요청받은 명령을 처리해주는 프로그램을 서버(Se">
+<meta name="keywords" content="Node.js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[JS] 호이스팅(Hoisting)">
-<meta property="og:url" content="https://jess2.github.io/2018/05/16/JS-호이스팅-Hoisting/index.html">
+<meta property="og:title" content="[Node.js] 노드로 만들 수 있는 서버">
+<meta property="og:url" content="https://jess2.github.io/2018/05/18/Node-노드로-만들-수-있는-서버/index.html">
 <meta property="og:site_name" content="Jess2&#39;s Blog">
-<meta property="og:description" content="자바스크립트의 호이스팅(Hoisting)Hoisting이란, 선언을 현재 스크립트 또는 현재 함수의 맨 위로 이동시키는 JavaScript의 기본 동작이다. 만약, 변수가 함수 내에서 정의되었을 경우 선언이 함수 내부의 최상위로 호이스팅되고, 함수 밖에 정의되었을 경우에는 선언이 전역 컨텍스트의 최상위로 호이스팅 된다.  호이스팅 때문에 변수를 선언하기">
+<meta property="og:description" content="노드로 만들 수 있는 서버노드의 등장으로 인해 웹 브라우저에서 동작하는 JavaScript를 이용하여 서버까지 구현이 가능해졌다. 하나의 언어로 애플리케이션 전체를 구현할 수 있게 된 것이다.  서버가 뭔데?  다른 곳에 있는 단말에 데이터를 달라고 요청하는 프로그램을 클라이언트(Client), 다른 곳에서 요청받은 명령을 처리해주는 프로그램을 서버(Se">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
-<meta property="og:updated_time" content="2018-05-15T16:19:14.440Z">
+<meta property="og:image" content="https://jess2.github.io/images/nodejs.png">
+<meta property="og:updated_time" content="2018-05-18T13:31:37.006Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[JS] 호이스팅(Hoisting)">
-<meta name="twitter:description" content="자바스크립트의 호이스팅(Hoisting)Hoisting이란, 선언을 현재 스크립트 또는 현재 함수의 맨 위로 이동시키는 JavaScript의 기본 동작이다. 만약, 변수가 함수 내에서 정의되었을 경우 선언이 함수 내부의 최상위로 호이스팅되고, 함수 밖에 정의되었을 경우에는 선언이 전역 컨텍스트의 최상위로 호이스팅 된다.  호이스팅 때문에 변수를 선언하기">
-<meta name="twitter:image" content="https://jess2.github.io/images/JavaScript.png">
+<meta name="twitter:title" content="[Node.js] 노드로 만들 수 있는 서버">
+<meta name="twitter:description" content="노드로 만들 수 있는 서버노드의 등장으로 인해 웹 브라우저에서 동작하는 JavaScript를 이용하여 서버까지 구현이 가능해졌다. 하나의 언어로 애플리케이션 전체를 구현할 수 있게 된 것이다.  서버가 뭔데?  다른 곳에 있는 단말에 데이터를 달라고 요청하는 프로그램을 클라이언트(Client), 다른 곳에서 요청받은 명령을 처리해주는 프로그램을 서버(Se">
+<meta name="twitter:image" content="https://jess2.github.io/images/nodejs.png">
     
 
     
@@ -135,18 +135,18 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/JavaScript/">JavaScript</a>
+    <a class="page-title-link" href="/categories/Node-js/">Node.js</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-JS-호이스팅-Hoisting" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-Node-노드로-만들-수-있는-서버" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [JS] 호이스팅(Hoisting)
+        [Node.js] 노드로 만들 수 있는 서버
         </h1>
     
 
@@ -156,35 +156,42 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2018/05/16/JS-호이스팅-Hoisting/" class="article-date">
-            <time datetime="2018-05-15T15:43:24.000Z" itemprop="datePublished">2018-05-16</time>
+        <a href="/2018/05/18/Node-노드로-만들-수-있는-서버/" class="article-date">
+            <time datetime="2018-05-18T12:04:34.000Z" itemprop="datePublished">2018-05-18</time>
         </a>
     </div>
 
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
+        <a class="tag-link" href="/tags/Node-js/">Node.js</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/images/JavaScript.png" alt=""></p>
-<h1 id="자바스크립트의-호이스팅-Hoisting"><a href="#자바스크립트의-호이스팅-Hoisting" class="headerlink" title="자바스크립트의 호이스팅(Hoisting)"></a>자바스크립트의 호이스팅(Hoisting)</h1><p><code>Hoisting</code>이란, <strong><u>선언</u>을 현재 스크립트 또는 현재 함수의 맨 위로 이동</strong>시키는 JavaScript의 기본 동작이다. 만약, 변수가 함수 내에서 정의되었을 경우 선언이 함수 내부의 최상위로 호이스팅되고, 함수 밖에 정의되었을 경우에는 선언이 전역 컨텍스트의 최상위로 호이스팅 된다.</p>
+            <p><img src="/images/nodejs.png" alt=""></p>
+<h1 id="노드로-만들-수-있는-서버"><a href="#노드로-만들-수-있는-서버" class="headerlink" title="노드로 만들 수 있는 서버"></a>노드로 만들 수 있는 서버</h1><p>노드의 등장으로 인해 웹 브라우저에서 동작하는 JavaScript를 이용하여 서버까지 구현이 가능해졌다. 하나의 언어로 애플리케이션 전체를 구현할 수 있게 된 것이다.</p>
 <blockquote>
-<p>호이스팅 때문에 변수를 선언하기 전에 사용할 수 있다.</p>
+<p>서버가 뭔데?</p>
 </blockquote>
-<p>JavaScript에서는 변수를 선언하기 전에 사용할 수 있다. 아래에 선언을 해도 선언한 것이 <code>Hoisting</code> 되어 위로 끌어올려지기 때문이다. 아래의 <code>Code-1</code>과 <code>Code-2</code>는 동일한 코드라고 보면 된다.</p>
-<h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code-1"></a>Code-1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span>; <span class="comment">// x에 값을 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x; <span class="comment">//출력 결과 &gt; 5</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> x; <span class="comment">// x 선언</span></span><br></pre></td></tr></table></figure>
-<h3 id="Code-2"><a href="#Code-2" class="headerlink" title="Code-2"></a>Code-2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x; <span class="comment">// x 선언</span></span><br><span class="line">x = <span class="number">5</span>; <span class="comment">// x에 값을 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x; <span class="comment">//출력 결과 &gt; 5</span></span><br></pre></td></tr></table></figure>
+<p>다른 곳에 있는 단말에 데이터를 달라고 요청하는 프로그램을 <strong>클라이언트(Client)</strong>, 다른 곳에서 요청받은 명령을 처리해주는 프로그램을 <strong>서버(Server)</strong>라고 한다. 이때 서버는 <strong>포트(Port)</strong>를 지정하여 그 포트로 요청을 받을 수 있다.</p>
+<p>서버를 만들어 실행하면 지정된 포트에서 클라이언트로부터 요청을 받아 처리한다. 또한 대부분의 서버는 데이터베이스에 연결할 수 있도록 구성되기 때문에 클라이언트에서 보내온 데이터를 저장하거나 저장된 데이터를 조회한 후 클라이언트에 보내준다.</p>
+<p>굉장히 다양한 서버의 유형 중에서 우리가 많이 사용하는 웹 브라우저에서 접속하는 서버를 <strong>웹 서버</strong>라고 하며, HTTP 프로토콜을 사용한다.</p>
+<blockquote>
+<p>그럼 웹 서버 말고 또 어떤 서버가 있을까?</p>
+</blockquote>
+<p>만들려는 애플리케이션이 무엇인지에 따라 필요한 서버 유형이 달라진다. 웹 서버, 채팅 서버, 모바일 서버 등 서버의 유형은 굉장히 다양하지만 우리는 웹 브라우저에서 웹 문서를 요청할 때 필요한 기능을 수행하는 웹 서버에 대해서 알아보자.</p>
 <p><br></p>
-<h2 id="할당은-호이스팅하지-않고-선언만-호이스팅한다"><a href="#할당은-호이스팅하지-않고-선언만-호이스팅한다" class="headerlink" title="할당은 호이스팅하지 않고, 선언만 호이스팅한다."></a>할당은 호이스팅하지 않고, 선언만 호이스팅한다.</h2><p>JavaScript는 <code>Hoisting</code>을 할 때, <strong>선언만 Hoisting하고, 할당은 Hoisting을 하지 않는다.</strong> 다음 <code>Code-3</code>과 <code>Code-4</code>는 동일한 코드라고 보면 된다.</p>
-<h3 id="Code-3"><a href="#Code-3" class="headerlink" title="Code-3"></a>Code-3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>; <span class="comment">// x를 선언하고 x에 5를 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x + <span class="string">" "</span> + y; <span class="comment">// 출력 결과 &gt; 5 undefined</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> y = <span class="number">7</span>; <span class="comment">// y를 선언하고 y에 7을 할당</span></span><br></pre></td></tr></table></figure>
-<h3 id="Code-4"><a href="#Code-4" class="headerlink" title="Code-4"></a>Code-4</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>; <span class="comment">// x를 선언하고 x에 5를 할당</span></span><br><span class="line"><span class="keyword">var</span> y; <span class="comment">// y를 선언</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x + <span class="string">" "</span> + y; <span class="comment">// 출력 결과 &gt; 5 undefined</span></span><br><span class="line"> </span><br><span class="line">y = <span class="number">7</span>; <span class="comment">// y에 7을 할당</span></span><br></pre></td></tr></table></figure>
-<p>위의 <code>Code-3</code>과 <code>Code-4</code>에서 y에 할당된 값인 7이 출력되지 않고 undefined가 출력되는 이유는, 선언만 위쪽으로 끌어 올려지고(Hoisting), 할당은 위로 끌어 올려지지 않기 때문이다. <code>hosting</code>으로 인해 y는 사용되기 전에 선언은 되었지만, 할당이 수행되지 않았기 때문에 y값은 undefined가 되는 것이다.</p>
-<p><code>Hosting</code>은 많은 개발자에게 알려지지 않거나 간과 된 JavaScript의 동작인데, 개발자가 Hosting을 이해하지 못하면 프로그램에 버그가 있을 수 있다. 따라서, 버그를 피하려면 항상 모든 범위의 시작 부분에 모든 변수를 선언하고 할당해야 한다.</p>
+<h2 id="노드로-웹-서버를-만들자"><a href="#노드로-웹-서버를-만들자" class="headerlink" title="노드로 웹 서버를 만들자"></a>노드로 웹 서버를 만들자</h2><p>Node.js에서 제공하는 다양한 모듈(Module)을 사용하여 웹 서버를 만들 수 있다.</p>
+<ul>
+<li>익스프레스(Express)</li>
+<li>몽고디비(MongoDB)</li>
+<li>뷰 탬플릿(View Template)</li>
+<li>패스포트(Passport)</li>
+</ul>
+<p>웹 프레임워크인 <strong>익스프레스(Express)</strong>가 웹 서버에 필요한 파일들을 자동으로 만들어주기 때문에 익스프레스로 기본 구조를 만들고, <strong>몽고디비(MongoDB)</strong>를 이용해서 데이터를 저장하거나 조회할 수 있다. <strong>뷰 탬플릿(View Template)</strong>은 클라이언트에 응답을 보낼 때 사용하려고 미리 웹 문서의 원형(Template)을 만들어 놓은 것이며, <strong>패스포트(Passport)</strong>는 사용자 로그인이나 회원가입을 위해 사용한다.</p>
 
         </div>
         <footer class="article-footer">
@@ -192,7 +199,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/16/JS-호이스팅-Hoisting/" data-id="cjhc08l910005m8j4b8lubu6e" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/18/Node-노드로-만들-수-있는-서버/" data-id="cjhc08l8k0000m8j4whd5vcku" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -329,20 +336,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/05/16/JS-이벤트-버블링과-캡쳐링/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            [JS] 이벤트 버블링과 이벤트 캡쳐링
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2018/05/15/JS-onclick과-addEventListener-비교/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/05/16/JS-이벤트-버블링과-캡쳐링/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[JS] onclick과 addEventListener 비교</p>
+        <p class="article-nav-title">[JS] 이벤트 버블링과 이벤트 캡쳐링</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -489,7 +486,7 @@
     var disqus_shortname = 'jess2';
     
     
-    var disqus_url = 'https://jess2.github.io/2018/05/16/JS-호이스팅-Hoisting/';
+    var disqus_url = 'https://jess2.github.io/2018/05/18/Node-노드로-만들-수-있는-서버/';
     
     (function() {
     var dsq = document.createElement('script');
