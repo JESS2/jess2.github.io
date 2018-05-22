@@ -18,7 +18,7 @@
 <meta property="og:description" content="onclick과 addEventListener 비교자바스크립트에서 클릭 이벤트를 줄 때 어떤 방식을 사용하는가?onclick을 사용할 수도, addEventListener를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.  onclick은 하나만, addEventListener는 여러 개를.  onclick">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
-<meta property="og:updated_time" content="2018-05-15T16:19:39.202Z">
+<meta property="og:updated_time" content="2018-05-22T13:09:02.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JS] onclick과 addEventListener 비교">
 <meta name="twitter:description" content="onclick과 addEventListener 비교자바스크립트에서 클릭 이벤트를 줄 때 어떤 방식을 사용하는가?onclick을 사용할 수도, addEventListener를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.  onclick은 하나만, addEventListener는 여러 개를.  onclick">
@@ -174,7 +174,7 @@
             <p><img src="/images/JavaScript.png" alt=""></p>
 <h1 id="onclick과-addEventListener-비교"><a href="#onclick과-addEventListener-비교" class="headerlink" title="onclick과 addEventListener 비교"></a>onclick과 addEventListener 비교</h1><p>자바스크립트에서 <b>클릭 이벤트</b>를 줄 때 어떤 방식을 사용하는가?<br><code>onclick</code>을 사용할 수도, <code>addEventListener</code>를 사용할 수도 있지만, 어떤 것을 사용하든 이 두 가지가 서로 어떻게 다른 지 알고 있어야 한다.</p>
 <blockquote>
-<p><code>onclick</code>은 하나만, <code>addEventListener</code>는 여러 개를.</p>
+<p><strong><code>onclick</code>은 하나만, <code>addEventListener</code>는 여러 개를.</strong></p>
 </blockquote>
 <p><code>onclick</code>에는 하나의 콜백만 지정할 수 있지만, <code>addEventListener</code>를 사용하면 여러 개의 이벤트 리스너를 추가할 수 있다. 따라서 만약 <code>onclick</code> 이벤트 핸들러를 두 번 이상 사용한다면, 기존 이벤트 핸들러를 덮어쓰기 때문에 가장 아래에 추가한 핸들러만 제대로 작동한다. 반면, <code>addEventListener</code>는 기존 이벤트 핸들러를 덮어 쓰지 않고 얼마든지 계속해서 핸들러를 추가해도 모든 핸들러가 정상적으로 작동한다.</p>
 <p>아래의 코드를 보자.</p>
@@ -185,7 +185,7 @@
 <p><br></p>
 <h2 id="그럼-onclick은-왜-있는거야"><a href="#그럼-onclick은-왜-있는거야" class="headerlink" title="그럼 onclick은 왜 있는거야?"></a>그럼 onclick은 왜 있는거야?</h2><p>이쯤 되면 이런 의문이 들 수 있다.</p>
 <blockquote>
-<p>클릭 이벤트를 주고 싶으면 그냥 <code>addEventListener</code>를 사용하면 되지, <code>onclick</code>은 굳이 왜 만든 것일까?</p>
+<p><strong>클릭 이벤트를 주고 싶으면 그냥 <code>addEventListener</code>를 사용하면 되지, <code>onclick</code>은 굳이 왜 만든 것일까?</strong></p>
 </blockquote>
 <p><code>onclick</code>은 초기 DOM Level-0에서 제공하던 기능이고, 그 이후 버전인 Level-2에서 추가된 것이 <code>addEventListener</code>이다.</p>
 <p><code>addEventListener</code>는 이벤트 캡쳐링, 버블링 같은 이벤트 방식을 설정할 수 있기 때문에 이벤트 제어에 있어서 더욱 유용하지만, <code>addEventListener</code>는 IE8 이하에서는 작동을 하지 않는다. 그래서 구형 브라우저 지원이 필요하면 <code>onclick</code>을 사용하거나 다른 방법을 찾아야 한다.</p>
@@ -196,7 +196,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/15/JS-onclick과-addEventListener-비교/" data-id="cjhhovo0f0000gwj4z7rojl7p" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/15/JS-onclick과-addEventListener-비교/" data-id="cjhhph5po0001gsj4aq67oxr3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -354,7 +354,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -365,6 +365,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 클로저(Closure)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" class="title">[JS] 클로저(Closure)</a></p>
+                            <p class="item-date"><time datetime="2018-05-22T13:02:39.000Z" itemprop="datePublished">2018-05-22</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -443,26 +463,6 @@
                             <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
                             <p class="item-title"><a href="/2018/05/19/Node-js-노드의-기본-기능/" class="title">[Node.js] 노드의 기본 모듈 - url / fs / http</a></p>
                             <p class="item-date"><time datetime="2018-05-18T16:01:42.000Z" itemprop="datePublished">2018-05-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/18/Node-js-노드의-특징/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/nodejs.png)" alt="[Node.js] 노드의 특징" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
-                            <p class="item-title"><a href="/2018/05/18/Node-js-노드의-특징/" class="title">[Node.js] 노드의 특징</a></p>
-                            <p class="item-date"><time datetime="2018-05-18T13:36:09.000Z" itemprop="datePublished">2018-05-18</time></p>
                         </div>
                     </li>
                 

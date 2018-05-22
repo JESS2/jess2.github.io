@@ -18,7 +18,7 @@
 <meta property="og:description" content="Event Bubbling / Event Capturing버블링과 캡쳐링을 본격적으로 알아보기 전에 간단한 코드를 한 번 살펴보자. 1234&amp;lt;div onclick=&quot;alert(&apos;The DIV handler!&apos;)&quot;&amp;gt;  DIV 태그  &amp;lt;p&amp;gt;P 태그&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; See the Pen Ryewge by Soyeon">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
-<meta property="og:updated_time" content="2018-05-16T11:19:54.118Z">
+<meta property="og:updated_time" content="2018-05-22T13:09:02.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JS] 이벤트 버블링과 이벤트 캡쳐링">
 <meta name="twitter:description" content="Event Bubbling / Event Capturing버블링과 캡쳐링을 본격적으로 알아보기 전에 간단한 코드를 한 번 살펴보자. 1234&amp;lt;div onclick=&quot;alert(&apos;The DIV handler!&apos;)&quot;&amp;gt;  DIV 태그  &amp;lt;p&amp;gt;P 태그&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; See the Pen Ryewge by Soyeon">
@@ -179,12 +179,12 @@
 
 <p><code>div</code>태그에 <code>alert(&#39;The DIV handler!&#39;)</code>라는 이벤트 핸들러를 할당하였고, <code>p</code>태그에는 어떠한 핸들러도 할당하지 않았다. <strong>그런데 <code>p</code>태그를 클릭해도 <code>div</code>태그에 할당된 핸들러가 실행이 된다.</strong></p>
 <blockquote>
-<p>조금 이상하다.<br><code>p</code>태그를 클릭했는데 왜 <code>div</code>태그에 할당된 핸들러가 실행이 되는 것일까?</p>
+<p><strong>조금 이상하다.</strong><br><strong><code>p</code>태그를 클릭했는데 왜 <code>div</code>태그에 할당된 핸들러가 실행이 되는 것일까?</strong></p>
 </blockquote>
 <p><br></p>
 <h2 id="버블링-때문이다"><a href="#버블링-때문이다" class="headerlink" title="버블링 때문이다."></a>버블링 때문이다.</h2><p>자바스크립트의 이벤트 버블링 때문에 위의 코드에서 <code>div</code>태그 안에 있는 <code>p</code>태그를 클릭하면 <code>div</code>태그에 할당된 클릭 이벤트가 발생하는 것이다.</p>
 <blockquote>
-<p>그럼, 버블링이 정확히 뭔데?</p>
+<p><strong>그럼, 버블링이 정확히 뭔데?</strong></p>
 </blockquote>
 <p>이벤트 버블링의 원리는 간단하다.</p>
 <p><strong>“엘리먼트에 이벤트가 발생하면 먼저 해당 엘리먼트의 핸들러를 실행시킨 후, 그의 부모 엘리먼트의 핸들러를 실행시키고, 또 그 위의 조상 엘리먼트들의 핸들러를 실행시킨다”</strong></p>
@@ -204,7 +204,7 @@
 
 <p><code>form</code>태그와 <code>div</code>태그에만 이벤트 핸들러를 주고, <code>p</code>태그에는 이벤트 핸들러를 주지 않았다. 하지만, 이벤트 버블링으로 인해 <code>p</code> 태그를 클릭하면 <code>div -&gt; form</code>순서로 알림창이 뜬다.</p>
 <blockquote>
-<p>이벤트 버블링이 발생되지 않았으면 좋겠어</p>
+<p><strong>이벤트 버블링이 발생되지 않았으면 좋겠어</strong></p>
 </blockquote>
 <p><strong>이벤트 버블링은 <code>event.stopPropagation()</code>을 이용해서 간단하게 멈출 수 있다.</strong> 아래의 코드를 보자.</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onclick</span>=<span class="string">"alert('form')"</span>&gt;</span>FORM</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">onclick</span>=<span class="string">"alert('div')"</span>&gt;</span>DIV</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">onclick</span>=<span class="string">"event.stopPropagation()"</span>&gt;</span>P<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -237,7 +237,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/16/JS-이벤트-버블링과-캡쳐링/" data-id="cjhhovo140005gwj4yu6cq5h8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/16/JS-이벤트-버블링과-캡쳐링/" data-id="cjhhph5px0004gsj4jhpo3e6m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -401,7 +401,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -412,6 +412,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 클로저(Closure)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" class="title">[JS] 클로저(Closure)</a></p>
+                            <p class="item-date"><time datetime="2018-05-22T13:02:39.000Z" itemprop="datePublished">2018-05-22</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -490,26 +510,6 @@
                             <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
                             <p class="item-title"><a href="/2018/05/19/Node-js-노드의-기본-기능/" class="title">[Node.js] 노드의 기본 모듈 - url / fs / http</a></p>
                             <p class="item-date"><time datetime="2018-05-18T16:01:42.000Z" itemprop="datePublished">2018-05-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/18/Node-js-노드의-특징/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/nodejs.png)" alt="[Node.js] 노드의 특징" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
-                            <p class="item-title"><a href="/2018/05/18/Node-js-노드의-특징/" class="title">[Node.js] 노드의 특징</a></p>
-                            <p class="item-date"><time datetime="2018-05-18T13:36:09.000Z" itemprop="datePublished">2018-05-18</time></p>
                         </div>
                     </li>
                 

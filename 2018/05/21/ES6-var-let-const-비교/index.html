@@ -18,7 +18,7 @@
 <meta property="og:description" content="var, let, const 비교기존 자바스크립트의 변수 선언 키워드 var과 ES6에서 새롭게 도입된 변수 선언 키워드 let과 const에 대해서 알아보자. var 키워드를 붙이지 않으면 어떻게 될까?먼저 var에 대해서 알아보자. var는 키워드 없이 변수를 선언하면 전역 변수가 된다. 전역 유효범위에 속해지기 때문에 코드 내에서 어디서든 변수에 접">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/es6.png">
-<meta property="og:updated_time" content="2018-05-21T15:59:17.836Z">
+<meta property="og:updated_time" content="2018-05-22T13:09:02.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ES6] var, let, const 비교">
 <meta name="twitter:description" content="var, let, const 비교기존 자바스크립트의 변수 선언 키워드 var과 ES6에서 새롭게 도입된 변수 선언 키워드 let과 const에 대해서 알아보자. var 키워드를 붙이지 않으면 어떻게 될까?먼저 var에 대해서 알아보자. var는 키워드 없이 변수를 선언하면 전역 변수가 된다. 전역 유효범위에 속해지기 때문에 코드 내에서 어디서든 변수에 접">
@@ -192,7 +192,7 @@
 <p><strong><code>var</code> 키워드가 function-scoped이기 때문이다!</strong></p>
 <p>변수 선언문이 호이스팅될 때 해당 scope의 가장 위로 호이스팅되는데, Example1에서는 변수 선언문이 함수 안에 포함되어 있지 않아서 전역으로 호이스팅되는 것이고, Example3에서는 변수 선언문이 함수 안에 포함되어 있기 때문에 함수 안에서 가장 위로 호이스팅 된다.</p>
 <blockquote>
-<p><code>var</code> 키워드를 사용하지 않으면?</p>
+<p><strong><code>var</code> 키워드를 사용하지 않으면?</strong></p>
 </blockquote>
 <p>앞에서 <code>var</code> 키워드를 사용하지 않으면 전역 변수가 된다고 했다. 따라서 아래와 같이 전역에서 <code>i</code>에 접근할 수 있기 때문에 <code>after loop i is 10</code>라는 문장이 정상적으로 출력된다.</p>
 <p>아래의 Example5와 Example6는 동일한 코드라고 보면 된다.</p>
@@ -216,7 +216,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/21/ES6-var-let-const-비교/" data-id="cjhhovo0q0001gwj4uy8t15hc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/21/ES6-var-let-const-비교/" data-id="cjhhph5qr000pgsj4yuuzuqja" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -380,7 +380,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -391,6 +391,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 클로저(Closure)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" class="title">[JS] 클로저(Closure)</a></p>
+                            <p class="item-date"><time datetime="2018-05-22T13:02:39.000Z" itemprop="datePublished">2018-05-22</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -469,26 +489,6 @@
                             <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
                             <p class="item-title"><a href="/2018/05/19/Node-js-노드의-기본-기능/" class="title">[Node.js] 노드의 기본 모듈 - url / fs / http</a></p>
                             <p class="item-date"><time datetime="2018-05-18T16:01:42.000Z" itemprop="datePublished">2018-05-19</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/18/Node-js-노드의-특징/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/nodejs.png)" alt="[Node.js] 노드의 특징" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
-                            <p class="item-title"><a href="/2018/05/18/Node-js-노드의-특징/" class="title">[Node.js] 노드의 특징</a></p>
-                            <p class="item-date"><time datetime="2018-05-18T13:36:09.000Z" itemprop="datePublished">2018-05-18</time></p>
                         </div>
                     </li>
                 
