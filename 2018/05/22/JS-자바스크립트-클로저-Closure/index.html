@@ -9,19 +9,19 @@
     
         <meta name="keywords" content="JavaScript" />
     
-    <meta name="description" content="클로저(Closure)클로저는 내부함수가 외부함수의 지역변수에 접근할 수 있는 것을 말한다. 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는 내부함수가 소멸될 때까지 소멸되지 않는 특성을">
+    <meta name="description" content="클로저(Closure)클로저는 유효범위(Scope)를 기억하는 함수이다. 따라서 내부함수가 외부함수의 지역변수를 기억하여 접근할 수 있다. 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JS] 클로저(Closure)">
 <meta property="og:url" content="https://jess2.github.io/2018/05/22/JS-자바스크립트-클로저-Closure/index.html">
 <meta property="og:site_name" content="Jess2&#39;s Blog">
-<meta property="og:description" content="클로저(Closure)클로저는 내부함수가 외부함수의 지역변수에 접근할 수 있는 것을 말한다. 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는 내부함수가 소멸될 때까지 소멸되지 않는 특성을">
+<meta property="og:description" content="클로저(Closure)클로저는 유효범위(Scope)를 기억하는 함수이다. 따라서 내부함수가 외부함수의 지역변수를 기억하여 접근할 수 있다. 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
-<meta property="og:updated_time" content="2018-05-22T13:18:30.621Z">
+<meta property="og:updated_time" content="2018-05-22T15:11:02.777Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JS] 클로저(Closure)">
-<meta name="twitter:description" content="클로저(Closure)클로저는 내부함수가 외부함수의 지역변수에 접근할 수 있는 것을 말한다. 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는 내부함수가 소멸될 때까지 소멸되지 않는 특성을">
+<meta name="twitter:description" content="클로저(Closure)클로저는 유효범위(Scope)를 기억하는 함수이다. 따라서 내부함수가 외부함수의 지역변수를 기억하여 접근할 수 있다. 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는">
 <meta name="twitter:image" content="https://jess2.github.io/images/JavaScript.png">
     
 
@@ -172,7 +172,7 @@
         
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/JavaScript.png" alt=""></p>
-<h1 id="클로저-Closure"><a href="#클로저-Closure" class="headerlink" title="클로저(Closure)"></a>클로저(Closure)</h1><p>클로저는 내부함수가 외부함수의 지역변수에 접근할 수 있는 것을 말한다.</p>
+<h1 id="클로저-Closure"><a href="#클로저-Closure" class="headerlink" title="클로저(Closure)"></a>클로저(Closure)</h1><p>클로저는 <strong>유효범위(Scope)를 기억하는 함수</strong>이다. 따라서 내부함수가 외부함수의 지역변수를 기억하여 접근할 수 있다.</p>
 <p>외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는 내부함수가 소멸될 때까지 소멸되지 않는 특성을 의미한다.</p>
 <p><br></p>
 <h2 id="유효범위-scope"><a href="#유효범위-scope" class="headerlink" title="유효범위(scope)"></a>유효범위(scope)</h2><p>클로저에 대해 더 자세히 알아보기 전에 유효범위에 대해 알아보자.</p>
@@ -205,7 +205,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/22/JS-자바스크립트-클로저-Closure/" data-id="cjhhph5pz0005gsj4ozts4g8l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/22/JS-자바스크립트-클로저-Closure/" data-id="cjhj6l3sb0006akj4hyjch1tr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -342,6 +342,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/05/23/JS-프로토타입-Prototype/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [JS] 프로토타입(Prototype)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2018/05/22/JS-크로스-도메인-Cross-Domain/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
@@ -359,7 +369,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -370,6 +380,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/23/JS-프로토타입-Prototype/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 프로토타입(Prototype)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/23/JS-프로토타입-Prototype/" class="title">[JS] 프로토타입(Prototype)</a></p>
+                            <p class="item-date"><time datetime="2018-05-23T13:35:55.000Z" itemprop="datePublished">2018-05-23</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -448,26 +478,6 @@
                             <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
                             <p class="item-title"><a href="/2018/05/21/ES6-var-let-const-비교/" class="title">[ES6] var, let, const 비교</a></p>
                             <p class="item-date"><time datetime="2018-05-21T14:50:55.000Z" itemprop="datePublished">2018-05-21</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/19/Node-js-노드의-기본-기능/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/nodejs.png)" alt="[Node.js] 노드의 기본 모듈 - url / fs / http" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
-                            <p class="item-title"><a href="/2018/05/19/Node-js-노드의-기본-기능/" class="title">[Node.js] 노드의 기본 모듈 - url / fs / http</a></p>
-                            <p class="item-date"><time datetime="2018-05-18T16:01:42.000Z" itemprop="datePublished">2018-05-19</time></p>
                         </div>
                     </li>
                 

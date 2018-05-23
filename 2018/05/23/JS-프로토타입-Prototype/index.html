@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>[JS] 프로토타입(Prototype) | Jess2&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="JavaScript" />
+    
+    <meta name="description" content="프로토타입(Prototype)객체는 속성을 가질 수 있는데, prototype이라는 속성은 그 용도가 약속되어 있는 특수한 속성이다. prototype에 저장된 속성들은 생성자를 통해서 객체가 만들어질 때 그 객체에 연결된다. 자바스크립트의 모든 객체는 자신을 생성한 객체 원형에 대한 숨겨진 연결을 갖는다. 이 때, 자기 자신을 생성하기 위해 사용된 객체">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JS] 프로토타입(Prototype)">
+<meta property="og:url" content="https://jess2.github.io/2018/05/23/JS-프로토타입-Prototype/index.html">
+<meta property="og:site_name" content="Jess2&#39;s Blog">
+<meta property="og:description" content="프로토타입(Prototype)객체는 속성을 가질 수 있는데, prototype이라는 속성은 그 용도가 약속되어 있는 특수한 속성이다. prototype에 저장된 속성들은 생성자를 통해서 객체가 만들어질 때 그 객체에 연결된다. 자바스크립트의 모든 객체는 자신을 생성한 객체 원형에 대한 숨겨진 연결을 갖는다. 이 때, 자기 자신을 생성하기 위해 사용된 객체">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
+<meta property="og:updated_time" content="2018-05-23T14:04:56.876Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[JS] 프로토타입(Prototype)">
+<meta name="twitter:description" content="프로토타입(Prototype)객체는 속성을 가질 수 있는데, prototype이라는 속성은 그 용도가 약속되어 있는 특수한 속성이다. prototype에 저장된 속성들은 생성자를 통해서 객체가 만들어질 때 그 객체에 연결된다. 자바스크립트의 모든 객체는 자신을 생성한 객체 원형에 대한 숨겨진 연결을 갖는다. 이 때, 자기 자신을 생성하기 위해 사용된 객체">
+<meta name="twitter:image" content="https://jess2.github.io/images/JavaScript.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/jessieImg.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">제씨의 기술블로그</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://jess2.github.io/resume/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Node-js/">Node.js</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/JavaScript/">JavaScript</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-JS-프로토타입-Prototype" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [JS] 프로토타입(Prototype)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/05/23/JS-프로토타입-Prototype/" class="article-date">
+            <time datetime="2018-05-23T13:35:55.000Z" itemprop="datePublished">2018-05-23</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/JavaScript.png" alt=""></p>
+<h1 id="프로토타입-Prototype"><a href="#프로토타입-Prototype" class="headerlink" title="프로토타입(Prototype)"></a>프로토타입(Prototype)</h1><p>객체는 속성을 가질 수 있는데, <code>prototype</code>이라는 속성은 그 용도가 약속되어 있는 특수한 속성이다. <code>prototype</code>에 저장된 속성들은 생성자를 통해서 객체가 만들어질 때 그 객체에 연결된다.</p>
+<p>자바스크립트의 모든 객체는 자신을 생성한 객체 원형에 대한 숨겨진 연결을 갖는다. <strong>이 때, 자기 자신을 생성하기 위해 사용된 객체 원형을 프로토타입이라 한다.</strong> 자바스크립트의 모든 객체는 Object 객체의 프로토타입을 기반으로 확장되었기 때문에 이 연결의 끝은 Object 객체의 프로토타입 Object이다.</p>
+<blockquote>
+<p><strong>어떠한 객체가 만들어지기 위해 그 객체의 모태가 되는 것을 프로토타입이라고 한다.</strong></p>
+</blockquote>
+<p><br></p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ultra</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Ultra.prototype.ultraProp = <span class="literal">true</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Super</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Super.prototype = <span class="keyword">new</span> Ultra();</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Sub.prototype = <span class="keyword">new</span> Super();</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> Sub();</span><br><span class="line"><span class="built_in">console</span>.log(o.ultraProp); <span class="comment">// 출력결과 &gt; true</span></span><br></pre></td></tr></table></figure>
+<p>생성자 <code>Sub</code>를 통해서 만들어진 객체 <code>o</code>가 <code>Ultra</code>의 속성인 <code>ultraProp</code>에 접근이 가능한 이유는 <code>prototype 체인</code>으로 <code>Sub</code>와 <code>Ultra</code>가 연결되어있기 때문이다. 내부적으로는 아래와 같은 일이 일어난다.</p>
+<ol>
+<li>객체 o에서 ultraProp을 찾는다.</li>
+<li>없다면 Sub.prototype.ultraProp을 찾는다.</li>
+<li>없다면 Super.prototype.ultraProp을 찾는다.</li>
+<li>없다면 Ultra.prototype.ultraProp을 찾는다.</li>
+</ol>
+<p><br></p>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name = <span class="literal">null</span>;</span><br><span class="line">Person.prototype.introduce = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'My name is '</span> + <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Programmer</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Programmer.prototype = <span class="keyword">new</span> Person(); <span class="comment">//상속</span></span><br><span class="line">Programmer.prototype.coding = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello world"</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Programmer(<span class="string">'jessie'</span>);</span><br><span class="line"><span class="built_in">document</span>.write(p1.introduce() + <span class="string">"&lt;br/&gt;"</span>); <span class="comment">//출력결과 : My name is jessie</span></span><br><span class="line"><span class="built_in">document</span>.write(p1.coding() + <span class="string">"&lt;br/&gt;"</span>); <span class="comment">//출력결과 : hello world</span></span><br></pre></td></tr></table></figure>
+<p><code>Programmer</code>는 <code>Person</code>을 상속받았기 때문에 <code>introduce</code>라는 속성을 갖고 있지 않아도, <code>Person</code>의 속성인 <code>introduce</code>에 접근이 가능하기 때문에 18행의 <code>p1.introduce()</code>가 정상적으로 호출되어 출력이 된다.</p>
+<p><br></p>
+<h2 id="프로토타입으로-메소드-생성-gt-공간-절약"><a href="#프로토타입으로-메소드-생성-gt-공간-절약" class="headerlink" title="프로토타입으로 메소드 생성 -&gt; 공간 절약"></a>프로토타입으로 메소드 생성 -&gt; 공간 절약</h2><p>우리는 아래와 같은 방법으로 생성자 함수와 인스턴스 객체를 만들 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Character</span>(<span class="params">name, job</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="keyword">this</span>.move = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">document</span>.write(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.job&#125;</span> 캐릭터 이동&lt;br/&gt;`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> char1 = <span class="keyword">new</span> Character(<span class="string">'루이스'</span>, <span class="string">'기사'</span>);</span><br><span class="line">char1.move();</span><br></pre></td></tr></table></figure>
+<p>위의 코드에서 <code>Character</code>는 생성자 함수이며, <code>char1</code>은 인스턴스 객체다. <code>Character</code>생성자 함수 내에 존재하는 <code>name</code>과 <code>job</code>은 속성이고, <code>move()</code>는 메소드이다.</p>
+<p>이 때 속성은 생성되는 인스턴스마다 다른 값을 적용해야 하므로 개별 영역이 필요하다. <strong>하지만 메소드는 모든 인스턴스가 함께 쓰는 ‘공용체’이기 때문에 인스턴스의 속성으로 상속받기 보다는 별도 공간인 프로토타입에 정의하는 것이 좋다.</strong></p>
+<p>프로토타입 속성으로 정의하면 모든 인스턴스에서 하나의 프로토타입 속성만을 참조하기 때문에 인스턴스별로 중복되는 공간을 낭비하지 않을 수 있다. <strong>따라서 속성은 ‘생성자 함수’에, 메소드는 ‘프로토타입 속성’으로 정의하는 것이 좋다.</strong></p>
+<p>위의 코드를 아래와 같이 수정하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//생성자 함수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Character</span>(<span class="params">name, job</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//프로토타입으로 메소드 생성</span></span><br><span class="line">Character.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.job&#125;</span> 캐릭터 이동&lt;br/&gt;`</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//객체 인스턴스</span></span><br><span class="line"><span class="keyword">var</span> char1 = <span class="keyword">new</span> Character(<span class="string">'루이스'</span>, <span class="string">'기사'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//메소드 실행</span></span><br><span class="line">char1.move();</span><br></pre></td></tr></table></figure>
+<p>그런데 추가해야 할 메소드가 많을 경우, 함수식으로 작성하면 너무 장황해진다. 메소드가 많을 경우에는 아래와 같이 작성하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//생성자 함수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Character</span>(<span class="params">name, job</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//프로토타입으로 메소드 생성</span></span><br><span class="line">Character.prototype = &#123;</span><br><span class="line">  move: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.job&#125;</span> 캐릭터 이동&lt;br/&gt;`</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  attack: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.job&#125;</span> (이)가 공격&lt;br/&gt;`</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="built_in">escape</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.job&#125;</span> (이)가 도망&lt;br/&gt;`</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  dead: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.job&#125;</span> (이)가 사망&lt;br/&gt;`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//객체 인스턴스</span></span><br><span class="line"><span class="keyword">var</span> char1 = <span class="keyword">new</span> Character(<span class="string">'루이스'</span>, <span class="string">'기사'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//메소드 실행</span></span><br><span class="line">char1.move();</span><br><span class="line">char1.attack();</span><br><span class="line">char1.escape();</span><br><span class="line">char1.dead();</span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://jess2.github.io/2018/05/23/JS-프로토타입-Prototype/" data-id="cjhj6l3si000aakj4cdil4w97" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/jesssss2" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/je_ss2" target="_blank">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/jess2" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="bitbucket" href="https://bitbucket.org/jessie3578" target="_blank">
+                        <i class="icon fa fa-bitbucket"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="laptop" href="https://www.acmicpc.net/user/jess2" target="_blank">
+                        <i class="icon fa fa-laptop"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="archive" href="http://jess2.tistory.com/" target="_blank">
+                        <i class="icon fa fa-archive"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[JS] 클로저(Closure)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/23/JS-프로토타입-Prototype/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 프로토타입(Prototype)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/23/JS-프로토타입-Prototype/" class="title">[JS] 프로토타입(Prototype)</a></p>
+                            <p class="item-date"><time datetime="2018-05-23T13:35:55.000Z" itemprop="datePublished">2018-05-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 클로저(Closure)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" class="title">[JS] 클로저(Closure)</a></p>
+                            <p class="item-date"><time datetime="2018-05-22T13:02:39.000Z" itemprop="datePublished">2018-05-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/22/JS-크로스-도메인-Cross-Domain/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 크로스 도메인(Cross Domain)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/22/JS-크로스-도메인-Cross-Domain/" class="title">[JS] 크로스 도메인(Cross Domain)</a></p>
+                            <p class="item-date"><time datetime="2018-05-22T12:56:56.000Z" itemprop="datePublished">2018-05-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/22/JS-null과-undefined-비교/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] null과 undefined 비교" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/22/JS-null과-undefined-비교/" class="title">[JS] null과 undefined 비교</a></p>
+                            <p class="item-date"><time datetime="2018-05-22T12:41:34.000Z" itemprop="datePublished">2018-05-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/21/ES6-var-let-const-비교/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/es6.png)" alt="[ES6] var, let, const 비교" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/ECMAScript6/">ECMAScript6</a></p>
+                            <p class="item-title"><a href="/2018/05/21/ES6-var-let-const-비교/" class="title">[ES6] var, let, const 비교</a></p>
+                            <p class="item-date"><time datetime="2018-05-21T14:50:55.000Z" itemprop="datePublished">2018-05-21</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ECMAScript6/" style="font-size: 10px;">ECMAScript6</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Soyeon Jung</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'jess2';
+    
+    
+    var disqus_url = 'https://jess2.github.io/2018/05/23/JS-프로토타입-Prototype/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
