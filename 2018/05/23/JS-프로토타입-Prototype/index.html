@@ -18,7 +18,7 @@
 <meta property="og:description" content="프로토타입(Prototype)객체는 속성을 가질 수 있는데, prototype이라는 속성은 그 용도가 약속되어 있는 특수한 속성이다. prototype에 저장된 속성들은 생성자를 통해서 객체가 만들어질 때 그 객체에 연결된다. 자바스크립트의 모든 객체는 자신을 생성한 객체 원형에 대한 숨겨진 연결을 갖는다. 이 때, 자기 자신을 생성하기 위해 사용된 객체">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
-<meta property="og:updated_time" content="2018-05-23T14:04:56.876Z">
+<meta property="og:updated_time" content="2018-05-24T11:21:53.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JS] 프로토타입(Prototype)">
 <meta name="twitter:description" content="프로토타입(Prototype)객체는 속성을 가질 수 있는데, prototype이라는 속성은 그 용도가 약속되어 있는 특수한 속성이다. prototype에 저장된 속성들은 생성자를 통해서 객체가 만들어질 때 그 객체에 연결된다. 자바스크립트의 모든 객체는 자신을 생성한 객체 원형에 대한 숨겨진 연결을 갖는다. 이 때, 자기 자신을 생성하기 위해 사용된 객체">
@@ -178,7 +178,7 @@
 <p><strong>어떠한 객체가 만들어지기 위해 그 객체의 모태가 되는 것을 프로토타입이라고 한다.</strong></p>
 </blockquote>
 <p><br></p>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ultra</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Ultra.prototype.ultraProp = <span class="literal">true</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Super</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Super.prototype = <span class="keyword">new</span> Ultra();</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Sub.prototype = <span class="keyword">new</span> Super();</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> Sub();</span><br><span class="line"><span class="built_in">console</span>.log(o.ultraProp); <span class="comment">// 출력결과 &gt; true</span></span><br></pre></td></tr></table></figure>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ultra</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Ultra.prototype.ultraProp = <span class="literal">true</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Super</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Super.prototype = <span class="keyword">new</span> Ultra();</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Sub.prototype = <span class="keyword">new</span> Super();</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> Sub();</span><br><span class="line"><span class="built_in">console</span>.log(o.ultraProp); <span class="comment">// 출력결과 &gt; true</span></span><br></pre></td></tr></table></figure>
 <p>생성자 <code>Sub</code>를 통해서 만들어진 객체 <code>o</code>가 <code>Ultra</code>의 속성인 <code>ultraProp</code>에 접근이 가능한 이유는 <code>prototype 체인</code>으로 <code>Sub</code>와 <code>Ultra</code>가 연결되어있기 때문이다. 내부적으로는 아래와 같은 일이 일어난다.</p>
 <ol>
 <li>객체 o에서 ultraProp을 찾는다.</li>
@@ -187,7 +187,7 @@
 <li>없다면 Ultra.prototype.ultraProp을 찾는다.</li>
 </ol>
 <p><br></p>
-<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name = <span class="literal">null</span>;</span><br><span class="line">Person.prototype.introduce = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'My name is '</span> + <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Programmer</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Programmer.prototype = <span class="keyword">new</span> Person(); <span class="comment">//상속</span></span><br><span class="line">Programmer.prototype.coding = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello world"</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Programmer(<span class="string">'jessie'</span>);</span><br><span class="line"><span class="built_in">document</span>.write(p1.introduce() + <span class="string">"&lt;br/&gt;"</span>); <span class="comment">//출력결과 : My name is jessie</span></span><br><span class="line"><span class="built_in">document</span>.write(p1.coding() + <span class="string">"&lt;br/&gt;"</span>); <span class="comment">//출력결과 : hello world</span></span><br></pre></td></tr></table></figure>
+<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.name = <span class="literal">null</span>;</span><br><span class="line">Person.prototype.introduce = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'My name is '</span> + <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Programmer</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">Programmer.prototype = <span class="keyword">new</span> Person(); <span class="comment">//상속</span></span><br><span class="line">Programmer.prototype.coding = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"hello world"</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Programmer(<span class="string">'jessie'</span>);</span><br><span class="line"><span class="built_in">document</span>.write(p1.introduce() + <span class="string">"&lt;br/&gt;"</span>); <span class="comment">//출력결과 : My name is jessie</span></span><br><span class="line"><span class="built_in">document</span>.write(p1.coding() + <span class="string">"&lt;br/&gt;"</span>); <span class="comment">//출력결과 : hello world</span></span><br></pre></td></tr></table></figure>
 <p><code>Programmer</code>는 <code>Person</code>을 상속받았기 때문에 <code>introduce</code>라는 속성을 갖고 있지 않아도, <code>Person</code>의 속성인 <code>introduce</code>에 접근이 가능하기 때문에 18행의 <code>p1.introduce()</code>가 정상적으로 호출되어 출력이 된다.</p>
 <p><br></p>
 <h2 id="프로토타입으로-메소드-생성-gt-공간-절약"><a href="#프로토타입으로-메소드-생성-gt-공간-절약" class="headerlink" title="프로토타입으로 메소드 생성 -&gt; 공간 절약"></a>프로토타입으로 메소드 생성 -&gt; 공간 절약</h2><p>우리는 아래와 같은 방법으로 생성자 함수와 인스턴스 객체를 만들 수 있다.</p>
@@ -205,7 +205,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/23/JS-프로토타입-Prototype/" data-id="cjhkffvgz000hbwj4v1mzd2kr" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/23/JS-프로토타입-Prototype/" data-id="cjhkgl4gi000cr4j4mc3f8x6v" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -346,7 +346,7 @@
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [JS] 함수의 호출 방법 - call과 apply
+            [JS] call과 apply
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
@@ -369,7 +369,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -380,6 +380,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JS/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] Ajax와 XML / JSON" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JS/" class="title">[JS] Ajax와 XML / JSON</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:05:27.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -407,7 +427,7 @@
                             <a href="/2018/05/24/JS-함수의-호출-방법-call과-apply/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 함수의 호출 방법 - call과 apply" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] call과 apply" class="thumbnail-image"></span>
     
     
 </a>
@@ -416,7 +436,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2018/05/24/JS-함수의-호출-방법-call과-apply/" class="title">[JS] 함수의 호출 방법 - call과 apply</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JS-함수의-호출-방법-call과-apply/" class="title">[JS] call과 apply</a></p>
                             <p class="item-date"><time datetime="2018-05-24T09:52:11.000Z" itemprop="datePublished">2018-05-24</time></p>
                         </div>
                     </li>
@@ -458,26 +478,6 @@
                             <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
                             <p class="item-title"><a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" class="title">[JS] 클로저(Closure)</a></p>
                             <p class="item-date"><time datetime="2018-05-22T13:02:39.000Z" itemprop="datePublished">2018-05-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/22/JS-크로스-도메인-Cross-Domain/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 크로스 도메인(Cross Domain)" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2018/05/22/JS-크로스-도메인-Cross-Domain/" class="title">[JS] 크로스 도메인(Cross Domain)</a></p>
-                            <p class="item-date"><time datetime="2018-05-22T12:56:56.000Z" itemprop="datePublished">2018-05-22</time></p>
                         </div>
                     </li>
                 

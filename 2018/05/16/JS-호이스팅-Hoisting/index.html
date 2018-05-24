@@ -18,7 +18,7 @@
 <meta property="og:description" content="자바스크립트의 호이스팅(Hoisting)Hoisting이란, 선언을 현재 스크립트 또는 현재 함수의 맨 위로 이동시키는 JavaScript의 기본 동작이다. 만약, 변수가 함수 내에서 정의되었을 경우 선언이 함수 내부의 최상위로 호이스팅되고, 함수 밖에 정의되었을 경우에는 선언이 전역 컨텍스트의 최상위로 호이스팅 된다.  호이스팅 때문에 변수를 선언하기">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
-<meta property="og:updated_time" content="2018-05-22T13:09:02.840Z">
+<meta property="og:updated_time" content="2018-05-24T11:21:53.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JS] 호이스팅(Hoisting)">
 <meta name="twitter:description" content="자바스크립트의 호이스팅(Hoisting)Hoisting이란, 선언을 현재 스크립트 또는 현재 함수의 맨 위로 이동시키는 JavaScript의 기본 동작이다. 만약, 변수가 함수 내에서 정의되었을 경우 선언이 함수 내부의 최상위로 호이스팅되고, 함수 밖에 정의되었을 경우에는 선언이 전역 컨텍스트의 최상위로 호이스팅 된다.  호이스팅 때문에 변수를 선언하기">
@@ -177,12 +177,12 @@
 <p><strong>호이스팅 때문에 변수를 선언하기 전에 사용할 수 있다.</strong></p>
 </blockquote>
 <p>JavaScript에서는 변수를 선언하기 전에 사용할 수 있다. 아래에 선언을 해도 선언한 것이 <code>Hoisting</code> 되어 위로 끌어올려지기 때문이다. 아래의 <code>Code-1</code>과 <code>Code-2</code>는 동일한 코드라고 보면 된다.</p>
-<h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code-1"></a>Code-1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span>; <span class="comment">// x에 값을 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x; <span class="comment">//출력 결과 &gt; 5</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> x; <span class="comment">// x 선언</span></span><br></pre></td></tr></table></figure>
-<h3 id="Code-2"><a href="#Code-2" class="headerlink" title="Code-2"></a>Code-2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x; <span class="comment">// x 선언</span></span><br><span class="line">x = <span class="number">5</span>; <span class="comment">// x에 값을 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x; <span class="comment">//출력 결과 &gt; 5</span></span><br></pre></td></tr></table></figure>
+<h4 id="Code-1"><a href="#Code-1" class="headerlink" title="Code-1"></a>Code-1</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span>; <span class="comment">// x에 값을 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x; <span class="comment">//출력 결과 &gt; 5</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> x; <span class="comment">// x 선언</span></span><br></pre></td></tr></table></figure>
+<h4 id="Code-2"><a href="#Code-2" class="headerlink" title="Code-2"></a>Code-2</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x; <span class="comment">// x 선언</span></span><br><span class="line">x = <span class="number">5</span>; <span class="comment">// x에 값을 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x; <span class="comment">//출력 결과 &gt; 5</span></span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h2 id="할당은-호이스팅하지-않고-선언만-호이스팅한다"><a href="#할당은-호이스팅하지-않고-선언만-호이스팅한다" class="headerlink" title="할당은 호이스팅하지 않고, 선언만 호이스팅한다."></a>할당은 호이스팅하지 않고, 선언만 호이스팅한다.</h2><p>JavaScript는 <code>Hoisting</code>을 할 때, <strong>선언만 Hoisting하고, 할당은 Hoisting을 하지 않는다.</strong> 다음 <code>Code-3</code>과 <code>Code-4</code>는 동일한 코드라고 보면 된다.</p>
-<h3 id="Code-3"><a href="#Code-3" class="headerlink" title="Code-3"></a>Code-3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>; <span class="comment">// x를 선언하고 x에 5를 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x + <span class="string">" "</span> + y; <span class="comment">// 출력 결과 &gt; 5 undefined</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> y = <span class="number">7</span>; <span class="comment">// y를 선언하고 y에 7을 할당</span></span><br></pre></td></tr></table></figure>
-<h3 id="Code-4"><a href="#Code-4" class="headerlink" title="Code-4"></a>Code-4</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>; <span class="comment">// x를 선언하고 x에 5를 할당</span></span><br><span class="line"><span class="keyword">var</span> y; <span class="comment">// y를 선언</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x + <span class="string">" "</span> + y; <span class="comment">// 출력 결과 &gt; 5 undefined</span></span><br><span class="line"> </span><br><span class="line">y = <span class="number">7</span>; <span class="comment">// y에 7을 할당</span></span><br></pre></td></tr></table></figure>
+<h4 id="Code-3"><a href="#Code-3" class="headerlink" title="Code-3"></a>Code-3</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>; <span class="comment">// x를 선언하고 x에 5를 할당</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x + <span class="string">" "</span> + y; <span class="comment">// 출력 결과 &gt; 5 undefined</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> y = <span class="number">7</span>; <span class="comment">// y를 선언하고 y에 7을 할당</span></span><br></pre></td></tr></table></figure>
+<h4 id="Code-4"><a href="#Code-4" class="headerlink" title="Code-4"></a>Code-4</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>; <span class="comment">// x를 선언하고 x에 5를 할당</span></span><br><span class="line"><span class="keyword">var</span> y; <span class="comment">// y를 선언</span></span><br><span class="line"> </span><br><span class="line">elem = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</span><br><span class="line">elem.innerHTML = x + <span class="string">" "</span> + y; <span class="comment">// 출력 결과 &gt; 5 undefined</span></span><br><span class="line"> </span><br><span class="line">y = <span class="number">7</span>; <span class="comment">// y에 7을 할당</span></span><br></pre></td></tr></table></figure>
 <p>위의 <code>Code-3</code>과 <code>Code-4</code>에서 y에 할당된 값인 7이 출력되지 않고 undefined가 출력되는 이유는, 선언만 위쪽으로 끌어 올려지고(Hoisting), 할당은 위로 끌어 올려지지 않기 때문이다. <code>hosting</code>으로 인해 y는 사용되기 전에 선언은 되었지만, 할당이 수행되지 않았기 때문에 y값은 undefined가 되는 것이다.</p>
 <p><code>Hosting</code>은 많은 개발자에게 알려지지 않거나 간과 된 JavaScript의 동작인데, 개발자가 Hosting을 이해하지 못하면 프로그램에 버그가 있을 수 있다. 따라서, 버그를 피하려면 항상 모든 범위의 시작 부분에 모든 변수를 선언하고 할당해야 한다.</p>
 
@@ -192,7 +192,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/16/JS-호이스팅-Hoisting/" data-id="cjhkffvhc000qbwj482zrmh4b" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/16/JS-호이스팅-Hoisting/" data-id="cjhkgl4ha000qr4j46y0y0l40" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -356,7 +356,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -367,6 +367,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JS/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] Ajax와 XML / JSON" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JS/" class="title">[JS] Ajax와 XML / JSON</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:05:27.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -394,7 +414,7 @@
                             <a href="/2018/05/24/JS-함수의-호출-방법-call과-apply/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 함수의 호출 방법 - call과 apply" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] call과 apply" class="thumbnail-image"></span>
     
     
 </a>
@@ -403,7 +423,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2018/05/24/JS-함수의-호출-방법-call과-apply/" class="title">[JS] 함수의 호출 방법 - call과 apply</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JS-함수의-호출-방법-call과-apply/" class="title">[JS] call과 apply</a></p>
                             <p class="item-date"><time datetime="2018-05-24T09:52:11.000Z" itemprop="datePublished">2018-05-24</time></p>
                         </div>
                     </li>
@@ -445,26 +465,6 @@
                             <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
                             <p class="item-title"><a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" class="title">[JS] 클로저(Closure)</a></p>
                             <p class="item-date"><time datetime="2018-05-22T13:02:39.000Z" itemprop="datePublished">2018-05-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/22/JS-크로스-도메인-Cross-Domain/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 크로스 도메인(Cross Domain)" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2018/05/22/JS-크로스-도메인-Cross-Domain/" class="title">[JS] 크로스 도메인(Cross Domain)</a></p>
-                            <p class="item-date"><time datetime="2018-05-22T12:56:56.000Z" itemprop="datePublished">2018-05-22</time></p>
                         </div>
                     </li>
                 

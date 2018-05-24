@@ -18,7 +18,7 @@
 <meta property="og:description" content="클로저(Closure)클로저는 유효범위(Scope)를 기억하는 함수이다. 따라서 내부함수가 외부함수의 지역변수를 기억하여 접근할 수 있다. 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
-<meta property="og:updated_time" content="2018-05-22T15:11:02.777Z">
+<meta property="og:updated_time" content="2018-05-24T11:21:53.129Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JS] 클로저(Closure)">
 <meta name="twitter:description" content="클로저(Closure)클로저는 유효범위(Scope)를 기억하는 함수이다. 따라서 내부함수가 외부함수의 지역변수를 기억하여 접근할 수 있다. 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는">
@@ -177,18 +177,18 @@
 <p><br></p>
 <h2 id="유효범위-scope"><a href="#유효범위-scope" class="headerlink" title="유효범위(scope)"></a>유효범위(scope)</h2><p>클로저에 대해 더 자세히 알아보기 전에 유효범위에 대해 알아보자.</p>
 <p>변수는 크게 지역변수와 전역변수가 있다. 지역변수는 함수 내에서만 생명을 가지고, 함수가 종료되면 함수 내의 변수는 사라진다. 이렇게 함수 단위의 지역으로 변수의 유효 범위가 정해지는 것을 유효 범위(scope)라고 한다.</p>
-<h3 id="유효범위-Example"><a href="#유효범위-Example" class="headerlink" title="유효범위 Example"></a>유효범위 Example</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> global = <span class="number">20</span>; <span class="comment">// 전역변수</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> local = <span class="number">10</span>; <span class="comment">// 지역변수</span></span><br><span class="line">    <span class="built_in">document</span>.write(global + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; 20</span></span><br><span class="line">    <span class="built_in">document</span>.write(local + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; 10</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">func();</span><br><span class="line"><span class="built_in">document</span>.write(global + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; 20</span></span><br><span class="line"><span class="built_in">document</span>.write(local + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; error</span></span><br></pre></td></tr></table></figure>
+<h4 id="유효범위-Example"><a href="#유효범위-Example" class="headerlink" title="유효범위 Example"></a>유효범위 Example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> global = <span class="number">20</span>; <span class="comment">// 전역변수</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> local = <span class="number">10</span>; <span class="comment">// 지역변수</span></span><br><span class="line">    <span class="built_in">document</span>.write(global + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; 20</span></span><br><span class="line">    <span class="built_in">document</span>.write(local + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; 10</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">func();</span><br><span class="line"><span class="built_in">document</span>.write(global + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; 20</span></span><br><span class="line"><span class="built_in">document</span>.write(local + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; error</span></span><br></pre></td></tr></table></figure>
 <p>함수 밖의 전역 변수 <code>global</code>은 코드 전체에서 값이 유효하지만 함수 내의 지역 변수인 <code>local</code>은 함수 밖에서 사용할 수 없다. <strong>함수가 종료되면 지역 변수의 유효범위가 종료되기 때문이다.</strong></p>
 <blockquote>
 <p><strong>그러나 함수가 종료되어도 변수를 유지시킬 수 있는데, 그 방법이 바로 클로저이다.</strong></p>
 </blockquote>
 <p><br></p>
-<h3 id="클로저-Example"><a href="#클로저-Example" class="headerlink" title="클로저 Example"></a>클로저 Example</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> value = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//내부 함수(클로저)</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">inFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> inFunc;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> test = outFunc();</span><br><span class="line"><span class="built_in">document</span>.write(test() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">document</span>.write(test() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">document</span>.write(test() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<h4 id="클로저-Example"><a href="#클로저-Example" class="headerlink" title="클로저 Example"></a>클로저 Example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> value = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//내부 함수(클로저)</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">inFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> inFunc;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> test = outFunc();</span><br><span class="line"><span class="built_in">document</span>.write(test() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">document</span>.write(test() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">document</span>.write(test() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>(줄 12) : 클로저 함수를 리턴받아 새로운 변수에 대입하면 <code>outFunc()</code>가 종료된 후에도 해당 함수의 지역변수 값을 계속 참조하고 변수 값이 생존하게 된다.</li>
 </ul>
 <p><br></p>
-<h3 id="클로저-Example2"><a href="#클로저-Example2" class="headerlink" title="클로저 Example2"></a>클로저 Example2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> title = <span class="string">'hello world'</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(title);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">inner = outer();</span><br><span class="line">inner();</span><br></pre></td></tr></table></figure>
+<h4 id="클로저-Example2"><a href="#클로저-Example2" class="headerlink" title="클로저 Example2"></a>클로저 Example2</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> title = <span class="string">'hello world'</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(title);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">inner = outer();</span><br><span class="line">inner();</span><br></pre></td></tr></table></figure>
 <p>8행에서 <code>outer</code>함수가 호출되었고, 그 결과가 <code>inner</code>변수에 담겼다. 그리고 9행으로 넘어오면 <code>outer</code>함수는 종료되었기 때문에 이 <code>outer</code>함수의 지역변수인 <code>title</code>은 소멸되는 것이 자연스럽다. 하지만 9행에서 <code>inner</code>함수를 호출했을 때, <code>hello world</code>가 잘 출력된다. 이것은 외부함수의 지역변수인 <code>title</code>이 소멸되지 않았다는 것이다.</p>
 <p><strong>이처럼 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는 내부함수가 소멸될 때까지 소멸되지 않는다.</strong></p>
 <p><br></p>
@@ -205,7 +205,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/22/JS-자바스크립트-클로저-Closure/" data-id="cjhkffvgr000abwj4obqn6kzl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/22/JS-자바스크립트-클로저-Closure/" data-id="cjhkgl4g50006r4j4lpu2yh3h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -369,7 +369,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -380,6 +380,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JS/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] Ajax와 XML / JSON" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JS/" class="title">[JS] Ajax와 XML / JSON</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:05:27.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -407,7 +427,7 @@
                             <a href="/2018/05/24/JS-함수의-호출-방법-call과-apply/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 함수의 호출 방법 - call과 apply" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] call과 apply" class="thumbnail-image"></span>
     
     
 </a>
@@ -416,7 +436,7 @@
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2018/05/24/JS-함수의-호출-방법-call과-apply/" class="title">[JS] 함수의 호출 방법 - call과 apply</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JS-함수의-호출-방법-call과-apply/" class="title">[JS] call과 apply</a></p>
                             <p class="item-date"><time datetime="2018-05-24T09:52:11.000Z" itemprop="datePublished">2018-05-24</time></p>
                         </div>
                     </li>
@@ -458,26 +478,6 @@
                             <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
                             <p class="item-title"><a href="/2018/05/22/JS-자바스크립트-클로저-Closure/" class="title">[JS] 클로저(Closure)</a></p>
                             <p class="item-date"><time datetime="2018-05-22T13:02:39.000Z" itemprop="datePublished">2018-05-22</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/22/JS-크로스-도메인-Cross-Domain/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 크로스 도메인(Cross Domain)" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2018/05/22/JS-크로스-도메인-Cross-Domain/" class="title">[JS] 크로스 도메인(Cross Domain)</a></p>
-                            <p class="item-date"><time datetime="2018-05-22T12:56:56.000Z" itemprop="datePublished">2018-05-22</time></p>
                         </div>
                     </li>
                 
