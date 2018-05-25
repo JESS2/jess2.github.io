@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>[Node.js] 노드의 소개 | Jess2&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Node.js" />
+    
+    <meta name="description" content="Node.js 소개1. 자바스크립트 인터프리터자바스크립트 언어는 컴파일러가 실행 파일을 생성하는 컴파일 방식의 언어가 아니고 인터프리터가 소스코드를 읽으면서 실행하는 인터프리터 방식의 언어이다. 자바스크립트 인터프리터는 웹브라우저에 내장되어 있기 때문에 웹페이지에 포함된 자바스크립트 소스코드를 웹브라우저에 내장된 자바스크립트 인터프리터가 실행한다. 이와">
+<meta name="keywords" content="Node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Node.js] 노드의 소개">
+<meta property="og:url" content="https://jess2.github.io/2018/05/24/Node.js/Node-js-노드의-소개/index.html">
+<meta property="og:site_name" content="Jess2&#39;s Blog">
+<meta property="og:description" content="Node.js 소개1. 자바스크립트 인터프리터자바스크립트 언어는 컴파일러가 실행 파일을 생성하는 컴파일 방식의 언어가 아니고 인터프리터가 소스코드를 읽으면서 실행하는 인터프리터 방식의 언어이다. 자바스크립트 인터프리터는 웹브라우저에 내장되어 있기 때문에 웹페이지에 포함된 자바스크립트 소스코드를 웹브라우저에 내장된 자바스크립트 인터프리터가 실행한다. 이와">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://jess2.github.io/images/nodejs.png">
+<meta property="og:updated_time" content="2018-05-25T11:59:41.834Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Node.js] 노드의 소개">
+<meta name="twitter:description" content="Node.js 소개1. 자바스크립트 인터프리터자바스크립트 언어는 컴파일러가 실행 파일을 생성하는 컴파일 방식의 언어가 아니고 인터프리터가 소스코드를 읽으면서 실행하는 인터프리터 방식의 언어이다. 자바스크립트 인터프리터는 웹브라우저에 내장되어 있기 때문에 웹페이지에 포함된 자바스크립트 소스코드를 웹브라우저에 내장된 자바스크립트 인터프리터가 실행한다. 이와">
+<meta name="twitter:image" content="https://jess2.github.io/images/nodejs.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/jessieImg.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">제씨의 기술블로그</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://jess2.github.io/resume/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Node-js/">Node.js</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Node.js/Node-js-노드의-소개" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Node.js] 노드의 소개
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/05/24/Node.js/Node-js-노드의-소개/" class="article-date">
+            <time datetime="2018-05-24T13:58:48.000Z" itemprop="datePublished">2018-05-24</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Node-js/">Node.js</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/nodejs.png" alt=""></p>
+<h1 id="Node-js-소개"><a href="#Node-js-소개" class="headerlink" title="Node.js 소개"></a>Node.js 소개</h1><h2 id="1-자바스크립트-인터프리터"><a href="#1-자바스크립트-인터프리터" class="headerlink" title="1. 자바스크립트 인터프리터"></a>1. 자바스크립트 인터프리터</h2><p>자바스크립트 언어는 컴파일러가 실행 파일을 생성하는 컴파일 방식의 언어가 아니고 <strong>인터프리터가 소스코드를 읽으면서 실행하는 인터프리터 방식의 언어이다.</strong></p>
+<p>자바스크립트 인터프리터는 웹브라우저에 내장되어 있기 때문에 웹페이지에 포함된 자바스크립트 소스코드를 웹브라우저에 내장된 자바스크립트 인터프리터가 실행한다.</p>
+<p><strong>이와 마찬가지로 자바스크립트 소스코드를 서버에서 실행하려면 서버에도 자바스크립트 인터프리터가 필요하다.</strong></p>
+<p><br></p>
+<h2 id="2-서버-사이드-자바스크립트-플랫폼"><a href="#2-서버-사이드-자바스크립트-플랫폼" class="headerlink" title="2. 서버 사이드 자바스크립트 플랫폼"></a>2. 서버 사이드 자바스크립트 플랫폼</h2><p>서버에서 자바스크립트를 실행하기 위해 필요한 것들은 다음과 같다.</p>
+<ul>
+<li>자바스크립트 인터프리터(자바스크립트 엔진)</li>
+<li>자바스크립트 라이브러리</li>
+</ul>
+<p>서버에서 자바스크립트를 실행하기 위해 <strong>자바스크립트 인터프리터와 자바스크립트 라이브러리를 통합해 놓은 것이 Node.js이다.</strong></p>
+<p>여기에서 자바스크립트 인터프리터를 <strong>자바스크립트 엔진</strong>이라고도 부른다.</p>
+<p><strong>&lt;결론&gt;<br>Node.js는 서버에서 자바스크립트를 실행하기 위한 환경이다.<br>다시 말해서, Node.js는 서버 사이드 자바스크립트 플랫폼(Server Side JavaScript Platform)이다.</strong></p>
+<p><br></p>
+<h2 id="3-V8-Engine"><a href="#3-V8-Engine" class="headerlink" title="3. V8 Engine"></a>3. V8 Engine</h2><p>V8 엔진은 구글이 만든 오픈소스 자바스크립트 인터프리터의 이름이다.</p>
+<p>구글 크롬 웹브라우저에 내장된 자바스크립트 인터프리터도 V8 엔진이고 Node.js에 내장된 자바스크립트 인터프리터도 V8 엔진이다.</p>
+<p><br></p>
+<h2 id="4-Node-js는-웹-서버가-아니다"><a href="#4-Node-js는-웹-서버가-아니다" class="headerlink" title="4. Node.js는 웹 서버가 아니다."></a>4. Node.js는 웹 서버가 아니다.</h2><p>Node.js는 자바스크립트 인터프리터(엔진)와 자바스크립트 라이브러리를 결합한 것이다.</p>
+<p>그런데 자바스크립트 라이브러리 중에 웹서버를 구현한 라이브러리도 있는데, 이 웹 서버를 구현한 자바스크립트 라이브러리를 Node.js에서 실행하면 웹 서버 기능이 실행되는 것이다.</p>
+<p>그렇지만 Node.js가 웹 서버인 것은 아니다.</p>
+<p><br></p>
+<h2 id="5-비동기-I-O-처리"><a href="#5-비동기-I-O-처리" class="headerlink" title="5. 비동기 I/O 처리"></a>5. 비동기 I/O 처리</h2><p>Node.js의 주요 특징은 비동기 I/O 처리이다.</p>
+<p><br></p>
+<h4 id="I-O란"><a href="#I-O란" class="headerlink" title="I/O란?"></a>I/O란?</h4><p>입력/출력(Input/Ouput)을 짧게 I/O라고 부른다.</p>
+<p>대표적인 I/O 작업은 다음과 같다.</p>
+<ul>
+<li>하드디스크에 읽기/쓰기</li>
+<li>네트워크 데이터 받기/보내기</li>
+</ul>
+<p>대표적인 I/O 장치는 다음과 같다.</p>
+<ul>
+<li>하드디스크</li>
+<li>네트워크 카드</li>
+</ul>
+<p>CPU의 지시에 의해서 I/O 작업이 시작되지만 I/O 작업을 직접 실행하는 것은 I/O 장치이다. I/O 작업이 완료되면 I/O 장치는 CPU에게 작업 완료를 통보한다. 이 통보를 I/O Interrupt라고 부른다.</p>
+<p><br></p>
+<h4 id="동기-I-O-처리"><a href="#동기-I-O-처리" class="headerlink" title="동기 I/O 처리"></a>동기 I/O 처리</h4><p>아래의 예시를 보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String data = inputStream.read();</span><br><span class="line">System.out.println(data);</span><br><span class="line">System.out.println(<span class="string">"완료"</span>);</span><br></pre></td></tr></table></figure>
+<p>위 코드는 동기 방식 I/O 작업을 Java로 구현한 것이다. 다음과 같은 순서로 실행된다.</p>
+<ul>
+<li><code>inputStream.read()</code> 읽기 작업을 실행한다.</li>
+<li>읽기 작업이 완료된 후에 <code>read</code>메소드가 리턴한다. 이 메소드의 리턴 값은 읽은 데이터이다.</li>
+<li>읽은 데이터가 화면에 출력된다. 출력이 완료된 후 <code>println</code>메소드가 리턴한다.</li>
+<li><code>완료</code>문자열이 화면에 출력된다. 출력이 완료된 후 <code>println</code>메소드가 리턴한다.</li>
+</ul>
+<p><br></p>
+<h4 id="비동기-I-O-처리"><a href="#비동기-I-O-처리" class="headerlink" title="비동기 I/O 처리"></a>비동기 I/O 처리</h4><p>아래의 예시를 보자.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">inputStream.readAsync(</span><br><span class="line">    data -&gt; System.out.println(data)</span><br><span class="line">);</span><br><span class="line">System.out.println(<span class="string">"완료"</span>);</span><br></pre></td></tr></table></figure>
+<p>위 코드는 비동기 방식 I/O 작업을 Java로 구현한 것이다.</p>
+<p>비동기 방식의 메소드는 작업을 시작하자마자 작업이 완료되기도 전에 즉시 리턴한다. 위 코드에서 <code>readAsync</code>메소드가 비동기 메소드이기 때문에 읽기 작업을 시작하자마자 읽기 작업이 완료되기도 전에 즉시 리턴한다.</p>
+<p>읽기 작업이 완료되기 전에 리턴하는 것이라서 <code>readAsync</code>메소드는 읽은 결과를 리턴할 수 없다.</p>
+<p>위 코드는 다음과 같은 순서로 실행될 것이다.</p>
+<ul>
+<li><code>inputStream.readAsync()</code>읽기 작업이 시작된다.</li>
+<li>읽기 작업이 시작 되자마자 <code>readAsync</code>메소드가 리턴한다.</li>
+<li><code>완료</code> 문자열이 화면에 출력된다. 출력이 완료된 후 <code>println</code>메소드가 리턴한다.</li>
+<li>읽기 작업이 완료되고 <code>data -&gt; System.out.println(data)</code>부분이 실행된다.</li>
+<li>읽은 데이터가 화면에 출력된다.</li>
+</ul>
+<p>위 실행 순서는 확실하지 않다. 만약 읽기 작업이 매우 빨리 완료된다면 읽은 데이터가 화면에 출력된 이후에 <code>완료</code>문자열이 화면에 출력될 수도 있다.</p>
+<p><br></p>
+<h2 id="6-비동기-I-O-방식의-장단점"><a href="#6-비동기-I-O-방식의-장단점" class="headerlink" title="6. 비동기 I/O 방식의 장단점"></a>6. 비동기 I/O 방식의 장단점</h2><h4 id="장점"><a href="#장점" class="headerlink" title="장점"></a>장점</h4><p>쓰레드 한 개가 비동기 방식의 I/O 메소드를 실행할 때, I/O 작업이 완료될 때까지 쓰레드가 기다리지 않고 작업이 시작되자마자 즉시 리턴한다. 따라서 I/O 장치에서 I/O 작업이 처리되는 동안 쓰레드가 정지 상태로 대기하지 않고 다른 작업을 할 수 있다.</p>
+<p>비동기 방식의 I/O 작업들을 동시에 여러 개 처리해야 한다면 비동기 I/O 메소드들을 여러 개 순서대로 호출하여 비동기 I/O 작업들을 동시에 여러 개 시작하면 된다. 따라서 멀티 쓰레드가 필요없다.</p>
+<p><strong>즉, 비동기 I/O 처리 방식의 장점은 멀티 쓰레드가 필요 없기 때문에 메모리 사용량도 적어서 효율적이라는 것이다.</strong></p>
+<p><br></p>
+<h4 id="단점"><a href="#단점" class="headerlink" title="단점"></a>단점</h4><p>비동기 메소드는 작업을 시작만 하고 즉시 리턴하기 때문에 작업 결과를 전달 받으려면 복잡한 프로그래밍 기법이 필요하며 비동기 작업이 완료된 시점에 처리할 작업을 구현할 때도 복잡한 프로그래밍 기법이 필요하다.</p>
+<p><strong>즉, 비동기 I/O 처리 방식의 단점은 어려운 프로그래밍 기법이 필요하다는 점이다.</strong></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://jess2.github.io/2018/05/24/Node.js/Node-js-노드의-소개/" data-id="cjhlzhchs00117gj4if509i2n" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/jesssss2" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/je_ss2" target="_blank">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/jess2" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="bitbucket" href="https://bitbucket.org/jessie3578" target="_blank">
+                        <i class="icon fa fa-bitbucket"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="laptop" href="https://www.acmicpc.net/user/jess2" target="_blank">
+                        <i class="icon fa fa-laptop"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="archive" href="http://jess2.tistory.com/" target="_blank">
+                        <i class="icon fa fa-archive"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/05/25/etc/2018년-1회-정보처리기사-실기-합격후기/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            2018년 1회 정보처리기사 실기 합격후기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/05/24/JavaScript/JS-this/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[JS] this</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/25/etc/2018년-1회-정보처리기사-실기-합격후기/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/exam.png)" alt="2018년 1회 정보처리기사 실기 합격후기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a></p>
+                            <p class="item-title"><a href="/2018/05/25/etc/2018년-1회-정보처리기사-실기-합격후기/" class="title">2018년 1회 정보처리기사 실기 합격후기</a></p>
+                            <p class="item-date"><time datetime="2018-05-25T11:48:26.000Z" itemprop="datePublished">2018-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/Node.js/Node-js-노드의-소개/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nodejs.png)" alt="[Node.js] 노드의 소개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
+                            <p class="item-title"><a href="/2018/05/24/Node.js/Node-js-노드의-소개/" class="title">[Node.js] 노드의 소개</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T13:58:48.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-this/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] this" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-this/" class="title">[JS] this</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:59:53.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-ajax와-xml-json/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] Ajax와 XML / JSON" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-ajax와-xml-json/" class="title">[JS] Ajax와 XML / JSON</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:05:27.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-bind/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] bind" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-bind/" class="title">[JS] bind</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T10:45:01.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ECMAScript6/" style="font-size: 10px;">ECMAScript6</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/exam/" style="font-size: 10px;">exam</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Soyeon Jung</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'jess2';
+    
+    
+    var disqus_url = 'https://jess2.github.io/2018/05/24/Node.js/Node-js-노드의-소개/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

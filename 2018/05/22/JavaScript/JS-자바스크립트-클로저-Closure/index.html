@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>[JS] 클로저(Closure) | Jess2&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="JavaScript" />
+    
+    <meta name="description" content="클로저(Closure)클로저는 유효범위(Scope)를 기억하는 함수이다. 따라서 내부함수가 외부함수의 지역변수를 기억하여 접근할 수 있다. 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JS] 클로저(Closure)">
+<meta property="og:url" content="https://jess2.github.io/2018/05/22/JavaScript/JS-자바스크립트-클로저-Closure/index.html">
+<meta property="og:site_name" content="Jess2&#39;s Blog">
+<meta property="og:description" content="클로저(Closure)클로저는 유효범위(Scope)를 기억하는 함수이다. 따라서 내부함수가 외부함수의 지역변수를 기억하여 접근할 수 있다. 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
+<meta property="og:updated_time" content="2018-05-24T13:54:03.619Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[JS] 클로저(Closure)">
+<meta name="twitter:description" content="클로저(Closure)클로저는 유효범위(Scope)를 기억하는 함수이다. 따라서 내부함수가 외부함수의 지역변수를 기억하여 접근할 수 있다. 외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는">
+<meta name="twitter:image" content="https://jess2.github.io/images/JavaScript.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/jessieImg.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">제씨의 기술블로그</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://jess2.github.io/resume/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/JavaScript/">JavaScript</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-JavaScript/JS-자바스크립트-클로저-Closure" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [JS] 클로저(Closure)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/05/22/JavaScript/JS-자바스크립트-클로저-Closure/" class="article-date">
+            <time datetime="2018-05-22T13:02:39.000Z" itemprop="datePublished">2018-05-22</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/JavaScript.png" alt=""></p>
+<h1 id="클로저-Closure"><a href="#클로저-Closure" class="headerlink" title="클로저(Closure)"></a>클로저(Closure)</h1><p>클로저는 <strong>유효범위(Scope)를 기억하는 함수</strong>이다. 따라서 내부함수가 외부함수의 지역변수를 기억하여 접근할 수 있다.</p>
+<p>외부함수의 실행이 끝나서 외부함수가 소멸된 이후에도 내부함수는 외부함수의 지역변수에 접근할 수 있다. 다시 말해서, 클로저란, 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는 내부함수가 소멸될 때까지 소멸되지 않는 특성을 의미한다.</p>
+<p><br></p>
+<h2 id="유효범위-scope"><a href="#유효범위-scope" class="headerlink" title="유효범위(scope)"></a>유효범위(scope)</h2><p>클로저에 대해 더 자세히 알아보기 전에 유효범위에 대해 알아보자.</p>
+<p>변수는 크게 지역변수와 전역변수가 있다. 지역변수는 함수 내에서만 생명을 가지고, 함수가 종료되면 함수 내의 변수는 사라진다. 이렇게 함수 단위의 지역으로 변수의 유효 범위가 정해지는 것을 유효 범위(scope)라고 한다.</p>
+<h4 id="유효범위-Example"><a href="#유효범위-Example" class="headerlink" title="유효범위 Example"></a>유효범위 Example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> global = <span class="number">20</span>; <span class="comment">// 전역변수</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> local = <span class="number">10</span>; <span class="comment">// 지역변수</span></span><br><span class="line">    <span class="built_in">document</span>.write(global + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; 20</span></span><br><span class="line">    <span class="built_in">document</span>.write(local + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; 10</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">func();</span><br><span class="line"><span class="built_in">document</span>.write(global + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; 20</span></span><br><span class="line"><span class="built_in">document</span>.write(local + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 출력결과 &gt; error</span></span><br></pre></td></tr></table></figure>
+<p>함수 밖의 전역 변수 <code>global</code>은 코드 전체에서 값이 유효하지만 함수 내의 지역 변수인 <code>local</code>은 함수 밖에서 사용할 수 없다. <strong>함수가 종료되면 지역 변수의 유효범위가 종료되기 때문이다.</strong></p>
+<blockquote>
+<p><strong>그러나 함수가 종료되어도 변수를 유지시킬 수 있는데, 그 방법이 바로 클로저이다.</strong></p>
+</blockquote>
+<p><br></p>
+<h4 id="클로저-Example"><a href="#클로저-Example" class="headerlink" title="클로저 Example"></a>클로저 Example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> value = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//내부 함수(클로저)</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">inFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> inFunc;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> test = outFunc();</span><br><span class="line"><span class="built_in">document</span>.write(test() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">document</span>.write(test() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">document</span>.write(test() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>(줄 12) : 클로저 함수를 리턴받아 새로운 변수에 대입하면 <code>outFunc()</code>가 종료된 후에도 해당 함수의 지역변수 값을 계속 참조하고 변수 값이 생존하게 된다.</li>
+</ul>
+<p><br></p>
+<h4 id="클로저-Example2"><a href="#클로저-Example2" class="headerlink" title="클로저 Example2"></a>클로저 Example2</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> title = <span class="string">'hello world'</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(title);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">inner = outer();</span><br><span class="line">inner();</span><br></pre></td></tr></table></figure>
+<p>8행에서 <code>outer</code>함수가 호출되었고, 그 결과가 <code>inner</code>변수에 담겼다. 그리고 9행으로 넘어오면 <code>outer</code>함수는 종료되었기 때문에 이 <code>outer</code>함수의 지역변수인 <code>title</code>은 소멸되는 것이 자연스럽다. 하지만 9행에서 <code>inner</code>함수를 호출했을 때, <code>hello world</code>가 잘 출력된다. 이것은 외부함수의 지역변수인 <code>title</code>이 소멸되지 않았다는 것이다.</p>
+<p><strong>이처럼 내부함수가 외부함수의 지역변수에 접근할 수 있고, 외부함수는 외부함수의 지역변수를 사용하는 내부함수가 소멸될 때까지 소멸되지 않는다.</strong></p>
+<p><br></p>
+<h2 id="for문과-클로저"><a href="#for문과-클로저" class="headerlink" title="for문과 클로저"></a>for문과 클로저</h2><p>for문으로 클로저를 생성할 경우 실수가 빈번하게 발생한다. 다음 코드를 보자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line">  arr[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">document</span>.write(arr[<span class="number">0</span>]() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">document</span>.write(arr[<span class="number">1</span>]() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">document</span>.write(arr[<span class="number">2</span>]() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<p>위 코드는 3만 세 번 출력한다. 클로저를 사용하려면 아래의 코드처럼 수정하자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</span><br><span class="line">    arr[index] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> index;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)(i); <span class="comment">// 익명 함수</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">document</span>.write(arr[<span class="number">0</span>]() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">document</span>.write(arr[<span class="number">1</span>]() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">document</span>.write(arr[<span class="number">2</span>]() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>위 코드는 정상적으로 0, 1, 2를 출력한다. <code>for</code>문 안의 처리문을 즉시 실행 익명 함수로 분리시키고 클로저가 <code>for</code>문의 <code>i</code>가 아닌 익명함수의 <code>index</code>변수를 참조하도록 한다.</p>
+<p>참고로 ECMAScript 2015 (ES6)의 새로운 변수 선언문인 <code>let</code> 키워드로 변수를 선언하면 변수의 스코프가 블록 단위(기존 JS는 함수 단위이다.)로 엄격해지므로 이러한 문제가 발생하지 않는다. 아래의 코드를 보자.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;<span class="number">3</span>; i++) &#123;</span><br><span class="line">  arr[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">document</span>.write(arr[<span class="number">0</span>]() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">document</span>.write(arr[<span class="number">1</span>]() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">document</span>.write(arr[<span class="number">2</span>]() + <span class="string">'&lt;br&gt;'</span>); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://jess2.github.io/2018/05/22/JavaScript/JS-자바스크립트-클로저-Closure/" data-id="cjhlzhchd000g7gj446jhvj9q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/jesssss2" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/je_ss2" target="_blank">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/jess2" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="bitbucket" href="https://bitbucket.org/jessie3578" target="_blank">
+                        <i class="icon fa fa-bitbucket"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="laptop" href="https://www.acmicpc.net/user/jess2" target="_blank">
+                        <i class="icon fa fa-laptop"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="archive" href="http://jess2.tistory.com/" target="_blank">
+                        <i class="icon fa fa-archive"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/05/23/JavaScript/JS-프로토타입-Prototype/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [JS] 프로토타입(Prototype)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/05/22/JavaScript/JS-크로스-도메인-Cross-Domain/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[JS] 크로스 도메인(Cross Domain)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/25/etc/2018년-1회-정보처리기사-실기-합격후기/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/exam.png)" alt="2018년 1회 정보처리기사 실기 합격후기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a></p>
+                            <p class="item-title"><a href="/2018/05/25/etc/2018년-1회-정보처리기사-실기-합격후기/" class="title">2018년 1회 정보처리기사 실기 합격후기</a></p>
+                            <p class="item-date"><time datetime="2018-05-25T11:48:26.000Z" itemprop="datePublished">2018-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/Node.js/Node-js-노드의-소개/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nodejs.png)" alt="[Node.js] 노드의 소개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
+                            <p class="item-title"><a href="/2018/05/24/Node.js/Node-js-노드의-소개/" class="title">[Node.js] 노드의 소개</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T13:58:48.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-this/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] this" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-this/" class="title">[JS] this</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:59:53.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-ajax와-xml-json/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] Ajax와 XML / JSON" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-ajax와-xml-json/" class="title">[JS] Ajax와 XML / JSON</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:05:27.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-bind/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] bind" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-bind/" class="title">[JS] bind</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T10:45:01.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ECMAScript6/" style="font-size: 10px;">ECMAScript6</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/exam/" style="font-size: 10px;">exam</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Soyeon Jung</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'jess2';
+    
+    
+    var disqus_url = 'https://jess2.github.io/2018/05/22/JavaScript/JS-자바스크립트-클로저-Closure/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

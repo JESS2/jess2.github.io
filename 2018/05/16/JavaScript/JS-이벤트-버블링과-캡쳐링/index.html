@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>[JS] 이벤트 버블링과 이벤트 캡쳐링 | Jess2&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="JavaScript" />
+    
+    <meta name="description" content="Event Bubbling / Event Capturing버블링과 캡쳐링을 본격적으로 알아보기 전에 간단한 코드를 한 번 살펴보자. 1234&amp;lt;div onclick=&quot;alert(&apos;The DIV handler!&apos;)&quot;&amp;gt;  DIV 태그  &amp;lt;p&amp;gt;P 태그&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; See the Pen Ryewge by Soyeon">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[JS] 이벤트 버블링과 이벤트 캡쳐링">
+<meta property="og:url" content="https://jess2.github.io/2018/05/16/JavaScript/JS-이벤트-버블링과-캡쳐링/index.html">
+<meta property="og:site_name" content="Jess2&#39;s Blog">
+<meta property="og:description" content="Event Bubbling / Event Capturing버블링과 캡쳐링을 본격적으로 알아보기 전에 간단한 코드를 한 번 살펴보자. 1234&amp;lt;div onclick=&quot;alert(&apos;The DIV handler!&apos;)&quot;&amp;gt;  DIV 태그  &amp;lt;p&amp;gt;P 태그&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; See the Pen Ryewge by Soyeon">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://jess2.github.io/images/JavaScript.png">
+<meta property="og:updated_time" content="2018-05-24T13:54:03.619Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[JS] 이벤트 버블링과 이벤트 캡쳐링">
+<meta name="twitter:description" content="Event Bubbling / Event Capturing버블링과 캡쳐링을 본격적으로 알아보기 전에 간단한 코드를 한 번 살펴보자. 1234&amp;lt;div onclick=&quot;alert(&apos;The DIV handler!&apos;)&quot;&amp;gt;  DIV 태그  &amp;lt;p&amp;gt;P 태그&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt; See the Pen Ryewge by Soyeon">
+<meta name="twitter:image" content="https://jess2.github.io/images/JavaScript.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/jessieImg.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">제씨의 기술블로그</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://jess2.github.io/resume/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/JavaScript/">JavaScript</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-JavaScript/JS-이벤트-버블링과-캡쳐링" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [JS] 이벤트 버블링과 이벤트 캡쳐링
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/05/16/JavaScript/JS-이벤트-버블링과-캡쳐링/" class="article-date">
+            <time datetime="2018-05-16T10:06:13.000Z" itemprop="datePublished">2018-05-16</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/JavaScript/">JavaScript</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/JavaScript.png" alt=""></p>
+<h1 id="Event-Bubbling-Event-Capturing"><a href="#Event-Bubbling-Event-Capturing" class="headerlink" title="Event Bubbling / Event Capturing"></a>Event Bubbling / Event Capturing</h1><p>버블링과 캡쳐링을 본격적으로 알아보기 전에 간단한 코드를 한 번 살펴보자.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">onclick</span>=<span class="string">"alert('The DIV handler!')"</span>&gt;</span></span><br><span class="line">  DIV 태그</span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>P 태그<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="Ryewge" data-default-tab="result" data-user="je_ss2" data-embed-version="2" data-pen-title="Ryewge" class="codepen">See the Pen <a href="https://codepen.io/je_ss2/pen/Ryewge/" target="_blank" rel="noopener">Ryewge</a> by SoyeonJung (<a href="https://codepen.io/je_ss2" target="_blank" rel="noopener">@je_ss2</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p><code>div</code>태그에 <code>alert(&#39;The DIV handler!&#39;)</code>라는 이벤트 핸들러를 할당하였고, <code>p</code>태그에는 어떠한 핸들러도 할당하지 않았다. <strong>그런데 <code>p</code>태그를 클릭해도 <code>div</code>태그에 할당된 핸들러가 실행이 된다.</strong></p>
+<blockquote>
+<p><strong>조금 이상하다.</strong><br><strong><code>p</code>태그를 클릭했는데 왜 <code>div</code>태그에 할당된 핸들러가 실행이 되는 것일까?</strong></p>
+</blockquote>
+<p><br></p>
+<h2 id="버블링-때문이다"><a href="#버블링-때문이다" class="headerlink" title="버블링 때문이다."></a>버블링 때문이다.</h2><p>자바스크립트의 이벤트 버블링 때문에 위의 코드에서 <code>div</code>태그 안에 있는 <code>p</code>태그를 클릭하면 <code>div</code>태그에 할당된 클릭 이벤트가 발생하는 것이다.</p>
+<blockquote>
+<p><strong>그럼, 버블링이 정확히 뭔데?</strong></p>
+</blockquote>
+<p>이벤트 버블링의 원리는 간단하다.</p>
+<p><strong>“엘리먼트에 이벤트가 발생하면 먼저 해당 엘리먼트의 핸들러를 실행시킨 후, 그의 부모 엘리먼트의 핸들러를 실행시키고, 또 그 위의 조상 엘리먼트들의 핸들러를 실행시킨다”</strong></p>
+<p>마치 버블이 아래에서 위로 올라가는 것과 같아서 버블링이라고 한다. 아래의 예시를 보자.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onclick</span>=<span class="string">"alert('form')"</span>&gt;</span>FORM</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">onclick</span>=<span class="string">"alert('div')"</span>&gt;</span>DIV</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">onclick</span>=<span class="string">"alert('p')"</span>&gt;</span>P<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="WJaNgQ" data-default-tab="result" data-user="je_ss2" data-embed-version="2" data-pen-title="WJaNgQ" class="codepen">See the Pen <a href="https://codepen.io/je_ss2/pen/WJaNgQ/" target="_blank" rel="noopener">WJaNgQ</a> by SoyeonJung (<a href="https://codepen.io/je_ss2" target="_blank" rel="noopener">@je_ss2</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p><code>form</code>태그에는 <code>alert(&#39;form&#39;)</code>클릭 이벤트를 줬고, <code>div</code>태그에는 <code>alert(&#39;div&#39;)</code>클릭 이벤트를 줬고, <code>p</code>태그에는 <code>alert(&#39;p&#39;)</code>클릭 이벤트를 줬다. 그런데, <code>p</code>태그는 <code>div</code>태그가 감싸고 있고, 또 그 <code>div</code>태그는 <code>form</code>태그가 감싸고 있다.</p>
+<p>따라서 이벤트 버블링으로 인해, <code>p</code>태그를 클릭하면 <code>p -&gt; div -&gt; form</code>순서로 알림창이 뜬다. 그리고 <code>div</code>태그를 클릭하면 <code>div -&gt; form</code>순서로 알림창이 뜬다.</p>
+<p><strong><code>p</code>태그를 클릭하면 <code>window</code>에서부터 <code>p</code>태그까지 요소 중간에 있는 이벤트들을 전부 검색해서 따로 메모리에 가지고 있다고 생각하면 된다.</strong> 해당 엘리먼트부터 차례대로 위로 올라가면서 이벤트들을 발생시키는 것, 그것이 바로 이벤트 버블링이다.</p>
+<p><br></p>
+<h2 id="버블링-멈추기"><a href="#버블링-멈추기" class="headerlink" title="버블링 멈추기"></a>버블링 멈추기</h2><p>기본적으로 이벤트 버블링은 항상 발생한다. 아래의 코드를 보자.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onclick</span>=<span class="string">"alert('form')"</span>&gt;</span>FORM</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">onclick</span>=<span class="string">"alert('div')"</span>&gt;</span>DIV</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>P<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="WJabwo" data-default-tab="result" data-user="je_ss2" data-embed-version="2" data-pen-title="WJabwo" class="codepen">See the Pen <a href="https://codepen.io/je_ss2/pen/WJabwo/" target="_blank" rel="noopener">WJabwo</a> by SoyeonJung (<a href="https://codepen.io/je_ss2" target="_blank" rel="noopener">@je_ss2</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p><code>form</code>태그와 <code>div</code>태그에만 이벤트 핸들러를 주고, <code>p</code>태그에는 이벤트 핸들러를 주지 않았다. 하지만, 이벤트 버블링으로 인해 <code>p</code> 태그를 클릭하면 <code>div -&gt; form</code>순서로 알림창이 뜬다.</p>
+<blockquote>
+<p><strong>이벤트 버블링이 발생되지 않았으면 좋겠어</strong></p>
+</blockquote>
+<p><strong>이벤트 버블링은 <code>event.stopPropagation()</code>을 이용해서 간단하게 멈출 수 있다.</strong> 아래의 코드를 보자.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onclick</span>=<span class="string">"alert('form')"</span>&gt;</span>FORM</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">onclick</span>=<span class="string">"alert('div')"</span>&gt;</span>DIV</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">onclick</span>=<span class="string">"event.stopPropagation()"</span>&gt;</span>P<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="xjyGGK" data-default-tab="result" data-user="je_ss2" data-embed-version="2" data-pen-title="xjyGGK" class="codepen">See the Pen <a href="https://codepen.io/je_ss2/pen/xjyGGK/" target="_blank" rel="noopener">xjyGGK</a> by SoyeonJung (<a href="https://codepen.io/je_ss2" target="_blank" rel="noopener">@je_ss2</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p><code>p</code>태그에 <code>onclick=&quot;event.stopPropagation()&quot;</code>를 주었더니, <code>p</code>태그를 클릭해도 아까처럼 이벤트가 발생하지 않는다. <strong>이벤트 버블링이 작동하지 않기 때문이다.</strong></p>
+<p><br></p>
+<h2 id="이벤트-캡쳐링"><a href="#이벤트-캡쳐링" class="headerlink" title="이벤트 캡쳐링"></a>이벤트 캡쳐링</h2><p>그렇다면 이번에는 이벤트 캡쳐링에 대해서 알아보자. 이벤트 캡쳐링도 이벤트 버블링과 비슷하다. <strong>버블링이 아래에서 위로 올라가는 것이라면, 캡쳐링은 위에서 아래로 내려가는 것이다.</strong></p>
+<p><code>addEventListener</code>를 이용하여 버블링과 캡쳐링에 대해서 살펴보자.</p>
+<p><code>capturing</code>단계에서 이벤트를 <code>catch</code>하려면 <code>addEventListener</code>의 세 번째 요소를 <code>true</code>로 설정해줘야 한다. 기본적으로 <code>addEventListener</code>의 세 번째 요소를 작성하지 않으면 <code>default</code>값이 <code>false</code>인데, <code>false</code>로 설정할 경우, 핸들러는 버블링 단계로 설정된다. 반면에 <code>true</code>로 설정할 경우, 핸들러는 캡쳐링 단계로 설정된다.</p>
+<p>먼저 <code>addEventListener</code>의 세 번째 요소를 작성하지 않았을 경우를 살펴보자.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span>FORM</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>DIV</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>P<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JavaScript Code</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> elem <span class="keyword">of</span> <span class="built_in">document</span>.querySelectorAll(<span class="string">'*'</span>)) &#123;</span><br><span class="line">    elem.addEventListener(<span class="string">"click"</span>, e =&gt; alert(elem.tagName));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="mLzywJ" data-default-tab="result" data-user="je_ss2" data-embed-version="2" data-pen-title="mLzywJ" class="codepen">See the Pen <a href="https://codepen.io/je_ss2/pen/mLzywJ/" target="_blank" rel="noopener">mLzywJ</a> by SoyeonJung (<a href="https://codepen.io/je_ss2" target="_blank" rel="noopener">@je_ss2</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p><code>p</code>태그를 클릭하면 <code>P -&gt; DIV -&gt; FORM -&gt; BODY -&gt; HTML</code>순서로 알림창이 열린다. <code>addEventListener</code>의 세 번째 요소를 작성하지 않아서 기본값인 <code>false</code>로 되었기 때문에 <strong>핸들러가 버블링 단계로 설정되었기 때문이다.</strong></p>
+<p><strong>이번에는 <code>addEventListener</code>의 세 번째 요소를 <code>true</code>로 작성해보자.</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span>FORM</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>DIV</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>P<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JavaScript Code</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> elem <span class="keyword">of</span> <span class="built_in">document</span>.querySelectorAll(<span class="string">'*'</span>)) &#123;</span><br><span class="line">    elem.addEventListener(<span class="string">"click"</span>, e =&gt; alert(elem.tagName), <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p></p><p data-height="265" data-theme-id="0" data-slug-hash="WJabBd" data-default-tab="result" data-user="je_ss2" data-embed-version="2" data-pen-title="WJabBd" class="codepen">See the Pen <a href="https://codepen.io/je_ss2/pen/WJabBd/" target="_blank" rel="noopener">WJabBd</a> by SoyeonJung (<a href="https://codepen.io/je_ss2" target="_blank" rel="noopener">@je_ss2</a>) on <a href="https://codepen.io" target="_blank" rel="noopener">CodePen</a>.</p><p></p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<p><code>p</code>태그를 클릭하면 <code>HTML -&gt; BODY -&gt; FORM -&gt; DIV -&gt; P</code>순서로 알림창이 열린다. <code>addEventListener</code>의 세 번째 요소를 <code>true</code>로 작성했기 때문에 <strong>핸들러가 캡쳐링 단계로 설정되었기 때문이다.</strong></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://jess2.github.io/2018/05/16/JavaScript/JS-이벤트-버블링과-캡쳐링/" data-id="cjhlzhcgx000a7gj417ptprrl" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/jesssss2" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/je_ss2" target="_blank">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/jess2" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="bitbucket" href="https://bitbucket.org/jessie3578" target="_blank">
+                        <i class="icon fa fa-bitbucket"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="laptop" href="https://www.acmicpc.net/user/jess2" target="_blank">
+                        <i class="icon fa fa-laptop"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="archive" href="http://jess2.tistory.com/" target="_blank">
+                        <i class="icon fa fa-archive"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/05/18/Node.js/Node-노드로-만들-수-있는-서버/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [Node.js] 노드로 만들 수 있는 서버
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/05/16/JavaScript/JS-호이스팅-Hoisting/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[JS] 호이스팅(Hoisting)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/25/etc/2018년-1회-정보처리기사-실기-합격후기/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/exam.png)" alt="2018년 1회 정보처리기사 실기 합격후기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a></p>
+                            <p class="item-title"><a href="/2018/05/25/etc/2018년-1회-정보처리기사-실기-합격후기/" class="title">2018년 1회 정보처리기사 실기 합격후기</a></p>
+                            <p class="item-date"><time datetime="2018-05-25T11:48:26.000Z" itemprop="datePublished">2018-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/Node.js/Node-js-노드의-소개/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nodejs.png)" alt="[Node.js] 노드의 소개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
+                            <p class="item-title"><a href="/2018/05/24/Node.js/Node-js-노드의-소개/" class="title">[Node.js] 노드의 소개</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T13:58:48.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-this/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] this" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-this/" class="title">[JS] this</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:59:53.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-ajax와-xml-json/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] Ajax와 XML / JSON" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-ajax와-xml-json/" class="title">[JS] Ajax와 XML / JSON</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:05:27.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-bind/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] bind" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-bind/" class="title">[JS] bind</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T10:45:01.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ECMAScript6/" style="font-size: 10px;">ECMAScript6</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/exam/" style="font-size: 10px;">exam</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Soyeon Jung</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'jess2';
+    
+    
+    var disqus_url = 'https://jess2.github.io/2018/05/16/JavaScript/JS-이벤트-버블링과-캡쳐링/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

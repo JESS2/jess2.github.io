@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>[Node.js] 노드의 기본 모듈 - url / fs / http | Jess2&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Node.js" />
+    
+    <meta name="description" content="노드의 기본 모듈 - url / fs / http1. URL 모듈노드에서는 url 모듈을 사용하여 사이트 주소 정보를 url 객체로 만들 수 있다. url 모듈을 사용하면 일반 주소 문자열을 url 객체로 만들거나 url 객체에서 일반 문자열로 변환하는 일을 쉽게 할 수 있다. url 모듈을 이용해 주소 문자열을 객체로 만들면 문자열 안에 있던 각각의 정">
+<meta name="keywords" content="Node.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Node.js] 노드의 기본 모듈 - url &#x2F; fs &#x2F; http">
+<meta property="og:url" content="https://jess2.github.io/2018/05/19/Node.js/Node-js-노드의-기본-모듈/index.html">
+<meta property="og:site_name" content="Jess2&#39;s Blog">
+<meta property="og:description" content="노드의 기본 모듈 - url / fs / http1. URL 모듈노드에서는 url 모듈을 사용하여 사이트 주소 정보를 url 객체로 만들 수 있다. url 모듈을 사용하면 일반 주소 문자열을 url 객체로 만들거나 url 객체에서 일반 문자열로 변환하는 일을 쉽게 할 수 있다. url 모듈을 이용해 주소 문자열을 객체로 만들면 문자열 안에 있던 각각의 정">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://jess2.github.io/images/nodejs.png">
+<meta property="og:updated_time" content="2018-05-24T13:57:22.161Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[Node.js] 노드의 기본 모듈 - url &#x2F; fs &#x2F; http">
+<meta name="twitter:description" content="노드의 기본 모듈 - url / fs / http1. URL 모듈노드에서는 url 모듈을 사용하여 사이트 주소 정보를 url 객체로 만들 수 있다. url 모듈을 사용하면 일반 주소 문자열을 url 객체로 만들거나 url 객체에서 일반 문자열로 변환하는 일을 쉽게 할 수 있다. url 모듈을 이용해 주소 문자열을 객체로 만들면 문자열 안에 있던 각각의 정">
+<meta name="twitter:image" content="https://jess2.github.io/images/nodejs.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/jessieImg.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">제씨의 기술블로그</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://jess2.github.io/resume/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Node-js/">Node.js</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Node.js/Node-js-노드의-기본-모듈" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [Node.js] 노드의 기본 모듈 - url / fs / http
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/05/19/Node.js/Node-js-노드의-기본-모듈/" class="article-date">
+            <time datetime="2018-05-18T16:01:42.000Z" itemprop="datePublished">2018-05-19</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Node-js/">Node.js</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/nodejs.png" alt=""></p>
+<h1 id="노드의-기본-모듈-url-fs-http"><a href="#노드의-기본-모듈-url-fs-http" class="headerlink" title="노드의 기본 모듈 - url / fs / http"></a>노드의 기본 모듈 - url / fs / http</h1><h2 id="1-URL-모듈"><a href="#1-URL-모듈" class="headerlink" title="1. URL 모듈"></a>1. URL 모듈</h2><p>노드에서는 <strong>url 모듈</strong>을 사용하여 <strong>사이트 주소 정보를 <u>url 객체</u>로 만들 수 있다.</strong></p>
+<p>url 모듈을 사용하면 일반 주소 문자열을 url 객체로 만들거나 url 객체에서 일반 문자열로 변환하는 일을 쉽게 할 수 있다. url 모듈을 이용해 주소 문자열을 객체로 만들면 문자열 안에 있던 각각의 정보를 나누어 그 객체의 속성으로 보관한다. (ex. protocol / host / query)</p>
+<p>따라서 요청 프로토콜이 http인지 https인지를 구별하거나 요청 파라미터를 확인하고 싶다면 url 객체가 갖고 있는 속성 값을 확인하면 된다. 아래의 코드를 보자.</p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//주소 문자열을 URL 객체로 만들기</span></span><br><span class="line"><span class="keyword">var</span> curURL = url.parse(<span class="string">'https://search.naver.com/search.naver?where=nexearch&amp;sm=top_hty&amp;fbm=1&amp;ie=utf8&amp;query=node'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//URL 객체를 주소 문자열로 만들기</span></span><br><span class="line"><span class="keyword">var</span> curStr = url.format(curURL);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'주소 문자열 : '</span> + curStr);</span><br><span class="line"><span class="built_in">console</span>.log(curURL);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>(줄 1) : url 모듈을 사용하기 위해 <code>require()</code> 메소드를 호출했다. url 모듈을 로딩한 후 <code>url</code>이라는 변수 할당했다.</li>
+<li>(줄 4) : <code>parse()</code>메소드를 사용해 주소 문자열을 파싱하여 url 객체를 만들었다.</li>
+<li>(줄 7) : <code>format()</code>메소드를 사용해 URL 객체를 주소 문자열로 변환했다.</li>
+</ul>
+<h4 id="실행결과"><a href="#실행결과" class="headerlink" title="실행결과"></a>실행결과</h4><p><img src="/images/content/node-3.png" alt=""></p>
+<p>파일을 실행하면 위와 같이 주소 문자열 정보와 URL 객체에 들어있는 속성들이 출력된다.</p>
+<p><br></p>
+<h2 id="2-File-System-모듈"><a href="#2-File-System-모듈" class="headerlink" title="2. File System 모듈"></a>2. File System 모듈</h2><p><strong>fs 모듈을 사용하면 파일 시스템에 접근할 수 있다.</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><center>메소드 이름</center></th>
+<th style="text-align:left"><center>설명</center></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">readFile(filename, [encoding], [callback]</td>
+<td style="text-align:left">비동기식 IO로 파일을 읽어 들인다. </td>
+</tr>
+<tr>
+<td style="text-align:left">readFileSync(filename, [encoding])</td>
+<td style="text-align:left">동기식 IO로 파일을 읽어 들인다. </td>
+</tr>
+<tr>
+<td style="text-align:left">writeFile(filename, data, encoding=’utf8’, [callback])</td>
+<td style="text-align:left">비동기식 IO로 파일을 쓴다. </td>
+</tr>
+<tr>
+<td style="text-align:left">writeFileSync(filename, data, encoding=’utf8’)</td>
+<td style="text-align:left">동기식 IO로 파일을 쓴다. </td>
+</tr>
+</tbody>
+</table>
+<h4 id="동기식-IO로-파일-읽기"><a href="#동기식-IO로-파일-읽기" class="headerlink" title="동기식 IO로 파일 읽기"></a>동기식 IO로 파일 읽기</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//파일을 동기식 IO로 읽어들인다.</span></span><br><span class="line"><span class="keyword">var</span> data = fs.readFileSync(<span class="string">'./package.json'</span>, <span class="string">'utf8'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(data);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'읽기 끝'</span>);</span><br></pre></td></tr></table></figure>
+<p>fs 모듈을 사용하기 위해 <code>require()</code> 메소드를 호출했고 <code>readFileSync()</code> 메소드를 사용하여 파일을 동기식 IO로 읽어드렸다.</p>
+<h4 id="동기식-IO로-파일-읽기-실행결과"><a href="#동기식-IO로-파일-읽기-실행결과" class="headerlink" title="동기식 IO로 파일 읽기 실행결과"></a>동기식 IO로 파일 읽기 실행결과</h4><p><img src="/images/content/node-3-2.PNG" alt=""></p>
+<p>파일을 동기식 IO로 읽어드렸기 때문에 파일을 전부 읽어서 출력한 후 ‘읽기 끝’을 출력하였다.</p>
+<h4 id="비동기식-IO로-파일-읽기"><a href="#비동기식-IO로-파일-읽기" class="headerlink" title="비동기식 IO로 파일 읽기"></a>비동기식 IO로 파일 읽기</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//파일을 비동기식 IO로 읽어들인다.</span></span><br><span class="line">fs.readFile(<span class="string">'./package.json'</span>, <span class="string">'utf8'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'읽기 끝'</span>);</span><br></pre></td></tr></table></figure>
+<p>fs 모듈을 사용하기 위해 <code>require()</code> 메소드를 호출했고 <code>readFile()</code> 메소드를 사용하여 파일을 비동기식 IO로 읽어드렸다.</p>
+<h4 id="비동기식-IO로-파일-읽기-실행결과"><a href="#비동기식-IO로-파일-읽기-실행결과" class="headerlink" title="비동기식 IO로 파일 읽기 실행결과"></a>비동기식 IO로 파일 읽기 실행결과</h4><p><img src="/images/content/node-3-3.PNG" alt=""></p>
+<p>파일을 비동기식 IO로 읽어드렸기 때문에 파일을 전부 읽기 전에 ‘읽기 끝’을 출력하였다.</p>
+<p>이번엔 fs 모듈을 사용하여 파일을 직접 작성해보자.</p>
+<h4 id="비동기식-IO로-파일-쓰기"><a href="#비동기식-IO로-파일-쓰기" class="headerlink" title="비동기식 IO로 파일 쓰기"></a>비동기식 IO로 파일 쓰기</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//파일에 데이터를 쓴다.</span></span><br><span class="line">fs.writeFile(<span class="string">'./output.txt'</span>, <span class="string">'Hello world!'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Error: '</span> + err);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'output.txt 파일에 데이터 쓰기 완료'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>fs 모듈을 사용하기 위해 <code>require()</code> 메소드를 호출했고 <code>writeFile()</code> 메소드를 사용하여 비동기식 IO로 파일에 데이터를 썼다.</p>
+<h4 id="파일을-직접-열고-닫으면서-읽거나-쓰기"><a href="#파일을-직접-열고-닫으면서-읽거나-쓰기" class="headerlink" title="파일을 직접 열고 닫으면서 읽거나 쓰기"></a>파일을 직접 열고 닫으면서 읽거나 쓰기</h4><p>실제로 파일을 읽거나 쓸 때는 한꺼번에 모든 데이터를 읽거나 쓰지 않고 조금씩 읽거나 쓰는 방식을 사용하는 경우도 많다. 또한 다른 곳에서 받아 온 데이터를 파일에 쓰는 경우도 있기 때문에 파일을 다루는 다양한 방식이 따로 정의되어 있다.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><center>메소드 이름</center></th>
+<th style="text-align:left"><center>설명</center></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">open(path, flags, [mode], [callback]])</td>
+<td style="text-align:left">파일을 연다.</td>
+</tr>
+<tr>
+<td style="text-align:left">read(fd, buffer, offset, length, position, [callback])</td>
+<td style="text-align:left">지정한 부분의 파일 내용을 읽어 들인다.</td>
+</tr>
+<tr>
+<td style="text-align:left">write(fd, buffer, offset, length, position, [callback])</td>
+<td style="text-align:left">파일의 지정한 부분에 데이터를 쓴다.</td>
+</tr>
+<tr>
+<td style="text-align:left">close(fd, [callback])</td>
+<td style="text-align:left">파일을 닫는다.</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"></span><br><span class="line">fs.open(<span class="string">'./output.txt'</span>, <span class="string">'w'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, fd</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">'안녕\n'</span>);</span><br><span class="line">    fs.write(fd, buf, <span class="number">0</span>, buf.length, <span class="literal">null</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, written, buffer</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;</span><br><span class="line">             </span><br><span class="line">        <span class="built_in">console</span>.log(err, written, buffer);</span><br><span class="line">    </span><br><span class="line">        fs.close(fd, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'파일 열고 데이터 쓰고 파일 닫기 완료'</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>파일을 열기 위해 <code>open()</code>메소드를 호출할 때 세 개의 파라미터가 전달되었다. 첫 번째 파라미터는 파일의 이름, 두 번째 파라미터는 파일을 읽거나 쓰기 위한 플래그이다. <strong>대표적인 플래그의 종류에 대해 알아보자.</strong></p>
+<table>
+<thead>
+<tr>
+<th><center>flags</center></th>
+<th><center>설명</center></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r</code></td>
+<td>읽기에 사용하는 플래그이다. 파일이 없으면 예외가 발생한다.</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>쓰기에 사용하는 플래그이다. 파일이 없으면 만들어지고 파일이 있으면 이전 내용을 모두 삭제한다.</td>
+</tr>
+<tr>
+<td><code>w+</code></td>
+<td>읽기와 쓰기에 사용하는 플래그이다. 파일이 없으면 만들어지고 파일이 있으면 이전 내용을 모두 삭제한다.</td>
+</tr>
+<tr>
+<td><code>a+</code></td>
+<td>읽기와 추가에 사용하는 플래그이다. 파일이 없으면 만들어지고 파일이 있으면 이전 내용에 새로운 내용을 추가한다.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="3-HTTP-모듈"><a href="#3-HTTP-모듈" class="headerlink" title="3. HTTP 모듈"></a>3. HTTP 모듈</h2><p>http 모듈은 노드의 가장 기본적인 모듈이며, http 서버와 클라이언트를 생성하는 것과 관련된 모든 기능을 담당한다.</p>
+<h4 id="웹-서버의-생성과-실행"><a href="#웹-서버의-생성과-실행" class="headerlink" title="웹 서버의 생성과 실행"></a>웹 서버의 생성과 실행</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//서버를 생성</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">var</span> server = http.createServer();</span><br><span class="line"></span><br><span class="line"><span class="comment">//서버를 실행</span></span><br><span class="line">server.listen(<span class="number">52273</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Server Running at http://127.0.0.1:52273'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//10초 후 서버 종료</span></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'서버 종료'</span>);</span><br><span class="line">    server.close();</span><br><span class="line">&#125;,<span class="number">10000</span>);</span><br></pre></td></tr></table></figure>
+<p>http 모듈을 사용하기 위해 <code>require()</code>메소드를 호출했고 <code>createServer()</code>메소드를 이용해서 서버를 생성했다. <code>listen()</code>메소드를 이용해서 서버를 실행했고 <code>close()</code>메소드를 이용해서 서버를 종료했다.</p>
+<h4 id="response-객체"><a href="#response-객체" class="headerlink" title="response 객체"></a>response 객체</h4><p>위의 예제에서 서버를 실행한 후 <a href="http://127.0.0.1:52273" target="_blank" rel="noopener">http://127.0.0.1:52273</a> 에 접속해도 웹 브라우저에는 아무것도 출력되지 않을 것이다. 요청만 하고 응답을 하지 않았기 때문이다. 클라이언트에 웹 페이지를 제공하려면 응답 메시지를 작성해야 한다. 응답 메시지를 작성할 때는 <code>response</code> 객체를 생성한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'http'</span>).createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>) </span>&#123;</span><br><span class="line">    response.writeHead(<span class="number">200</span>, &#123;<span class="string">'content-type'</span>: <span class="string">'text/html'</span>&#125;);</span><br><span class="line">    response.end(<span class="string">'&lt;h1&gt;hello web server with node.js&lt;/h1&gt;'</span>);</span><br><span class="line">&#125;).listen(<span class="number">52273</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Server Running at http://127.0.0.1:52273'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>코드를 실행한 후 <a href="http://127.0.0.1:52273" target="_blank" rel="noopener">http://127.0.0.1:52273</a> 에 접속하면 웹 브라우저에 아래와 같이 출력된다.</p>
+<p><img src="/images/content/node-3-4.PNG" alt=""></p>
+<p>그러나 자바스크립트 파일 위에서 모든 html 페이지를 문자열로 작성하는 것은 매우 비효율적이다. 그 대신 <code>File System 모듈</code>을 사용하여 서버에 존재하는 html 페이지를 클라이언트에 제공할 수 있다.</p>
+<h4 id="File-System-모듈을-사용한-html-페이지-제공"><a href="#File-System-모듈을-사용한-html-페이지-제공" class="headerlink" title="File System 모듈을 사용한 html 페이지 제공"></a>File System 모듈을 사용한 html 페이지 제공</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//모듈을 추출한다</span></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//웹 서버를 생성하고 실행한다</span></span><br><span class="line">http.createServer(<span class="function"><span class="keyword">function</span>(<span class="params">request, response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//html 파일을 읽는다</span></span><br><span class="line">    fs.readFile(<span class="string">'htmlPage.html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, data</span>) </span>&#123;</span><br><span class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">'content-type'</span>: <span class="string">'text/html'</span>&#125;);</span><br><span class="line">        response.end(data);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;).listen(<span class="number">52273</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Server Running at http://127.0.0.1:52273'</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>fs 모듈과 http 모듈을 사용하기 위해 <code>require()</code> 메소드를 호출했고 <code>createServer()</code>메소드로 웹 서버를 생성했다. 그 후, <code>readFile()</code>메소드로 <code>htmlPage.html</code>파일을 읽어와서 응답 메시지를 작성했다. <code>htmlPage.html</code>파일은 아래와 같이 작성했다.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>This is htmlPage<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello world! I'm Jessie<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="실행결과-1"><a href="#실행결과-1" class="headerlink" title="실행결과"></a>실행결과</h4><p><img src="/images/content/node-3-5.PNG" alt=""></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://jess2.github.io/2018/05/19/Node.js/Node-js-노드의-기본-모듈/" data-id="cjhlzhchs000y7gj4w8ujmk0n" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/jesssss2" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/je_ss2" target="_blank">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/jess2" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="bitbucket" href="https://bitbucket.org/jessie3578" target="_blank">
+                        <i class="icon fa fa-bitbucket"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="laptop" href="https://www.acmicpc.net/user/jess2" target="_blank">
+                        <i class="icon fa fa-laptop"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="archive" href="http://jess2.tistory.com/" target="_blank">
+                        <i class="icon fa fa-archive"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/05/21/ECMAScript6/ES6-var-let-const-비교/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [ES6] var, let, const 비교
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/05/18/Node.js/Node-js-노드의-특징/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Node.js] 노드의 특징</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/25/etc/2018년-1회-정보처리기사-실기-합격후기/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/exam.png)" alt="2018년 1회 정보처리기사 실기 합격후기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a></p>
+                            <p class="item-title"><a href="/2018/05/25/etc/2018년-1회-정보처리기사-실기-합격후기/" class="title">2018년 1회 정보처리기사 실기 합격후기</a></p>
+                            <p class="item-date"><time datetime="2018-05-25T11:48:26.000Z" itemprop="datePublished">2018-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/Node.js/Node-js-노드의-소개/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nodejs.png)" alt="[Node.js] 노드의 소개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
+                            <p class="item-title"><a href="/2018/05/24/Node.js/Node-js-노드의-소개/" class="title">[Node.js] 노드의 소개</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T13:58:48.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-this/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] this" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-this/" class="title">[JS] this</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:59:53.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-ajax와-xml-json/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] Ajax와 XML / JSON" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-ajax와-xml-json/" class="title">[JS] Ajax와 XML / JSON</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:05:27.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-bind/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] bind" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-bind/" class="title">[JS] bind</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T10:45:01.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ECMAScript6/" style="font-size: 10px;">ECMAScript6</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/exam/" style="font-size: 10px;">exam</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Soyeon Jung</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'jess2';
+    
+    
+    var disqus_url = 'https://jess2.github.io/2018/05/19/Node.js/Node-js-노드의-기본-모듈/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>

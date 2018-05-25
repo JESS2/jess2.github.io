@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>[ES6] var, let, const 비교 | Jess2&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="ECMAScript6" />
+    
+    <meta name="description" content="var, let, const 비교기존 자바스크립트의 변수 선언 키워드 var과 ES6에서 새롭게 도입된 변수 선언 키워드 let과 const에 대해서 알아보자. var 키워드를 붙이지 않으면 어떻게 될까?먼저 var에 대해서 알아보자. var는 키워드 없이 변수를 선언하면 전역 변수가 된다. 전역 유효범위에 속해지기 때문에 코드 내에서 어디서든 변수에 접">
+<meta name="keywords" content="ECMAScript6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[ES6] var, let, const 비교">
+<meta property="og:url" content="https://jess2.github.io/2018/05/21/ECMAScript6/ES6-var-let-const-비교/index.html">
+<meta property="og:site_name" content="Jess2&#39;s Blog">
+<meta property="og:description" content="var, let, const 비교기존 자바스크립트의 변수 선언 키워드 var과 ES6에서 새롭게 도입된 변수 선언 키워드 let과 const에 대해서 알아보자. var 키워드를 붙이지 않으면 어떻게 될까?먼저 var에 대해서 알아보자. var는 키워드 없이 변수를 선언하면 전역 변수가 된다. 전역 유효범위에 속해지기 때문에 코드 내에서 어디서든 변수에 접">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://jess2.github.io/images/es6.png">
+<meta property="og:updated_time" content="2018-05-24T13:54:16.674Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[ES6] var, let, const 비교">
+<meta name="twitter:description" content="var, let, const 비교기존 자바스크립트의 변수 선언 키워드 var과 ES6에서 새롭게 도입된 변수 선언 키워드 let과 const에 대해서 알아보자. var 키워드를 붙이지 않으면 어떻게 될까?먼저 var에 대해서 알아보자. var는 키워드 없이 변수를 선언하면 전역 변수가 된다. 전역 유효범위에 속해지기 때문에 코드 내에서 어디서든 변수에 접">
+<meta name="twitter:image" content="https://jess2.github.io/images/es6.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/jessieImg.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">제씨의 기술블로그</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://jess2.github.io/resume/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Node-js/">Node.js</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/ECMAScript6/">ECMAScript6</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-ECMAScript6/ES6-var-let-const-비교" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [ES6] var, let, const 비교
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/05/21/ECMAScript6/ES6-var-let-const-비교/" class="article-date">
+            <time datetime="2018-05-21T14:50:55.000Z" itemprop="datePublished">2018-05-21</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ECMAScript6/">ECMAScript6</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/es6.png" alt=""></p>
+<h1 id="var-let-const-비교"><a href="#var-let-const-비교" class="headerlink" title="var, let, const 비교"></a>var, let, const 비교</h1><p>기존 자바스크립트의 변수 선언 키워드 <code>var</code>과 ES6에서 새롭게 도입된 변수 선언 키워드 <code>let</code>과 <code>const</code>에 대해서 알아보자.</p>
+<h2 id="var-키워드를-붙이지-않으면-어떻게-될까"><a href="#var-키워드를-붙이지-않으면-어떻게-될까" class="headerlink" title="var 키워드를 붙이지 않으면 어떻게 될까?"></a>var 키워드를 붙이지 않으면 어떻게 될까?</h2><p>먼저 <code>var</code>에 대해서 알아보자. <code>var</code>는 키워드 없이 변수를 선언하면 전역 변수가 된다. 전역 유효범위에 속해지기 때문에 코드 내에서 어디서든 변수에 접근할 수 있게 되는 것이다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"local"</span>; <span class="comment">//var 키워드를 사용하여 변수를 선언</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope2</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">    name2 = <span class="string">"global"</span>; <span class="comment">//var 키워드를 사용하지 않고 변수를 선언</span></span><br><span class="line">&#125;</span><br><span class="line">            </span><br><span class="line">checkscope();</span><br><span class="line">checkscope2();</span><br><span class="line"><span class="built_in">document</span>.write(name + <span class="string">" "</span> + name2); <span class="comment">//출력결과 &gt; global</span></span><br></pre></td></tr></table></figure>
+<p>위의 예제에서 <code>var</code> 키워드를 사용하여 선언한 변수인 <code>name</code>은 <code>checkscope</code>라는 함수 안에서의 지역변수이다. 하지만 <code>var</code> 키워드를 사용하지 않고 선언한 변수인 <code>name2</code>는 전역변수이다.</p>
+<p>따라서 함수 밖에서 <code>checkscope()</code>와 <code>checkscope2()</code>함수를 호출한 후, <code>name</code>과 <code>name2</code>를 출력하면 <code>name2</code>의 값인 <code>global</code>만 출력되는 것을 확인할 수 있다.</p>
+<p>변수 <code>name</code>은 함수의 지역변수이기 때문에 함수 밖에서는 사용할 수가 없지만 <code>name2</code>는 <code>var</code> 키워드를 붙이지 않아서 전역 변수가 되었기 때문에 함수 밖에서도 사용할 수 있다.</p>
+<p><br></p>
+<h2 id="Function-Scoped-Block-Scoped"><a href="#Function-Scoped-Block-Scoped" class="headerlink" title="Function-Scoped / Block-Scoped"></a>Function-Scoped / Block-Scoped</h2><p>var는 function-scoped이고, let과 const는 block-scoped이다.</p>
+<p><br></p>
+<h2 id="var는-function-scoped"><a href="#var는-function-scoped" class="headerlink" title="var는 function-scoped"></a>var는 function-scoped</h2><p>먼저 아래의 예시를 살펴보자.</p>
+<h4 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'i'</span>, i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after loop i is'</span>, i); <span class="comment">//실행결과 &gt; after loop i is 10</span></span><br></pre></td></tr></table></figure>
+<h4 id="Example2"><a href="#Example2" class="headerlink" title="Example2"></a>Example2</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i;</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'i'</span>, i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after loop i is'</span>, i); <span class="comment">//실행결과 &gt; after loop i is 10</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>var i</code>가 hoisting 되기 때문에 위의 Example1과 Example2는 동일한 코드라고 보면 된다.</strong> 따라서 <code>i</code>는 <code>for</code>문 밖에서도 사용할 수 있는 전역변수인 것이기 때문에 <code>after loop i is 10</code>라는 문장이 정상적으로 출력이 된다. (참고로, 호이스팅에 대한 내용은 <a href="https://jess2.github.io/2018/05/16/JS-%ED%98%B8%EC%9D%B4%EC%8A%A4%ED%8C%85-Hoisting/">여기</a>에서 볼 수 있다.)</p>
+<p>하지만 아래의 예시에서는 에러가 발생한다. Example3과 Example4는 동일한 코드라고 보면 되는데, Example3에서 선언된 변수가 포함된 scope 내에서 가장 위로 호이스팅 된 것이 Example4이다. 그런데 이 <code>var i</code>는 <code>counter</code>라는 함수 내에 존재하기 때문에, 함수 밖에서는 이 <code>i</code>라는 변수를 사용할 수가 없다.</p>
+<h4 id="Example3"><a href="#Example3" class="headerlink" title="Example3"></a>Example3</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'i'</span>, i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">counter();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after loop i is'</span>, i); <span class="comment">// 실행결과 &gt; ReferenceError: i is not defined</span></span><br></pre></td></tr></table></figure>
+<h4 id="Example4"><a href="#Example4" class="headerlink" title="Example4"></a>Example4</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> i;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'i'</span>, i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">counter();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after loop i is'</span>, i); <span class="comment">// 실행결과 &gt; ReferenceError: i is not defined</span></span><br></pre></td></tr></table></figure>
+<p>Example1~4를 다시 살펴보자. 왜 Example1에서는 전역에서 <code>i</code>에 접근할 수 있고 Example2에서는 전역에서 <code>i</code>에 접근할 수 없는가?</p>
+<p><strong><code>var</code> 키워드가 function-scoped이기 때문이다!</strong></p>
+<p>변수 선언문이 호이스팅될 때 해당 scope의 가장 위로 호이스팅되는데, Example1에서는 변수 선언문이 함수 안에 포함되어 있지 않아서 전역으로 호이스팅되는 것이고, Example3에서는 변수 선언문이 함수 안에 포함되어 있기 때문에 함수 안에서 가장 위로 호이스팅 된다.</p>
+<blockquote>
+<p><strong><code>var</code> 키워드를 사용하지 않으면?</strong></p>
+</blockquote>
+<p>앞에서 <code>var</code> 키워드를 사용하지 않으면 전역 변수가 된다고 했다. 따라서 아래와 같이 전역에서 <code>i</code>에 접근할 수 있기 때문에 <code>after loop i is 10</code>라는 문장이 정상적으로 출력된다.</p>
+<p>아래의 Example5와 Example6는 동일한 코드라고 보면 된다.</p>
+<h4 id="Example5"><a href="#Example5" class="headerlink" title="Example5"></a>Example5</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'i'</span>, i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">counter();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after loop i is'</span>, i); <span class="comment">// 실행결과 &gt; after loop i is 10</span></span><br></pre></td></tr></table></figure>
+<h4 id="Example6"><a href="#Example6" class="headerlink" title="Example6"></a>Example6</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'i'</span>, i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">counter();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'after loop i is'</span>, i); <span class="comment">// 실행결과 &gt; after loop i is 10</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="var-let-const"><a href="#var-let-const" class="headerlink" title="var / let / const"></a>var / let / const</h2><ul>
+<li><code>var</code>는 재선언과 재할당 모두 가능</li>
+<li><code>let</code>은 재선언 불가능, 재할당 가능</li>
+<li><code>const</code>는 재선언과 재할당 모두 불가능</li>
+</ul>
+<h4 id="var는-재선언-가능"><a href="#var는-재선언-가능" class="headerlink" title="var는 재선언 가능"></a>var는 재선언 가능</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">'hello'</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="string">'world'</span>;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 실행결과 &gt; world</span></span><br></pre></td></tr></table></figure>
+<h4 id="var는-재할당-가능"><a href="#var는-재할당-가능" class="headerlink" title="var는 재할당 가능"></a>var는 재할당 가능</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="string">'hello'</span>;</span><br><span class="line">b = <span class="string">'world'</span>;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 실행결과 &gt; world</span></span><br></pre></td></tr></table></figure>
+<h4 id="let은-재선언-불가능"><a href="#let은-재선언-불가능" class="headerlink" title="let은 재선언 불가능"></a>let은 재선언 불가능</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> c = <span class="string">'hello'</span>;</span><br><span class="line"><span class="keyword">let</span> c = <span class="string">'world'</span>;</span><br><span class="line">            </span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// 실행결과 &gt; Uncaught SyntaxError: Identifier 'c' has already been declared</span></span><br></pre></td></tr></table></figure>
+<h4 id="let은-재할당-가능"><a href="#let은-재할당-가능" class="headerlink" title="let은 재할당 가능"></a>let은 재할당 가능</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> d = <span class="string">'hello'</span>;</span><br><span class="line">d = <span class="string">'world'</span>;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// 실행결과 &gt; world</span></span><br></pre></td></tr></table></figure>
+<h4 id="const는-재선언-불가능"><a href="#const는-재선언-불가능" class="headerlink" title="const는 재선언 불가능"></a>const는 재선언 불가능</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> e = <span class="string">'hello'</span>;</span><br><span class="line"><span class="keyword">const</span> e = <span class="string">'world'</span>;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(e); <span class="comment">//Uncaught SyntaxError: Identifier 'e' has already been declared</span></span><br></pre></td></tr></table></figure>
+<h4 id="const는-재할당-불가능"><a href="#const는-재할당-불가능" class="headerlink" title="const는 재할당 불가능"></a>const는 재할당 불가능</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> f = <span class="string">'hello'</span>;</span><br><span class="line">f = <span class="string">'world'</span>;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(f); <span class="comment">//Uncaught SyntaxError: Assignment to constant variable.(상수 변수에 대입)</span></span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://jess2.github.io/2018/05/21/ECMAScript6/ES6-var-let-const-비교/" data-id="cjhlzhcgh00007gj4osqs6rfa" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/jesssss2" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/je_ss2" target="_blank">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/jess2" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="bitbucket" href="https://bitbucket.org/jessie3578" target="_blank">
+                        <i class="icon fa fa-bitbucket"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="laptop" href="https://www.acmicpc.net/user/jess2" target="_blank">
+                        <i class="icon fa fa-laptop"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="archive" href="http://jess2.tistory.com/" target="_blank">
+                        <i class="icon fa fa-archive"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2018/05/22/JavaScript/JS-null과-undefined-비교/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [JS] null과 undefined 비교
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2018/05/19/Node.js/Node-js-노드의-기본-모듈/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Node.js] 노드의 기본 모듈 - url / fs / http</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/25/etc/2018년-1회-정보처리기사-실기-합격후기/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/exam.png)" alt="2018년 1회 정보처리기사 실기 합격후기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/etc/">etc.</a></p>
+                            <p class="item-title"><a href="/2018/05/25/etc/2018년-1회-정보처리기사-실기-합격후기/" class="title">2018년 1회 정보처리기사 실기 합격후기</a></p>
+                            <p class="item-date"><time datetime="2018-05-25T11:48:26.000Z" itemprop="datePublished">2018-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/Node.js/Node-js-노드의-소개/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/nodejs.png)" alt="[Node.js] 노드의 소개" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a></p>
+                            <p class="item-title"><a href="/2018/05/24/Node.js/Node-js-노드의-소개/" class="title">[Node.js] 노드의 소개</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T13:58:48.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-this/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] this" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-this/" class="title">[JS] this</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:59:53.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-ajax와-xml-json/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] Ajax와 XML / JSON" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-ajax와-xml-json/" class="title">[JS] Ajax와 XML / JSON</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T11:05:27.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/24/JavaScript/JS-bind/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] bind" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/05/24/JavaScript/JS-bind/" class="title">[JS] bind</a></p>
+                            <p class="item-date"><time datetime="2018-05-24T10:45:01.000Z" itemprop="datePublished">2018-05-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ECMAScript6/" style="font-size: 10px;">ECMAScript6</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/exam/" style="font-size: 10px;">exam</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Soyeon Jung</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'jess2';
+    
+    
+    var disqus_url = 'https://jess2.github.io/2018/05/21/ECMAScript6/ES6-var-let-const-비교/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
