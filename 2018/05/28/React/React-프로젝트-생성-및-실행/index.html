@@ -18,7 +18,7 @@
 <meta property="og:description" content="리액트 프로젝트 생성 및 실행 방법프로젝트 생성프로젝트 생성 명령 설치하기1npm install -g create-react-app 위 명령으로 리액트 프로젝트를 생성하는 create-react-app명령을 설치했다. -g옵션이 주어졌기 때문에 시스템 공통 폴더에 설치된다. 따라서 프로젝트를 새로 생성할 때마다 위 명령을 반복할 필요가 없다. 프로젝트 생">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/react.png">
-<meta property="og:updated_time" content="2018-05-28T11:21:10.139Z">
+<meta property="og:updated_time" content="2018-05-28T11:48:28.478Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[React] 프로젝트 생성 및 실행">
 <meta name="twitter:description" content="리액트 프로젝트 생성 및 실행 방법프로젝트 생성프로젝트 생성 명령 설치하기1npm install -g create-react-app 위 명령으로 리액트 프로젝트를 생성하는 create-react-app명령을 설치했다. -g옵션이 주어졌기 때문에 시스템 공통 폴더에 설치된다. 따라서 프로젝트를 새로 생성할 때마다 위 명령을 반복할 필요가 없다. 프로젝트 생">
@@ -175,11 +175,13 @@
 <h1 id="리액트-프로젝트-생성-및-실행-방법"><a href="#리액트-프로젝트-생성-및-실행-방법" class="headerlink" title="리액트 프로젝트 생성 및 실행 방법"></a>리액트 프로젝트 생성 및 실행 방법</h1><h2 id="프로젝트-생성"><a href="#프로젝트-생성" class="headerlink" title="프로젝트 생성"></a>프로젝트 생성</h2><h4 id="프로젝트-생성-명령-설치하기"><a href="#프로젝트-생성-명령-설치하기" class="headerlink" title="프로젝트 생성 명령 설치하기"></a>프로젝트 생성 명령 설치하기</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br></pre></td></tr></table></figure>
 <p>위 명령으로 리액트 프로젝트를 생성하는 <code>create-react-app</code>명령을 설치했다. <code>-g</code>옵션이 주어졌기 때문에 시스템 공통 폴더에 설치된다. 따라서 프로젝트를 새로 생성할 때마다 위 명령을 반복할 필요가 없다.</p>
 <h4 id="프로젝트-생성하기"><a href="#프로젝트-생성하기" class="headerlink" title="프로젝트 생성하기"></a>프로젝트 생성하기</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create-react-app [프로젝트이름]</span><br></pre></td></tr></table></figure>
-<p><code>create-react-app</code>명령을 실행하여 프로젝트를 생성할 수 있다.</p>
+<p><code>create-react-app</code>명령을 실행하여 프로젝트를 생성할 수 있다. 프로젝트 이름으로 영어 대문자는 사용이 불가능하다.</p>
 <p><br></p>
 <h2 id="프로젝트-실행"><a href="#프로젝트-실행" class="headerlink" title="프로젝트 실행"></a>프로젝트 실행</h2><h4 id="생성한-프로젝트-폴더에-들어가기"><a href="#생성한-프로젝트-폴더에-들어가기" class="headerlink" title="생성한 프로젝트 폴더에 들어가기"></a>생성한 프로젝트 폴더에 들어가기</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd [프로젝트이름]</span><br></pre></td></tr></table></figure>
 <h4 id="프로젝트-실행하기"><a href="#프로젝트-실행하기" class="headerlink" title="프로젝트 실행하기"></a>프로젝트 실행하기</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure>
 <p>해당 프로젝트 폴더에서 <code>npm start</code>명령을 실행하면 node.js에서 해당 프로젝트가 실행된다.</p>
+<h4 id="프로젝트-실행-결과"><a href="#프로젝트-실행-결과" class="headerlink" title="프로젝트 실행 결과"></a>프로젝트 실행 결과</h4><p><img src="/images/content/react-2.PNG" alt=""></p>
+<p><code>npm start</code>명령을 입력한 후 잠시 기다리면 위와 같이 웹브라우저 창이 뜬다.</p>
 <p><br></p>
 <h2 id="실행-과정"><a href="#실행-과정" class="headerlink" title="실행 과정"></a>실행 과정</h2><ul>
 <li>웹브라우저가 <code>http://localhost:3000/</code>주소의 서버에 http request를 전송</li>
@@ -194,7 +196,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/28/React/React-프로젝트-생성-및-실행/" data-id="cjhq6d918001jncj4ogcinf0h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/28/React/React-프로젝트-생성-및-실행/" data-id="cjhq6wszr000wkwj43tbu9m9l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
