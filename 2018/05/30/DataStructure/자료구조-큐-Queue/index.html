@@ -3,25 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[자료구조] 스택(Stack) | Jess2&#39;s Blog</title>
+    <title>[자료구조] 큐(Queue) | Jess2&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="CS,DataStructure" />
     
-    <meta name="description" content="스택(Stack)1. 스택의 개념 자료의 삽입과 삭제가 한쪽 끝에서만!   스택은 리스트의 한쪽 끝으로만 자료의 삽입, 삭제 작업이 이루어지는 자료 구조이다. 스택은 가장 나중에 삽입된 자료가 가장 먼저 삭제되는 후입선출(LIFO; Last In First Out) 방식으로 자료를 처리한다. TOP : Stack으로 할당된 기억 공간에 가장 마지막으로 삽">
+    <meta name="description" content="큐(Queue)1. 큐의 개념 한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!  큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO)의 구조로">
 <meta name="keywords" content="CS,DataStructure">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[자료구조] 스택(Stack)">
-<meta property="og:url" content="https://jess2.github.io/2018/05/29/DataStructure/자료구조-스택-Stack/index.html">
+<meta property="og:title" content="[자료구조] 큐(Queue)">
+<meta property="og:url" content="https://jess2.github.io/2018/05/30/DataStructure/자료구조-큐-Queue/index.html">
 <meta property="og:site_name" content="Jess2&#39;s Blog">
-<meta property="og:description" content="스택(Stack)1. 스택의 개념 자료의 삽입과 삭제가 한쪽 끝에서만!   스택은 리스트의 한쪽 끝으로만 자료의 삽입, 삭제 작업이 이루어지는 자료 구조이다. 스택은 가장 나중에 삽입된 자료가 가장 먼저 삭제되는 후입선출(LIFO; Last In First Out) 방식으로 자료를 처리한다. TOP : Stack으로 할당된 기억 공간에 가장 마지막으로 삽">
+<meta property="og:description" content="큐(Queue)1. 큐의 개념 한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!  큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO)의 구조로">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/datastructure.jpg">
-<meta property="og:updated_time" content="2018-05-29T15:07:20.893Z">
+<meta property="og:updated_time" content="2018-05-30T11:03:07.705Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[자료구조] 스택(Stack)">
-<meta name="twitter:description" content="스택(Stack)1. 스택의 개념 자료의 삽입과 삭제가 한쪽 끝에서만!   스택은 리스트의 한쪽 끝으로만 자료의 삽입, 삭제 작업이 이루어지는 자료 구조이다. 스택은 가장 나중에 삽입된 자료가 가장 먼저 삭제되는 후입선출(LIFO; Last In First Out) 방식으로 자료를 처리한다. TOP : Stack으로 할당된 기억 공간에 가장 마지막으로 삽">
+<meta name="twitter:title" content="[자료구조] 큐(Queue)">
+<meta name="twitter:description" content="큐(Queue)1. 큐의 개념 한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!  큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO)의 구조로">
 <meta name="twitter:image" content="https://jess2.github.io/images/datastructure.jpg">
     
 
@@ -139,14 +139,14 @@
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-DataStructure/자료구조-스택-Stack" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-DataStructure/자료구조-큐-Queue" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        [자료구조] 스택(Stack)
+        [자료구조] 큐(Queue)
         </h1>
     
 
@@ -156,8 +156,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2018/05/29/DataStructure/자료구조-스택-Stack/" class="article-date">
-            <time datetime="2018-05-29T13:19:37.000Z" itemprop="datePublished">2018-05-29</time>
+        <a href="/2018/05/30/DataStructure/자료구조-큐-Queue/" class="article-date">
+            <time datetime="2018-05-30T10:48:05.000Z" itemprop="datePublished">2018-05-30</time>
         </a>
     </div>
 
@@ -172,43 +172,21 @@
         
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/datastructure.jpg" alt=""></p>
-<h1 id="스택-Stack"><a href="#스택-Stack" class="headerlink" title="스택(Stack)"></a>스택(Stack)</h1><h2 id="1-스택의-개념"><a href="#1-스택의-개념" class="headerlink" title="1. 스택의 개념"></a>1. 스택의 개념</h2><blockquote>
-<p><strong>자료의 삽입과 삭제가 한쪽 끝에서만!</strong></p>
+<h1 id="큐-Queue"><a href="#큐-Queue" class="headerlink" title="큐(Queue)"></a>큐(Queue)</h1><h2 id="1-큐의-개념"><a href="#1-큐의-개념" class="headerlink" title="1. 큐의 개념"></a>1. 큐의 개념</h2><blockquote>
+<p><strong>한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!</strong></p>
 </blockquote>
-<ul>
-<li>스택은 리스트의 한쪽 끝으로만 자료의 삽입, 삭제 작업이 이루어지는 자료 구조이다.</li>
-<li>스택은 가장 나중에 삽입된 자료가 가장 먼저 삭제되는 후입선출(LIFO; Last In First Out) 방식으로 자료를 처리한다.</li>
-<li>TOP : Stack으로 할당된 기억 공간에 가장 마지막으로 삽입된 자료가 기억된 위치를 가리키는 요소. 스택 포인터(SP, Stack Pointer)라고도 한다.</li>
-<li>Bottom : 스택의 가장 밑바닥이다.</li>
-</ul>
+<p>큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO)의 구조로 운영된다.</p>
 <p><br></p>
-<h2 id="2-스택-자료의-삽입-Push-과-삭제-Pop"><a href="#2-스택-자료의-삽입-Push-과-삭제-Pop" class="headerlink" title="2. 스택 - 자료의 삽입(Push)과 삭제(Pop)"></a>2. 스택 - 자료의 삽입(Push)과 삭제(Pop)</h2><p><img src="/images/content/stack.png" alt="출처 : Wikipedia"></p>
+<h2 id="2-큐-자료의-삽입과-삭제"><a href="#2-큐-자료의-삽입과-삭제" class="headerlink" title="2. 큐 - 자료의 삽입과 삭제"></a>2. 큐 - 자료의 삽입과 삭제</h2><p><img src="/images/content/queue.png" alt=""></p>
+<p>큐는 한쪽 끝은 <code>front</code>로 정하여 삭제 연산만 수행하도록 하고, 다른 쪽 끝은 <code>rear</code>로 정하여 삽입 연산만 수행하도록 한다. 따라서 가장 먼저 들어온 프런트 원소가 가장 먼저 삭제되므로 선입선출 구조가 된다.</p>
 <p><br></p>
-<h2 id="3-자료의-삽입-Push"><a href="#3-자료의-삽입-Push" class="headerlink" title="3. 자료의 삽입(Push)"></a>3. 자료의 삽입(Push)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Top = Top + 1</span><br><span class="line">If Top &gt; M Then</span><br><span class="line">    Overflow</span><br><span class="line">Else</span><br><span class="line">    X(Top) &lt;- Item</span><br></pre></td></tr></table></figure>
-<ul>
-<li>코드 설명 : 스택 포인터(Top)를 1 증가시킨다. 스택 포인터가 스택의 크기보다 크면 Overflow이고 그렇지 않으면 Item이 가지고 있는 값을 스택의 Top위치에 삽입한다.</li>
-<li>M : 스택의 크기</li>
-<li>Top : 스택 포인터</li>
-<li>X : 스택의 이름</li>
-<li>Overflow : 스택으로 할당받은 메모리 부분의 마지막 주소가 M번지라고 할 때, Top Pointer의 값이 M보다 커지면 스택의 모든 기억장소가 꽉 채워져 있는 상태이므로 더 이상 자료를 삽입할 수 없어 Overflow를 발생시킨다.</li>
-</ul>
+<h2 id="3-자료의-삽입"><a href="#3-자료의-삽입" class="headerlink" title="3. 자료의 삽입"></a>3. 자료의 삽입</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">enQueue(Q, item)</span><br><span class="line">    if(isFull(Q)) then Queue_Full();</span><br><span class="line">    else &#123;</span><br><span class="line">        rear &lt;- rear + 1;</span><br><span class="line">        Q[rear] &lt;- item;</span><br><span class="line">    &#125;</span><br><span class="line">end enQueue()</span><br></pre></td></tr></table></figure>
+<p>포화 상태가 아닌 큐에 원소를 삽입하려면 배열에 저장되어 있는 마지막 원소의 다음 자리에 삽입을 해야 하므로, 마지막 원소의 인덱스를 저장한 <code>rear</code>의 값을 하나 증가시켜 삽입할 자리를 준비하고, 그 인덱스에 해당하는 배열 원소 <code>Q[rear]</code>에 <code>item</code>을 저장한다.</p>
 <p><br></p>
-<h2 id="4-자료의-삭제-Pop"><a href="#4-자료의-삭제-Pop" class="headerlink" title="4. 자료의 삭제(Pop)"></a>4. 자료의 삭제(Pop)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">If Top = 0 Then</span><br><span class="line">    Underflow</span><br><span class="line">Else</span><br><span class="line">    Item &lt;- X(Top)</span><br><span class="line">    Top = Top - 1</span><br></pre></td></tr></table></figure>
-<ul>
-<li>코드 설명 : 스택 포인터가 0이면 스택의 바닥이므로 더 이상 삭제할 자료가 없으므로 Underflow를 처리한다. 그렇지 않으면 Top 위치에 있는 값을 Item으로 옮기고 스택 포인터를 1 감소시킨다.</li>
-<li>Stack에 기억되어 있는 자료를 삭제시킬 때는 제일 먼저 삭제할 자료가 있는지 없는지부터 확인해야 한다.</li>
-<li>Underflow : Top Pointer가 주소 0을 가지고 있다면 스택에는 삭제할 자료가 없으므로 Underflow를 발생시킨다.</li>
-</ul>
-<p><br></p>
-<h2 id="5-Stack의-응용-분야"><a href="#5-Stack의-응용-분야" class="headerlink" title="5. Stack의 응용 분야"></a>5. Stack의 응용 분야</h2><ul>
-<li>부 프로그램 호출 시 복귀주소를 저장할 때</li>
-<li>함수 호출의 순서 제어</li>
-<li>인터럽트가 발생하여 복귀주소를 저장할 때</li>
-<li>후위 표기법(Postfix Notation)으로 표현된 수식을 연산할 때</li>
-<li>0 주소지정방식 명령어의 자료 저장소</li>
-<li>재귀(Recursive) 프로그램의 순서 제어</li>
-<li>컴파일러를 이용한 언어 번역 시</li>
-</ul>
+<h2 id="4-자료의-삭제"><a href="#4-자료의-삭제" class="headerlink" title="4. 자료의 삭제"></a>4. 자료의 삭제</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">deQueue(Q)</span><br><span class="line">    if(isEmpty(Q)) then Queue_Empty();</span><br><span class="line">    else &#123;</span><br><span class="line">        front &lt;- front + 1;</span><br><span class="line">        return Q[front];</span><br><span class="line">    &#125;</span><br><span class="line">end deQueue()</span><br></pre></td></tr></table></figure>
+<p>공백 상태가 아닌 큐에서 원소의 삭제는 언제나 큐에 저장된 원소 중에서 가장 앞에 있는 원소, 즉 가장 먼저 큐에 들어와 있는 원소를 가장 먼저 삭제해야 한다. 그러기 위해서 <code>front</code>의 위치를 한 자리 뒤로 조정하여 큐에 남아있는 첫 번째 원소의 위치로 이동하여 삭제할 자리를 준비하고, 그 자리의 원소를 삭제하여 반환한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">delete(Q)</span><br><span class="line">    if(isEmpty(Q)) then Queue_Empty();</span><br><span class="line">    else front &lt;- front + 1;</span><br><span class="line">end delete();</span><br></pre></td></tr></table></figure>
+<p><code>delete()</code>연산은 <code>front</code>의 원소를 삭제하는 연산이고 <code>deQueue()</code>연산은 <code>front</code>의 원소를 삭제하고 삭제한 원소를 반환하는 연산이다.</p>
 
         </div>
         <footer class="article-footer">
@@ -216,7 +194,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/29/DataStructure/자료구조-스택-Stack/" data-id="cjht2a43k0001ngj4ollqinsc" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/30/DataStructure/자료구조-큐-Queue/" data-id="cjht2a43k0005ngj4gexgcff8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -353,20 +331,20 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/05/30/DataStructure/자료구조-큐-Queue/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2018/05/30/DataStructure/자료구조-트리-Tree/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">newer</strong>
         <p class="article-nav-title">
         
-            [자료구조] 큐(Queue)
+            [자료구조] 트리(Tree)
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2018/05/29/DataStructure/자료구조-Linked-List/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/05/29/DataStructure/자료구조-스택-Stack/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">[자료구조] 연결 리스트(Linked List)</p>
+        <p class="article-nav-title">[자료구조] 스택(Stack)</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -533,7 +511,7 @@
     var disqus_shortname = 'jess2';
     
     
-    var disqus_url = 'https://jess2.github.io/2018/05/29/DataStructure/자료구조-스택-Stack/';
+    var disqus_url = 'https://jess2.github.io/2018/05/30/DataStructure/자료구조-큐-Queue/';
     
     (function() {
     var dsq = document.createElement('script');
