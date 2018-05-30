@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>[React] Props | Jess2&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="FrontEnd,React.js" />
+    
+    <meta name="description" content="PropsProps는 컴포넌트 내부의 Immutable Data(변화하지 않는 데이터)를 처리할 때 사용된다. JSX내부에 { this.props.propsName }이 있을 때, 컴포넌트를 렌더링할 때 propsName = &amp;quot;value&amp;quot;이런 식으로 전달하면 된다. 아래의 예제를 보자. index.js12345import React fr">
+<meta name="keywords" content="FrontEnd,React.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[React] Props">
+<meta property="og:url" content="https://jess2.github.io/2018/05/30/React/React-Props/index.html">
+<meta property="og:site_name" content="Jess2&#39;s Blog">
+<meta property="og:description" content="PropsProps는 컴포넌트 내부의 Immutable Data(변화하지 않는 데이터)를 처리할 때 사용된다. JSX내부에 { this.props.propsName }이 있을 때, 컴포넌트를 렌더링할 때 propsName = &amp;quot;value&amp;quot;이런 식으로 전달하면 된다. 아래의 예제를 보자. index.js12345import React fr">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://jess2.github.io/images/react.png">
+<meta property="og:updated_time" content="2018-05-30T15:46:02.791Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[React] Props">
+<meta name="twitter:description" content="PropsProps는 컴포넌트 내부의 Immutable Data(변화하지 않는 데이터)를 처리할 때 사용된다. JSX내부에 { this.props.propsName }이 있을 때, 컴포넌트를 렌더링할 때 propsName = &amp;quot;value&amp;quot;이런 식으로 전달하면 된다. 아래의 예제를 보자. index.js12345import React fr">
+<meta name="twitter:image" content="https://jess2.github.io/images/react.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/jessieImg.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">제씨의 기술블로그</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://jess2.github.io/resume/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/BackEnd/">BackEnd</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/BackEnd/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/DataStructure/">DataStructure</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/">FrontEnd</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/React-js/">React.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Jess2-s/">Jess2's</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Jess2-s/Memoir/">Memoir</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Jess2-s/Plan/">Plan</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/FrontEnd/React-js/">React.js</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-React/React-Props" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [React] Props
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/05/30/React/React-Props/" class="article-date">
+            <time datetime="2018-05-30T14:14:34.000Z" itemprop="datePublished">2018-05-30</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/FrontEnd/">FrontEnd</a>, <a class="tag-link" href="/tags/React-js/">React.js</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/react.png" alt=""></p>
+<h1 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h1><p><code>Props</code>는 컴포넌트 내부의 Immutable Data(변화하지 않는 데이터)를 처리할 때 사용된다.</p>
+<p><code>JSX</code>내부에 <code>{ this.props.propsName }</code>이 있을 때, 컴포넌트를 렌더링할 때 <code>propsName = &quot;value&quot;</code>이런 식으로 전달하면 된다. 아래의 예제를 보자.</p>
+<h4 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"><span class="keyword">import</span> PropsTest <span class="keyword">from</span> <span class="string">'./PropsTest'</span>;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">PropsTest</span> <span class="attr">name</span>=<span class="string">"jessie"</span> /&gt;</span>, document.getElementById('root'));</span></span><br></pre></td></tr></table></figure>
+<p><code>index.js</code>파일의 <code>PropsTest</code>확장 태그에 <code>name=&quot;jessie&quot;</code> 애트리뷰트를 추가했다.</p>
+<h4 id="PropsTest-js"><a href="#PropsTest-js" class="headerlink" title="PropsTest.js"></a>PropsTest.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">PropsTest</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;Hello &#123; <span class="keyword">this</span>.props.name &#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>PropsTest</code>확장 태그를 구현한 <code>PropsTest</code>클래스에서 애트리뷰트 값을 사용하기 위한 표현식은 <code>{ this.props.[애트리뷰트이름] }</code>이다.</p>
+<p><code>index.js</code>파일에서 <code>name</code>이라는 애트리뷰트를 추가했기 때문에 <code>PropsTest.js</code>파일에서 <code>{ this.props.name }</code>이라고 작성하면 된다.</p>
+<h4 id="실행결과"><a href="#실행결과" class="headerlink" title="실행결과"></a>실행결과</h4><p><img src="/images/content/react-5.PNG" alt=""></p>
+<p><br></p>
+<h2 id="this-props-children"><a href="#this-props-children" class="headerlink" title="this.props.children"></a>this.props.children</h2><p><code>this.props.childeren</code>은 기본적으로 갖고있는 <code>props</code>로써, 별도의 <code>props</code>이름 설정 없이 값을 설정할 수 있다. 아래의 예시를 보자.</p>
+<h4 id="index-js-1"><a href="#index-js-1" class="headerlink" title="index.js"></a>index.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"><span class="keyword">import</span> PropsTest <span class="keyword">from</span> <span class="string">'./PropsTest'</span>;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">PropsTest</span> <span class="attr">name</span>=<span class="string">"jessie"</span>&gt;</span>I love React!!!<span class="tag">&lt;/<span class="name">PropsTest</span>&gt;</span></span>, <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</span><br></pre></td></tr></table></figure>
+<p><code>index.js</code>파일의 <code>PropsTest</code>확장 태그 사이에 별도의 애트리뷰트 이름 없이 <code>I love React!!!</code>라는 문구를 작성했다.</p>
+<h4 id="PropsTest-js-1"><a href="#PropsTest-js-1" class="headerlink" title="PropsTest.js"></a>PropsTest.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">PropsTest</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;Hello &#123; <span class="keyword">this</span>.props.name &#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">                &lt;h2&gt;&#123; this.props.children &#125;&lt;/</span>h2&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>애트리뷰트 값을 사용하기 위한 표현식은 <code>{ this.props.children }</code>이다.</p>
+<h4 id="실행결과-1"><a href="#실행결과-1" class="headerlink" title="실행결과"></a>실행결과</h4><p><img src="/images/content/react-5-1.PNG" alt=""></p>
+<p><br></p>
+<h2 id="defaultProps-props-기본값-설정"><a href="#defaultProps-props-기본값-설정" class="headerlink" title="defaultProps - props 기본값 설정"></a>defaultProps - props 기본값 설정</h2><p>컴포넌트 설정이 끝난 후, <code>defaultProps</code>객체를 설정하면 된다. 아래의 예제는 <code>name props</code>의 기본값을 <code>ellie</code>로 설정하고 있다.</p>
+<h4 id="index-js-2"><a href="#index-js-2" class="headerlink" title="index.js"></a>index.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</span><br><span class="line"><span class="keyword">import</span> PropsTest <span class="keyword">from</span> <span class="string">'./PropsTest'</span>;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">PropsTest</span>&gt;</span>I love React!!!<span class="tag">&lt;/<span class="name">PropsTest</span>&gt;</span></span>, <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</span><br></pre></td></tr></table></figure>
+<p><code>index.js</code>파일의 <code>PropsTest</code>확장 태그에 추가했던 <code>name=&quot;jessie&quot;</code>애트리뷰트를 삭제했다. 따라서 현재 설정된 <code>name</code>애트리뷰트는 없다.</p>
+<h4 id="PropsTest-js-2"><a href="#PropsTest-js-2" class="headerlink" title="PropsTest.js"></a>PropsTest.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">PropsTest</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;Hello &#123; <span class="keyword">this</span>.props.name &#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">                &lt;h2&gt;&#123; this.props.children &#125;&lt;/</span>h2&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">PropsTest.defaultProps = &#123;</span></span><br><span class="line"><span class="regexp">    name: 'ellie'</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br></pre></td></tr></table></figure>
+<p><code>PropsTest.js</code>파일에서 <code>defaultProps</code>객체를 설정해주었다. <code>name props</code>의 기본값을 <code>ellie</code>로 설정했다. 이렇게 되면, <code>index.js</code>파일에서 별도의 애트리뷰트를 설정하지 않았을 때 기본값으로 <code>name</code>에 <code>ellie</code>가 들어가는 것이다.</p>
+<h4 id="실행결과-2"><a href="#실행결과-2" class="headerlink" title="실행결과"></a>실행결과</h4><p><img src="/images/content/react-5-2.PNG" alt=""></p>
+<p><br></p>
+<h2 id="PropTypes-애트리뷰트-값-타입-지정"><a href="#PropTypes-애트리뷰트-값-타입-지정" class="headerlink" title="PropTypes - 애트리뷰트 값 타입 지정"></a>PropTypes - 애트리뷰트 값 타입 지정</h2><p>이 기능을 통하여 특정 <code>props</code>값이 특정 <code>type</code>이 아니거나 필수 <code>props</code>인데 입력하지 않았을 경우 경고를 띄울 수 있다. <code>Type</code>을 검증할 때는 <code>Component</code>선언이 끝난 후, <code>PropTypes</code>를 설정하면 된다.</p>
+<p>단, React v15.5부터 <code>PropTypes</code>가 <code>React</code>에서 분리되었기 때문에 <code>import</code>를 꼭 해줘야 한다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>그럼 아래의 예시를 보자.</p>
+<h4 id="PropsTest-js-3"><a href="#PropsTest-js-3" class="headerlink" title="PropsTest.js"></a>PropsTest.js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">PropsTest</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;Hello &#123; <span class="keyword">this</span>.props.name &#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">                &lt;h2&gt;&#123; this.props.children &#125;&lt;/</span>h2&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">PropsTest.defaultProps = &#123;</span></span><br><span class="line"><span class="regexp">    name: 'ellie'</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">PropsTest.propTypes = &#123;</span></span><br><span class="line"><span class="regexp">    name: PropTypes.number</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br></pre></td></tr></table></figure>
+<p>21번 줄에서 <code>name</code>애트리뷰트 값 타입을 <code>number</code>로 지정했다. 그런데, <code>name</code>에 지정한 값의 타입은 <code>string</code>이기 때문에 아래와 같이 에러가 발생한다.</p>
+<blockquote>
+<p><strong>Warning: Failed prop type: Invalid prop <code>name</code> of type <code>string</code> supplied to <code>Props</code>, expected <code>number</code>.</strong></p>
+</blockquote>
+<p><br><br>또한, 타입 지정 뒤에 <code>isRequired</code>를 붙여주면 이 애트리뷰트가 필수로 입력이 되도록 설정할 수 있다. <code>propTypes</code>를 아래와 같이 수정해보자.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PropsTest.propTypes = &#123;</span><br><span class="line">    name: PropTypes.string,</span><br><span class="line">    age: PropTypes.number.isRequired</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><code>name</code>애트리뷰트 값 타입을 <code>string</code>으로 지정해주었기 때문에 이 부분에서는 더 이상 에러가 발생하지 않는다. 하지만 <code>age</code>애트리뷰트 값 타입 지정 뒤에 <code>isRequired</code>를 붙여주었기 때문에 <code>age</code>애트리뷰트가 필수로 있어야 한다. 그런데 <code>age</code>애트리뷰트를 설정하지 않으면 아래와 같이 에러가 발생한다.</p>
+<blockquote>
+<p><strong>Warning: Failed prop type: The prop <code>age</code> is marked as required in <code>Props</code>, but its value is <code>undefined</code>.</strong></p>
+</blockquote>
+<p><br></p>
+<h4 id="PropTypes-종류"><a href="#PropTypes-종류" class="headerlink" title="PropTypes 종류"></a>PropTypes 종류</h4><table>
+<thead>
+<tr>
+<th style="text-align:left">타입 지정</th>
+<th style="text-align:left">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">PropTypes.string</td>
+<td style="text-align:left">문자열</td>
+</tr>
+<tr>
+<td style="text-align:left">PropTypes.array</td>
+<td style="text-align:left">배열</td>
+</tr>
+<tr>
+<td style="text-align:left">PropTypes.bool</td>
+<td style="text-align:left">true/false</td>
+</tr>
+<tr>
+<td style="text-align:left">PropTypes.func</td>
+<td style="text-align:left">자바스크립트 함수</td>
+</tr>
+<tr>
+<td style="text-align:left">PropTypes.number</td>
+<td style="text-align:left">숫자</td>
+</tr>
+<tr>
+<td style="text-align:left">PropTypes.object</td>
+<td style="text-align:left">객체</td>
+</tr>
+<tr>
+<td style="text-align:left">PropTypes.symbol</td>
+<td style="text-align:left">자바스크립트 symbol</td>
+</tr>
+<tr>
+<td style="text-align:left">PropTypes.instanceOf(클래스명)</td>
+<td style="text-align:left">클래스 객체</td>
+</tr>
+<tr>
+<td style="text-align:left">PropTypes.oneOf([‘값1’, ‘값2’])</td>
+<td style="text-align:left">두 값 중 하나</td>
+</tr>
+<tr>
+<td style="text-align:left">PropTypes.arrayOf(PropTypes.number)</td>
+<td style="text-align:left">숫자 배열</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="어떤-타입이든-필수로-입력이-되도록-설정하기"><a href="#어떤-타입이든-필수로-입력이-되도록-설정하기" class="headerlink" title="어떤 타입이든 필수로 입력이 되도록 설정하기"></a>어떤 타입이든 필수로 입력이 되도록 설정하기</h4><p>타입 지정 뒤에 <code>isRequired</code>를 붙여주면 된다. : <strong>PropTypes.any.isRequired</strong></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://jess2.github.io/2018/05/30/React/React-Props/" data-id="cjhtaa8gk001iskj4s8dfwmdu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/jesssss2" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/je_ss2" target="_blank">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/jess2" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="bitbucket" href="https://bitbucket.org/jessie3578" target="_blank">
+                        <i class="icon fa fa-bitbucket"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="laptop" href="https://www.acmicpc.net/user/jess2" target="_blank">
+                        <i class="icon fa fa-laptop"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="archive" href="http://jess2.tistory.com/" target="_blank">
+                        <i class="icon fa fa-archive"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/05/30/React/React-JSX/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[React] JSX의 특징</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/">BackEnd</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Node-js/">Node.js</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/DataStructure/">DataStructure</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/">FrontEnd</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/React-js/">React.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/">Jess2's</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/Memoir/">Memoir</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/Plan/">Plan</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/30/React/React-Props/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react.png)" alt="[React] Props" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/FrontEnd/React-js/">React.js</a></p>
+                            <p class="item-title"><a href="/2018/05/30/React/React-Props/" class="title">[React] Props</a></p>
+                            <p class="item-date"><time datetime="2018-05-30T14:14:34.000Z" itemprop="datePublished">2018-05-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/30/React/React-JSX/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react.png)" alt="[React] JSX의 특징" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/FrontEnd/React-js/">React.js</a></p>
+                            <p class="item-title"><a href="/2018/05/30/React/React-JSX/" class="title">[React] JSX의 특징</a></p>
+                            <p class="item-date"><time datetime="2018-05-30T13:17:40.000Z" itemprop="datePublished">2018-05-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/30/React/React-간단한-프로젝트-구현해보기/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/react.png)" alt="[React] 간단한 프로젝트 구현해보기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/FrontEnd/React-js/">React.js</a></p>
+                            <p class="item-title"><a href="/2018/05/30/React/React-간단한-프로젝트-구현해보기/" class="title">[React] 간단한 프로젝트 구현해보기</a></p>
+                            <p class="item-date"><time datetime="2018-05-30T12:35:19.000Z" itemprop="datePublished">2018-05-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/30/DataStructure/자료구조-트리-Tree/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/datastructure.jpg)" alt="[자료구조] 트리(Tree)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/DataStructure/">DataStructure</a></p>
+                            <p class="item-title"><a href="/2018/05/30/DataStructure/자료구조-트리-Tree/" class="title">[자료구조] 트리(Tree)</a></p>
+                            <p class="item-date"><time datetime="2018-05-30T11:31:28.000Z" itemprop="datePublished">2018-05-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/05/30/DataStructure/자료구조-큐-Queue/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/datastructure.jpg)" alt="[자료구조] 큐(Queue)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/DataStructure/">DataStructure</a></p>
+                            <p class="item-title"><a href="/2018/05/30/DataStructure/자료구조-큐-Queue/" class="title">[자료구조] 큐(Queue)</a></p>
+                            <p class="item-date"><time datetime="2018-05-30T10:48:05.000Z" itemprop="datePublished">2018-05-30</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/BackEnd/" style="font-size: 12.5px;">BackEnd</a> <a href="/tags/CS/" style="font-size: 15px;">CS</a> <a href="/tags/DataStructure/" style="font-size: 15px;">DataStructure</a> <a href="/tags/ECMAScript6/" style="font-size: 10px;">ECMAScript6</a> <a href="/tags/FrontEnd/" style="font-size: 20px;">FrontEnd</a> <a href="/tags/JavaScript/" style="font-size: 17.5px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 12.5px;">Node.js</a> <a href="/tags/React-js/" style="font-size: 15px;">React.js</a> <a href="/tags/exam/" style="font-size: 10px;">exam</a> <a href="/tags/meetup/" style="font-size: 12.5px;">meetup</a> <a href="/tags/memoir/" style="font-size: 10px;">memoir</a> <a href="/tags/plan/" style="font-size: 10px;">plan</a> <a href="/tags/seminar/" style="font-size: 12.5px;">seminar</a> <a href="/tags/talk-concert/" style="font-size: 10px;">talk concert</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Soyeon Jung</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'jess2';
+    
+    
+    var disqus_url = 'https://jess2.github.io/2018/05/30/React/React-Props/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
