@@ -3,25 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>[자료구조] 큐(Queue) | Jess2&#39;s Blog</title>
+    <title>[자료구조] 큐(Queue) | Jess2&#39;s IT Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="CS,DataStructure" />
     
-    <meta name="description" content="큐(Queue)1. 큐의 개념 한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!  큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO)의 구조로">
+    <meta name="description" content="큐(Queue)1. 큐의 개념 한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!  큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO, First">
 <meta name="keywords" content="CS,DataStructure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[자료구조] 큐(Queue)">
 <meta property="og:url" content="https://jess2.github.io/2018/05/30/DataStructure/자료구조-큐-Queue/index.html">
-<meta property="og:site_name" content="Jess2&#39;s Blog">
-<meta property="og:description" content="큐(Queue)1. 큐의 개념 한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!  큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO)의 구조로">
+<meta property="og:site_name" content="Jess2&#39;s IT Blog">
+<meta property="og:description" content="큐(Queue)1. 큐의 개념 한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!  큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO, First">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/datastructure.jpg">
-<meta property="og:updated_time" content="2018-05-30T11:03:07.705Z">
+<meta property="og:updated_time" content="2018-06-01T10:19:06.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[자료구조] 큐(Queue)">
-<meta name="twitter:description" content="큐(Queue)1. 큐의 개념 한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!  큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO)의 구조로">
+<meta name="twitter:description" content="큐(Queue)1. 큐의 개념 한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!  큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO, First">
 <meta name="twitter:image" content="https://jess2.github.io/images/datastructure.jpg">
     
 
@@ -175,7 +175,7 @@
 <h1 id="큐-Queue"><a href="#큐-Queue" class="headerlink" title="큐(Queue)"></a>큐(Queue)</h1><h2 id="1-큐의-개념"><a href="#1-큐의-개념" class="headerlink" title="1. 큐의 개념"></a>1. 큐의 개념</h2><blockquote>
 <p><strong>한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!</strong></p>
 </blockquote>
-<p>큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO)의 구조로 운영된다.</p>
+<p>큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 <strong>선입선출(FIFO, First In Frist Out)</strong>의 구조로 운영된다.</p>
 <p><br></p>
 <h2 id="2-큐-자료의-삽입과-삭제"><a href="#2-큐-자료의-삽입과-삭제" class="headerlink" title="2. 큐 - 자료의 삽입과 삭제"></a>2. 큐 - 자료의 삽입과 삭제</h2><p><img src="/images/content/queue.png" alt=""></p>
 <p>큐는 한쪽 끝은 <code>front</code>로 정하여 삭제 연산만 수행하도록 하고, 다른 쪽 끝은 <code>rear</code>로 정하여 삽입 연산만 수행하도록 한다. 따라서 가장 먼저 들어온 프런트 원소가 가장 먼저 삭제되므로 선입선출 구조가 된다.</p>
@@ -194,7 +194,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/05/30/DataStructure/자료구조-큐-Queue/" data-id="cjhtaa8f90005skj4whl9yank" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/05/30/DataStructure/자료구조-큐-Queue/" data-id="cjhw1xlye0005ogj4mpa7jkql" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -358,7 +358,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/">BackEnd</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Node-js/">Node.js</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/DataStructure/">DataStructure</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/">FrontEnd</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/React-js/">React.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/">Jess2's</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/Memoir/">Memoir</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/Plan/">Plan</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">5</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/">BackEnd</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Node-js/">Node.js</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/DataStructure/">DataStructure</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/">FrontEnd</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/React-js/">React.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/">Jess2's</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/Memoir/">Memoir</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/Plan/">Plan</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">5</span></li></ul>
         </div>
     </div>
 
@@ -369,6 +369,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/01/JavaScript/JS-배열-메서드/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 배열 메서드" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a></p>
+                            <p class="item-title"><a href="/2018/06/01/JavaScript/JS-배열-메서드/" class="title">[JS] 배열 메서드</a></p>
+                            <p class="item-date"><time datetime="2018-06-01T12:47:01.000Z" itemprop="datePublished">2018-06-01</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -447,26 +467,6 @@
                             <p class="item-category"><a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/DataStructure/">DataStructure</a></p>
                             <p class="item-title"><a href="/2018/05/30/DataStructure/자료구조-트리-Tree/" class="title">[자료구조] 트리(Tree)</a></p>
                             <p class="item-date"><time datetime="2018-05-30T11:31:28.000Z" itemprop="datePublished">2018-05-30</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/05/30/DataStructure/자료구조-큐-Queue/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/datastructure.jpg)" alt="[자료구조] 큐(Queue)" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/DataStructure/">DataStructure</a></p>
-                            <p class="item-title"><a href="/2018/05/30/DataStructure/자료구조-큐-Queue/" class="title">[자료구조] 큐(Queue)</a></p>
-                            <p class="item-date"><time datetime="2018-05-30T10:48:05.000Z" itemprop="datePublished">2018-05-30</time></p>
                         </div>
                     </li>
                 
