@@ -18,7 +18,7 @@
 <meta property="og:description" content="스트림(Stream)스트림은 배열이나 문자열같은 데이터 컬렉션이다. 스트림은 대용량의 파일을 다룰 때나, 외부 소스로부터 데이터를 한번에 일부분씩 가져올때 사용된다.  스트림이 왜 필요한데?  fs 모듈을 사용하면 파일을 읽고 쓸 수 있다. 그러나 파일이 대용량일 경우, 파일 전체를 모두 로드하기 전에 메모리 버퍼를 절약하기 위해 뭔가를 해야할 때가 있다">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/nodejs.png">
-<meta property="og:updated_time" content="2018-06-08T14:06:22.783Z">
+<meta property="og:updated_time" content="2018-06-08T14:20:26.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Node] 스트림(Stream)">
 <meta name="twitter:description" content="스트림(Stream)스트림은 배열이나 문자열같은 데이터 컬렉션이다. 스트림은 대용량의 파일을 다룰 때나, 외부 소스로부터 데이터를 한번에 일부분씩 가져올때 사용된다.  스트림이 왜 필요한데?  fs 모듈을 사용하면 파일을 읽고 쓸 수 있다. 그러나 파일이 대용량일 경우, 파일 전체를 모두 로드하기 전에 메모리 버퍼를 절약하기 위해 뭔가를 해야할 때가 있다">
@@ -261,11 +261,11 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><code>write(chunk, [encoding], [callback]</code>)</td>
+<td style="text-align:left"><code>write(chunk, [encoding], [callback])</code></td>
 <td style="text-align:left">스트림 객체의 데이터 위치에 데이터 청크를 쓴다. 데이터는 <code>String</code>이나 <code>Buffer</code>형태다. <code>encoding</code>이 지정되면 문자열 데이터의 인코딩 정보로 사용된다. <code>callback</code>이 지정되면 데이터가 비워진 이후 호출된다.</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>end(chunk, [encoding], [callback]</code>)</td>
+<td style="text-align:left"><code>end(chunk, [encoding], [callback])</code></td>
 <td style="text-align:left">데이터를 더 이상 수용하지 않고 <code>finish</code>이벤트를 보내는 것을 제외하면 <code>write()</code>와 동일하다.</td>
 </tr>
 </tbody>
@@ -277,7 +277,7 @@
 
 
 
-    <a data-url="https://jess2.github.io/2018/06/08/Node.js/Node-스트림-Stream/" data-id="cji61ox1p002dscj4buzklcsb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/06/08/Node.js/Node-스트림-Stream/" data-id="cji62caon001ojsj4vvw6uzxg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
