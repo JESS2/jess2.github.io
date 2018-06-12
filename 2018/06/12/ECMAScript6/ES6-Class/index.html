@@ -3,17 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive: 2018/5 | Jess2&#39;s IT Blog</title>
+    <title>[ES6] Class | Jess2&#39;s IT Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Jess2&#39;s IT Blog">
-<meta property="og:url" content="https://jess2.github.io/archives/2018/05/index.html">
+        <meta name="keywords" content="FrontEnd,ECMAScript6" />
+    
+    <meta name="description" content="ECMAScript 2015의 ClassES6에 변수에 대한 규칙이 엄격해지고 클래스와 모듈 같은 복잡한 응용 프로그램을 작성하기 위한 새로운 문법이 추가되었다. 특히 명시적인 클래스의 추가로 더욱 더 편리해졌다. 기본의 자바스크립트(ES5)에는 클래스가 없어서, 생성자 함수와 프로토타입으로 클래스의 개념을 구현했지만, ES6에서는 클래스를 선언할 수 있">
+<meta name="keywords" content="FrontEnd,ECMAScript6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[ES6] Class">
+<meta property="og:url" content="https://jess2.github.io/2018/06/12/ECMAScript6/ES6-Class/index.html">
 <meta property="og:site_name" content="Jess2&#39;s IT Blog">
+<meta property="og:description" content="ECMAScript 2015의 ClassES6에 변수에 대한 규칙이 엄격해지고 클래스와 모듈 같은 복잡한 응용 프로그램을 작성하기 위한 새로운 문법이 추가되었다. 특히 명시적인 클래스의 추가로 더욱 더 편리해졌다. 기본의 자바스크립트(ES5)에는 클래스가 없어서, 생성자 함수와 프로토타입으로 클래스의 개념을 구현했지만, ES6에서는 클래스를 선언할 수 있">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://jess2.github.io/images/es6.jpeg">
+<meta property="og:updated_time" content="2018-06-12T11:12:02.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jess2&#39;s IT Blog">
+<meta name="twitter:title" content="[ES6] Class">
+<meta name="twitter:description" content="ECMAScript 2015의 ClassES6에 변수에 대한 규칙이 엄격해지고 클래스와 모듈 같은 복잡한 응용 프로그램을 작성하기 위한 새로운 문법이 추가되었다. 특히 명시적인 클래스의 추가로 더욱 더 편리해졌다. 기본의 자바스크립트(ES5)에는 클래스가 없어서, 생성자 함수와 프로토타입으로 클래스의 개념을 구현했지만, ES6에서는 클래스를 선언할 수 있">
+<meta name="twitter:image" content="https://jess2.github.io/images/es6.jpeg">
     
 
     
@@ -126,338 +135,137 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>Archive: 2018/5
+    <a class="page-title-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-ECMAScript6/ES6-Class" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2018" class="archive-year"><i class="icon fa fa-calendar-o"></i>2018</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/30/React/React-Props/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react.png)" alt="[React] Props" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jess2.github.io/2018/05/30/React/React-Props/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/FrontEnd/React-js/">React.js</a>
-            </div>
-            <div class="date"><time datetime="2018-05-30T14:14:34.000Z" itemprop="datePublished">2018-05-30</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/30/React/React-Props/">[React] Props</a>
+        [ES6] Class
         </h1>
     
 
-        <p class="article-excerpt">
-            
-PropsProps는 컴포넌트 내부의 Immutable Data(변화하지 않는 데이터)를 처리할 때 사용된다.
-JSX내부에 { this.props.propsName }이 있을 때, 컴포넌트를 렌더링할 때 propsName = &quot;value&quot;이런 식으로 전달하면 된다. 아래의 예제를 보자.
-index.js12345import React fr
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/06/12/ECMAScript6/ES6-Class/" class="article-date">
+            <time datetime="2018-06-12T10:53:42.000Z" itemprop="datePublished">2018-06-12</time>
+        </a>
     </div>
-</article>
-    
 
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/30/React/React-JSX/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react.png)" alt="[React] JSX의 특징" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jess2.github.io/2018/05/30/React/React-JSX/">0</span>
-    
-</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/ECMAScript6/">ECMAScript6</a>, <a class="tag-link" href="/tags/FrontEnd/">FrontEnd</a>
+    </div>
 
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/FrontEnd/React-js/">React.js</a>
             </div>
-            <div class="date"><time datetime="2018-05-30T13:17:40.000Z" itemprop="datePublished">2018-05-30</time></div>
-        </div>
         
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/30/React/React-JSX/">[React] JSX의 특징</a>
-        </h1>
-    
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/es6.jpeg" alt=""></p>
+<h1 id="ECMAScript-2015의-Class"><a href="#ECMAScript-2015의-Class" class="headerlink" title="ECMAScript 2015의 Class"></a>ECMAScript 2015의 Class</h1><p>ES6에 변수에 대한 규칙이 엄격해지고 클래스와 모듈 같은 복잡한 응용 프로그램을 작성하기 위한 새로운 문법이 추가되었다. 특히 명시적인 클래스의 추가로 더욱 더 편리해졌다.</p>
+<p>기본의 자바스크립트(ES5)에는 클래스가 없어서, 생성자 함수와 프로토타입으로 클래스의 개념을 구현했지만, ES6에서는 클래스를 선언할 수 있다. ES5와 ES6의 코드를 비교해보자.</p>
+<h4 id="ES5-Example"><a href="#ES5-Example" class="headerlink" title="ES5 Example"></a>ES5 Example</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//생성자 함수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Character</span>(<span class="params">name, job</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name;</span><br><span class="line">  <span class="keyword">this</span>.job = job;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//프로토타입으로 메소드 생성</span></span><br><span class="line">Character.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">document</span>.write(<span class="keyword">this</span>.name + <span class="string">' '</span> + <span class="keyword">this</span>.job + <span class="string">' 캐릭터 이동&lt;br&gt;'</span>);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//인스턴스 객체 생성</span></span><br><span class="line"><span class="keyword">var</span> char1 = <span class="keyword">new</span> Character(<span class="string">'루이스'</span>, <span class="string">'기사'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//메소드 실행</span></span><br><span class="line">char1.move();</span><br></pre></td></tr></table></figure>
+<h4 id="ES6-Example"><a href="#ES6-Example" class="headerlink" title="ES6 Example"></a>ES6 Example</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//클래스 선언</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Character</span></span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, job) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">  &#125;</span><br><span class="line">  move() &#123;</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.job&#125;</span> 캐릭터 이동&lt;br&gt;`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//인스턴스 객체 생성</span></span><br><span class="line"><span class="keyword">let</span> char1 = <span class="keyword">new</span> Character(<span class="string">'루이스'</span>, <span class="string">'기사'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//메소드 실행</span></span><br><span class="line">char1.move();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>(줄 2) : 생성자 함수로 정의하던 형태로 <code>constructor</code>에 속성을 정의한다.</li>
+<li>(줄 7) : 메소드를 지정한다. 클래스 내의 함수들은 <code>function</code>키워드를 따로 선언하지 않아도 된다. 기존 방식에서는 <code>prototype</code>으로 함수들을 별도로 선언해서 연결하는 방식이어서 구성이 복잡하였지만, ES6에서는 문법이 간결해졌다.</li>
+</ul>
+<p><br></p>
+<h2 id="Class의-상속"><a href="#Class의-상속" class="headerlink" title="Class의 상속"></a>Class의 상속</h2><p>클래스의 상속이란, 클래스 원형을 토대로 새로운 클래스를 재창조하는 것이다. ES6의 클래스를 사용하면 기존 자바스크립트로 클래스의 상속 개념을 구현하는 것보다 작업이 훨씬 간단해진다.</p>
+<h4 id="ES6-Example-1"><a href="#ES6-Example-1" class="headerlink" title="ES6 Example"></a>ES6 Example</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>; <span class="comment">//문법을 엄격하게 적용함</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// 클래스 선언</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Character</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, job) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">  &#125;</span><br><span class="line">  move() &#123;</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.job&#125;</span> 캐릭터 이동&lt;br&gt;`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//자식 클래스</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Monster</span> <span class="keyword">extends</span> <span class="title">Character</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name, job, skill) &#123;</span><br><span class="line">    <span class="keyword">super</span>(name, job);</span><br><span class="line">    <span class="keyword">this</span>.skill = skill;</span><br><span class="line">  &#125;</span><br><span class="line">  useSkill() &#123;</span><br><span class="line">    <span class="built_in">document</span>.write(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.job&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.skill&#125;</span> 스킬 사용&lt;br&gt;`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//인스턴스 객체 생성</span></span><br><span class="line"><span class="keyword">let</span> char1 = <span class="keyword">new</span> Character(<span class="string">'루이스'</span>, <span class="string">'기사'</span>);</span><br><span class="line"><span class="keyword">let</span> monster = <span class="keyword">new</span> Monster(<span class="string">'오크'</span>, <span class="string">'대장'</span>, <span class="string">'몽둥이'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">//메소드 실행</span></span><br><span class="line">char1.move(); <span class="comment">//루이스 기사 캐릭터 이동</span></span><br><span class="line">monster.useSkill(); <span class="comment">//오크 대장 몽둥이 스킬 사용</span></span><br><span class="line">monster.move(); <span class="comment">//오크 대장 캐릭터 이동</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>(줄 17) : <code>super()</code>는 상속받은 부모의 생성자(constructor)를 호출해 자식 클래스인 <code>Monster</code>에 적용한다.</li>
+</ul>
 
-        <p class="article-excerpt">
+        </div>
+        <footer class="article-footer">
             
-JSX의 특징이전 포스팅에서 JSX에 대해 잠깐 다뤄보았지만, 본격적으로 자세하게 알아보자.
-모든 리액트 컴포넌트는 render메소드가 있는데 이것은 컴포넌트가 어떻게 생길지 정의해준다. 여기서 특별한 점 하나는 JSX다. 이것은 자바스크립트 코드에서 html형식을 그대로 사용할 수 있게 해준다. 그리고 React JSX는 XML같은 문법을 Native 
-        </p>
+
+
+
+    <a data-url="https://jess2.github.io/2018/06/12/ECMAScript6/ES6-Class/" data-id="cjibl7h5d0000vgj44psluxqq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
     </div>
 </article>
-    
-        </div>
-    
 
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/30/React/React-간단한-프로젝트-구현해보기/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/react.png)" alt="[React] 간단한 프로젝트 구현해보기" class="thumbnail-image"></span>
-    
+    <section id="comments">
     
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jess2.github.io/2018/05/30/React/React-간단한-프로젝트-구현해보기/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/FrontEnd/React-js/">React.js</a>
-            </div>
-            <div class="date"><time datetime="2018-05-30T12:35:19.000Z" itemprop="datePublished">2018-05-30</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/30/React/React-간단한-프로젝트-구현해보기/">[React] 간단한 프로젝트 구현해보기</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-간단한 리액트 프로젝트 구현해보기이전 포스트에서 프로젝트를 생성하고 실행해봤다.
-이제 직접 코드를 작성해보기 전에 프로젝트 내 src폴더 안에 있는 여러 파일들을 모두 삭제하자.
-1. index.js 생성12345import React from 'react';import ReactDOM from 'react-dom';import App from './Ap
-        </p>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-</article>
-    
 
     
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/30/DataStructure/자료구조-트리-Tree/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/datastructure.PNG)" alt="[자료구조] 트리(Tree)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jess2.github.io/2018/05/30/DataStructure/자료구조-트리-Tree/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/DataStructure/">DataStructure</a>
-            </div>
-            <div class="date"><time datetime="2018-05-30T11:31:28.000Z" itemprop="datePublished">2018-05-30</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/30/DataStructure/자료구조-트리-Tree/">[자료구조] 트리(Tree)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-트리(Tree)리스트와 스택, 큐는 자료들의 선의 형태로 나열되어 있는 구조를 가진 선형 자료구조였다. 자료들이 나열도니 구조가 선형이 아닌 자료구조를 비선형 자료구조라고 하는데, 트리(Tree)는 비선형 자료구조 중에서 자료들 간에 계층관계를 가진 계층형 자료구조이다.
-
-트리는 정점(Node, 노드)과 선분(Branch, 가지)을 이용하여 사이클을 이루
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/30/DataStructure/자료구조-큐-Queue/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/datastructure.PNG)" alt="[자료구조] 큐(Queue)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jess2.github.io/2018/05/30/DataStructure/자료구조-큐-Queue/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/DataStructure/">DataStructure</a>
-            </div>
-            <div class="date"><time datetime="2018-05-30T10:48:05.000Z" itemprop="datePublished">2018-05-30</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/30/DataStructure/자료구조-큐-Queue/">[자료구조] 큐(Queue)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-큐(Queue)1. 큐의 개념
-한쪽 끝에서는 삽입 작업만, 또 다른 한쪽 끝에서는 삭제 작업만!
-
-큐(Queue)는 스택과 마찬가지로 삽입과 삭제의 위치와 방법이 제한되어 있는 유한 순서 리스트이지만, 스택과 달리 리스트의 한쪽 끝에서는 삽입 작업이 이루어지고 반대쪽 끝에서는 삭제 작업이 이루어져서, 삽입된 순서대로 삭제되는 선입선출(FIFO, First
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2018/05/29/DataStructure/자료구조-스택-Stack/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/datastructure.PNG)" alt="[자료구조] 스택(Stack)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://jess2.github.io/2018/05/29/DataStructure/자료구조-스택-Stack/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/DataStructure/">DataStructure</a>
-            </div>
-            <div class="date"><time datetime="2018-05-29T13:19:37.000Z" itemprop="datePublished">2018-05-29</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2018/05/29/DataStructure/자료구조-스택-Stack/">[자료구조] 스택(Stack)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-스택(Stack)1. 스택의 개념
-자료의 삽입과 삭제가 한쪽 끝에서만!
-
-
-스택은 리스트의 한쪽 끝으로만 자료의 삽입, 삭제 작업이 이루어지는 자료 구조이다.
-스택은 가장 나중에 삽입된 자료가 가장 먼저 삭제되는 후입선출(LIFO; Last In First Out) 방식으로 자료를 처리한다.
-TOP : Stack으로 할당된 기억 공간에 가장 마지막으로 삽
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-
-    </div></section>
-
-
-    <nav id="page-nav">
-        <span class="pages">Page 1 of 5</span>
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2018/05/page/2/">2</a><a class="page-number" href="/archives/2018/05/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2018/05/page/5/">5</a><a class="extend next" rel="next" href="/archives/2018/05/page/2/">&raquo;</a>
-    </nav>
+    </section>
 
 
                         </div>
@@ -518,6 +326,19 @@ TOP : Stack으로 할당된 기억 공간에 가장 마지막으로 삽
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/06/08/Node.js/Node-스트림-Stream/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[Node] 스트림(Stream)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -679,11 +500,13 @@ TOP : Stack으로 할당된 기억 공간에 가장 마지막으로 삽
     var disqus_shortname = 'jess2';
     
     
+    var disqus_url = 'https://jess2.github.io/2018/06/12/ECMAScript6/ES6-Class/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
