@@ -3,26 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>2018 만다라트 계획표 | Jess2&#39;s IT Blog</title>
+    <title>[JAVA] 일반 배열에 특정 값이 들어있는 지 확인하기 | Jess2&#39;s IT Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="plan" />
+        <meta name="keywords" content="BackEnd,Java" />
     
-    <meta name="description" content="2018 만다라트 계획표 2018년의 가장 큰 목표는 개발자로 취업하는 것이다. 그래서 개발자 취업을 위해 필요한 것들이 무엇이 있을까 생각을 해보았다.  이미지 메이킹 멘탈 인간성 교류 면접 스펙 개발지식 알고리즘  사실 작년부터 2018년이 오기만을 너무나 기다렸다. 그 동안 하고 싶었던 공부도 본격적으로 하고 나만의 시간을 가지고 싶었다. 올해에는">
-<meta name="keywords" content="plan">
+    <meta name="description" content="일반 배열에 특정 값이 들어있는 지 확인하기방법 1) asList / contains 사용1Arrays.asList(array).contains(value); 방법 2) equals 사용12345for(String s: arr)&amp;#123;    if(s.equals(targetValue))        return true;&amp;#125;return fals">
+<meta name="keywords" content="BackEnd,Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2018 만다라트 계획표">
-<meta property="og:url" content="https://jess2.github.io/2018/01/24/Plan-Memoir/2018-만다라트-계획표/index.html">
+<meta property="og:title" content="[JAVA] 일반 배열에 특정 값이 들어있는 지 확인하기">
+<meta property="og:url" content="https://jess2.github.io/2018/08/06/Java/JAVA-일반-배열에-특정-값이-들어있는-지-확인하기/index.html">
 <meta property="og:site_name" content="Jess2&#39;s IT Blog">
-<meta property="og:description" content="2018 만다라트 계획표 2018년의 가장 큰 목표는 개발자로 취업하는 것이다. 그래서 개발자 취업을 위해 필요한 것들이 무엇이 있을까 생각을 해보았다.  이미지 메이킹 멘탈 인간성 교류 면접 스펙 개발지식 알고리즘  사실 작년부터 2018년이 오기만을 너무나 기다렸다. 그 동안 하고 싶었던 공부도 본격적으로 하고 나만의 시간을 가지고 싶었다. 올해에는">
+<meta property="og:description" content="일반 배열에 특정 값이 들어있는 지 확인하기방법 1) asList / contains 사용1Arrays.asList(array).contains(value); 방법 2) equals 사용12345for(String s: arr)&amp;#123;    if(s.equals(targetValue))        return true;&amp;#125;return fals">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://jess2.github.io/images/year/2018.jpg">
-<meta property="og:updated_time" content="2018-05-29T12:59:58.750Z">
+<meta property="og:image" content="https://jess2.github.io/images/java.png">
+<meta property="og:updated_time" content="2018-08-06T08:42:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2018 만다라트 계획표">
-<meta name="twitter:description" content="2018 만다라트 계획표 2018년의 가장 큰 목표는 개발자로 취업하는 것이다. 그래서 개발자 취업을 위해 필요한 것들이 무엇이 있을까 생각을 해보았다.  이미지 메이킹 멘탈 인간성 교류 면접 스펙 개발지식 알고리즘  사실 작년부터 2018년이 오기만을 너무나 기다렸다. 그 동안 하고 싶었던 공부도 본격적으로 하고 나만의 시간을 가지고 싶었다. 올해에는">
-<meta name="twitter:image" content="https://jess2.github.io/images/year/2018.jpg">
+<meta name="twitter:title" content="[JAVA] 일반 배열에 특정 값이 들어있는 지 확인하기">
+<meta name="twitter:description" content="일반 배열에 특정 값이 들어있는 지 확인하기방법 1) asList / contains 사용1Arrays.asList(array).contains(value); 방법 2) equals 사용12345for(String s: arr)&amp;#123;    if(s.equals(targetValue))        return true;&amp;#125;return fals">
+<meta name="twitter:image" content="https://jess2.github.io/images/java.png">
     
 
     
@@ -80,7 +80,7 @@
                                     <a class="main-nav-list-link" href="https://jess2.github.io/resume/">About</a>
                                 </li>
                             
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/BackEnd/">BackEnd</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/BackEnd/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/BackEnd/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/DataStructure/">DataStructure</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/">FrontEnd</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/React-js/">React.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Jess2-s/">Jess2's</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Jess2-s/Memoir/">Memoir</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Jess2-s/Plan/">Plan</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a></li></ul>
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/BackEnd/">BackEnd</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/BackEnd/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/BackEnd/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/DataStructure/">DataStructure</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/">FrontEnd</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/React-js/">React.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a></li></ul>
                                     
                         </ul>
                         <nav id="sub-nav">
@@ -135,18 +135,18 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/Jess2-s/">Jess2's</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Jess2-s/Plan/">Plan</a>
+    <a class="page-title-link" href="/categories/BackEnd/">BackEnd</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/BackEnd/Java/">Java</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            <article id="post-Plan-Memoir/2018-만다라트-계획표" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-Java/JAVA-일반-배열에-특정-값이-들어있는-지-확인하기" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        2018 만다라트 계획표
+        [JAVA] 일반 배열에 특정 값이 들어있는 지 확인하기
         </h1>
     
 
@@ -156,43 +156,31 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2018/01/24/Plan-Memoir/2018-만다라트-계획표/" class="article-date">
-            <time datetime="2018-01-24T10:31:27.000Z" itemprop="datePublished">2018-01-24</time>
+        <a href="/2018/08/06/Java/JAVA-일반-배열에-특정-값이-들어있는-지-확인하기/" class="article-date">
+            <time datetime="2018-08-06T08:38:42.000Z" itemprop="datePublished">2018-08-06</time>
         </a>
     </div>
 
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/plan/">plan</a>
+        <a class="tag-link" href="/tags/BackEnd/">BackEnd</a>, <a class="tag-link" href="/tags/Java/">Java</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><img src="/images/year/2018.jpg" alt=""></p>
-<h1 id="2018-만다라트-계획표"><a href="#2018-만다라트-계획표" class="headerlink" title="2018 만다라트 계획표"></a>2018 만다라트 계획표</h1><p><img src="/images/content/plan.png" alt=""></p>
-<p>2018년의 가장 큰 목표는 개발자로 취업하는 것이다. 그래서 개발자 취업을 위해 필요한 것들이 무엇이 있을까 생각을 해보았다.</p>
-<ul>
-<li>이미지 메이킹</li>
-<li>멘탈</li>
-<li>인간성</li>
-<li>교류</li>
-<li>면접</li>
-<li>스펙</li>
-<li>개발지식</li>
-<li>알고리즘</li>
-</ul>
-<p>사실 작년부터 2018년이 오기만을 너무나 기다렸다. 그 동안 하고 싶었던 공부도 본격적으로 하고 나만의 시간을 가지고 싶었다. 올해에는 자격증 공부도 하고 개발 공부도 하다가 원하는 기업에 취업하는 것이 2018년의 목표이다.</p>
-
+            <p><img src="/images/java.png" alt=""></p>
+<h1 id="일반-배열에-특정-값이-들어있는-지-확인하기"><a href="#일반-배열에-특정-값이-들어있는-지-확인하기" class="headerlink" title="일반 배열에 특정 값이 들어있는 지 확인하기"></a>일반 배열에 특정 값이 들어있는 지 확인하기</h1><h2 id="방법-1-asList-contains-사용"><a href="#방법-1-asList-contains-사용" class="headerlink" title="방법 1) asList / contains 사용"></a>방법 1) asList / contains 사용</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.asList(array).contains(value);</span><br></pre></td></tr></table></figure>
+<h2 id="방법-2-equals-사용"><a href="#방법-2-equals-사용" class="headerlink" title="방법 2) equals 사용"></a>방법 2) equals 사용</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(String s: arr)&#123;</span><br><span class="line">    <span class="keyword">if</span>(s.equals(targetValue))</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://jess2.github.io/2018/01/24/Plan-Memoir/2018-만다라트-계획표/" data-id="cjid89r5000269cj4klpnj4ec" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/08/06/Java/JAVA-일반-배열에-특정-값이-들어있는-지-확인하기/" data-id="cjktaet91000aheuqb9z6hay8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -329,20 +317,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2018/02/11/etc/2018-2-GDG-Campus-Korea-Meetup/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            [2018. 2] GDG Campus Korea Meetup
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2018/01/23/Plan-Memoir/2017-회고록/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2018/06/13/Java/Java-문자열-뒤집기/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">2017 회고록</p>
+        <p class="article-nav-title">[Java] 문자열 뒤집기</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -356,7 +334,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/">BackEnd</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Java/">Java</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Node-js/">Node.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/DataStructure/">DataStructure</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/">FrontEnd</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/React-js/">React.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/">Jess2's</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/Memoir/">Memoir</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Jess2-s/Plan/">Plan</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">5</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/">BackEnd</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Node-js/">Node.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/DataStructure/">DataStructure</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/">FrontEnd</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/React-js/">React.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">5</span></li></ul>
         </div>
     </div>
 
@@ -367,6 +345,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/06/Java/JAVA-일반-배열에-특정-값이-들어있는-지-확인하기/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/java.png)" alt="[JAVA] 일반 배열에 특정 값이 들어있는 지 확인하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/BackEnd/">BackEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/BackEnd/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2018/08/06/Java/JAVA-일반-배열에-특정-값이-들어있는-지-확인하기/" class="title">[JAVA] 일반 배열에 특정 값이 들어있는 지 확인하기</a></p>
+                            <p class="item-date"><time datetime="2018-08-06T08:38:42.000Z" itemprop="datePublished">2018-08-06</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -384,6 +382,26 @@
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/BackEnd/">BackEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/BackEnd/Java/">Java</a></p>
                             <p class="item-title"><a href="/2018/06/13/Java/Java-문자열-뒤집기/" class="title">[Java] 문자열 뒤집기</a></p>
+                            <p class="item-date"><time datetime="2018-06-13T14:41:46.000Z" itemprop="datePublished">2018-06-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/13/Java/Java-String-int/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/java.png)" alt="[Java] String -&gt; int, int-&gt; String 형변환" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/BackEnd/">BackEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/BackEnd/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2018/06/13/Java/Java-String-int/" class="title">[Java] String -&gt; int, int-&gt; String 형변환</a></p>
                             <p class="item-date"><time datetime="2018-06-13T14:41:46.000Z" itemprop="datePublished">2018-06-13</time></p>
                         </div>
                     </li>
@@ -428,46 +446,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/06/06/JavaScript/JS-로컬-스토리지-Local-Storage/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] 로컬 스토리지(LocalStorage)" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2018/06/06/JavaScript/JS-로컬-스토리지-Local-Storage/" class="title">[JS] 로컬 스토리지(LocalStorage)</a></p>
-                            <p class="item-date"><time datetime="2018-06-06T11:09:10.000Z" itemprop="datePublished">2018-06-06</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/06/01/JavaScript/JS-DOM/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/JavaScript.png)" alt="[JS] DOM" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a></p>
-                            <p class="item-title"><a href="/2018/06/01/JavaScript/JS-DOM/" class="title">[JS] DOM</a></p>
-                            <p class="item-date"><time datetime="2018-06-01T14:33:17.000Z" itemprop="datePublished">2018-06-01</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -477,7 +455,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/BackEnd/" style="font-size: 16.67px;">BackEnd</a> <a href="/tags/CS/" style="font-size: 15px;">CS</a> <a href="/tags/DataStructure/" style="font-size: 15px;">DataStructure</a> <a href="/tags/ECMAScript6/" style="font-size: 11.67px;">ECMAScript6</a> <a href="/tags/FrontEnd/" style="font-size: 20px;">FrontEnd</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.33px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/React-js/" style="font-size: 15px;">React.js</a> <a href="/tags/exam/" style="font-size: 10px;">exam</a> <a href="/tags/meetup/" style="font-size: 13.33px;">meetup</a> <a href="/tags/memoir/" style="font-size: 10px;">memoir</a> <a href="/tags/plan/" style="font-size: 10px;">plan</a> <a href="/tags/seminar/" style="font-size: 13.33px;">seminar</a> <a href="/tags/talk-concert/" style="font-size: 10px;">talk concert</a>
+            <a href="/tags/BackEnd/" style="font-size: 17.14px;">BackEnd</a> <a href="/tags/CS/" style="font-size: 15.71px;">CS</a> <a href="/tags/DataStructure/" style="font-size: 15.71px;">DataStructure</a> <a href="/tags/ECMAScript6/" style="font-size: 11.43px;">ECMAScript6</a> <a href="/tags/FrontEnd/" style="font-size: 20px;">FrontEnd</a> <a href="/tags/Java/" style="font-size: 12.86px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.57px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 15.71px;">Node.js</a> <a href="/tags/React-js/" style="font-size: 15.71px;">React.js</a> <a href="/tags/exam/" style="font-size: 10px;">exam</a> <a href="/tags/meetup/" style="font-size: 14.29px;">meetup</a> <a href="/tags/seminar/" style="font-size: 14.29px;">seminar</a> <a href="/tags/talk-concert/" style="font-size: 10px;">talk concert</a>
         </div>
     </div>
 
@@ -509,7 +487,7 @@
     var disqus_shortname = 'jess2';
     
     
-    var disqus_url = 'https://jess2.github.io/2018/01/24/Plan-Memoir/2018-만다라트-계획표/';
+    var disqus_url = 'https://jess2.github.io/2018/08/06/Java/JAVA-일반-배열에-특정-값이-들어있는-지-확인하기/';
     
     (function() {
     var dsq = document.createElement('script');
