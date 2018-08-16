@@ -9,19 +9,19 @@
     
         <meta name="keywords" content="CS,Algorithm" />
     
-    <meta name="description" content="선택정렬1. 선택정렬의 개념선택정렬은 최솟값을 찾아 선택하여 위치를 바꿔가며 정렬하는 방식이다.그럼 8, 9, 5, 3, 1 을 오름차순으로 선택정렬해보자. index 0 단계)먼저 index 0 의 값인 8을 시작값으로 하여 8, 9, 5, 3, 1 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 1이기 때문에 아래와 같이 8과 1의 자리를 바">
+    <meta name="description" content="선택정렬1. 선택정렬의 개념선택정렬은 최솟값을 찾아 선택하여 위치를 바꿔가며 정렬하는 방식이다.그럼 7, 9, 5, 3, 1 을 오름차순으로 선택정렬해보자. index 0 단계)먼저 index 0 의 값인 7을 시작값으로 하여 7, 9, 5, 3, 1 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 1이기 때문에 아래와 같이 7과 1의 자리를 바">
 <meta name="keywords" content="CS,Algorithm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[알고리즘] 선택정렬(Selection Sort)">
 <meta property="og:url" content="https://jess2.github.io/2018/08/14/Algorithm/알고리즘-선택정렬-Selection-Sort/index.html">
 <meta property="og:site_name" content="Jess2&#39;s IT Blog">
-<meta property="og:description" content="선택정렬1. 선택정렬의 개념선택정렬은 최솟값을 찾아 선택하여 위치를 바꿔가며 정렬하는 방식이다.그럼 8, 9, 5, 3, 1 을 오름차순으로 선택정렬해보자. index 0 단계)먼저 index 0 의 값인 8을 시작값으로 하여 8, 9, 5, 3, 1 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 1이기 때문에 아래와 같이 8과 1의 자리를 바">
+<meta property="og:description" content="선택정렬1. 선택정렬의 개념선택정렬은 최솟값을 찾아 선택하여 위치를 바꿔가며 정렬하는 방식이다.그럼 7, 9, 5, 3, 1 을 오름차순으로 선택정렬해보자. index 0 단계)먼저 index 0 의 값인 7을 시작값으로 하여 7, 9, 5, 3, 1 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 1이기 때문에 아래와 같이 7과 1의 자리를 바">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://jess2.github.io/images/algorithm.png">
-<meta property="og:updated_time" content="2018-08-16T10:02:13.584Z">
+<meta property="og:updated_time" content="2018-08-16T10:24:52.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[알고리즘] 선택정렬(Selection Sort)">
-<meta name="twitter:description" content="선택정렬1. 선택정렬의 개념선택정렬은 최솟값을 찾아 선택하여 위치를 바꿔가며 정렬하는 방식이다.그럼 8, 9, 5, 3, 1 을 오름차순으로 선택정렬해보자. index 0 단계)먼저 index 0 의 값인 8을 시작값으로 하여 8, 9, 5, 3, 1 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 1이기 때문에 아래와 같이 8과 1의 자리를 바">
+<meta name="twitter:description" content="선택정렬1. 선택정렬의 개념선택정렬은 최솟값을 찾아 선택하여 위치를 바꿔가며 정렬하는 방식이다.그럼 7, 9, 5, 3, 1 을 오름차순으로 선택정렬해보자. index 0 단계)먼저 index 0 의 값인 7을 시작값으로 하여 7, 9, 5, 3, 1 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 1이기 때문에 아래와 같이 7과 1의 자리를 바">
 <meta name="twitter:image" content="https://jess2.github.io/images/algorithm.png">
     
 
@@ -172,16 +172,16 @@
         
         <div class="article-entry" itemprop="articleBody">
             <p><img src="/images/algorithm.png" alt=""></p>
-<h1 id="선택정렬"><a href="#선택정렬" class="headerlink" title="선택정렬"></a>선택정렬</h1><h2 id="1-선택정렬의-개념"><a href="#1-선택정렬의-개념" class="headerlink" title="1. 선택정렬의 개념"></a>1. 선택정렬의 개념</h2><p>선택정렬은 최솟값을 찾아 선택하여 위치를 바꿔가며 정렬하는 방식이다.<br>그럼 <code>8, 9, 5, 3, 1</code> 을 오름차순으로 선택정렬해보자.</p>
-<h4 id="index-0-단계"><a href="#index-0-단계" class="headerlink" title="index 0 단계)"></a>index 0 단계)</h4><p>먼저 index 0 의 값인 <code>8</code>을 시작값으로 하여 <code>8, 9, 5, 3, 1</code> 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 <code>1</code>이기 때문에 아래와 같이 <code>8</code>과 <code>1</code>의 자리를 바꾼다.<br><b>8</b> 9 5 3 <b>1</b> =&gt; <b>1</b> 9 5 3 <b>8</b></p>
-<p>그러면 아래와 같이 index 0 까지 정렬이 완료된 것이다.<br><u>1</u> 9 5 3 8</p>
-<h4 id="index-1-단계"><a href="#index-1-단계" class="headerlink" title="index 1 단계)"></a>index 1 단계)</h4><p>그 다음, index 1 의 값인 <code>9</code>를 시작값으로 하여 <code>9, 5, 3, 8</code> 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 <code>3</code>이기 때문에 아래와 같이 <code>9</code>와 <code>3</code>의 자리를 바꾼다.<br>1 <b>9</b> 5 <b>3</b> 8 =&gt; 1 <b>3</b> 5 <b>9</b> 8</p>
-<p>그러면 아래와 같이 index 1 까지 정렬이 완료된 것이다.<br><u>1 3</u> 5 9 8</p>
-<h4 id="index-2-단계"><a href="#index-2-단계" class="headerlink" title="index 2 단계)"></a>index 2 단계)</h4><p>그 다음, index 2 의 값인 <code>5</code>를 시작값으로 하여 <code>5, 9, 8</code> 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 <code>5</code>이기 때문에 아래와 같이 <code>5</code>와 <code>5</code>의 자리를 바꾼다. 사실 자리를 바꾸는 작업을 진행하기는 하지만 동일한 자리이기 때문에 아무런 작업도 하지 않는 것처럼 보인다.<br>1 3 <b>5</b> 9 8 =&gt; 1 3 <b>5</b> 9 8</p>
-<p>그러면 아래와 같이 index 2 까지 정렬이 완료된 것이다.<br><u>1 3 5</u> 9 8</p>
-<h4 id="index-3-단계"><a href="#index-3-단계" class="headerlink" title="index 3 단계)"></a>index 3 단계)</h4><p>그 다음, index 3 의 값인 <code>9</code>를 시작값으로 하여 <code>9, 8</code> 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 <code>8</code>이기 때문에 아래와 같이 <code>9</code>와 <code>8</code>의 자리를 바꾼다.<br>1 3 5 <b>9 8</b> =&gt; 1 3 5 <b>8 9</b></p>
-<p>그러면 아래와 같이 index 3 까지 정렬이 완료된 것이다.<br><u>1 3 5 8</u> 9</p>
-<h4 id="완료"><a href="#완료" class="headerlink" title="완료)"></a>완료)</h4><p>이 다음 단계는 할 필요가 없다. length가 5 일때, index 3 까지 정렬된 것이 전체가 정렬된 것이다. index 4 단계에서 남은 값이 1개이기 때문에 여기에서 최솟값을 찾는 것은 의미가 없기 때문이다. 즉, index = arr.length - 2 단계가 끝이다. 따라서 아래와 같이 정렬이 완료되었다.<br><u>1 3 5 8 9</u></p>
+<h1 id="선택정렬"><a href="#선택정렬" class="headerlink" title="선택정렬"></a>선택정렬</h1><h2 id="1-선택정렬의-개념"><a href="#1-선택정렬의-개념" class="headerlink" title="1. 선택정렬의 개념"></a>1. 선택정렬의 개념</h2><p>선택정렬은 최솟값을 찾아 선택하여 위치를 바꿔가며 정렬하는 방식이다.<br>그럼 <code>7, 9, 5, 3, 1</code> 을 오름차순으로 선택정렬해보자.</p>
+<h4 id="index-0-단계"><a href="#index-0-단계" class="headerlink" title="index 0 단계)"></a>index 0 단계)</h4><p>먼저 index 0 의 값인 <code>7</code>을 시작값으로 하여 <code>7, 9, 5, 3, 1</code> 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 <code>1</code>이기 때문에 아래와 같이 <code>7</code>과 <code>1</code>의 자리를 바꾼다.<br><b>7</b> 9 5 3 <b>1</b> =&gt; <b>1</b> 9 5 3 <b>7</b></p>
+<p>그러면 아래와 같이 index 0 까지 정렬이 완료된 것이다.<br><u>1</u> 9 5 3 7</p>
+<h4 id="index-1-단계"><a href="#index-1-단계" class="headerlink" title="index 1 단계)"></a>index 1 단계)</h4><p>그 다음, index 1 의 값인 <code>9</code>를 시작값으로 하여 <code>9, 5, 3, 7</code> 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 <code>3</code>이기 때문에 아래와 같이 <code>9</code>와 <code>3</code>의 자리를 바꾼다.<br>1 <b>9</b> 5 <b>3</b> 7 =&gt; 1 <b>3</b> 5 <b>9</b> 7</p>
+<p>그러면 아래와 같이 index 1 까지 정렬이 완료된 것이다.<br><u>1 3</u> 5 9 7</p>
+<h4 id="index-2-단계"><a href="#index-2-단계" class="headerlink" title="index 2 단계)"></a>index 2 단계)</h4><p>그 다음, index 2 의 값인 <code>5</code>를 시작값으로 하여 <code>5, 9, 7</code> 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 <code>5</code>이기 때문에 아래와 같이 <code>5</code>와 <code>5</code>의 자리를 바꾼다. 사실 자리를 바꾸는 작업을 진행하기는 하지만 동일한 자리이기 때문에 아무런 작업도 하지 않는 것처럼 보인다.<br>1 3 <b>5</b> 9 7 =&gt; 1 3 <b>5</b> 9 7</p>
+<p>그러면 아래와 같이 index 2 까지 정렬이 완료된 것이다.<br><u>1 3 5</u> 9 7</p>
+<h4 id="index-3-단계"><a href="#index-3-단계" class="headerlink" title="index 3 단계)"></a>index 3 단계)</h4><p>그 다음, index 3 의 값인 <code>9</code>를 시작값으로 하여 <code>9, 7</code> 중에 가장 작은 값을 검색하여 선택한다. 가장 작은 값은 <code>7</code>이기 때문에 아래와 같이 <code>9</code>와 <code>7</code>의 자리를 바꾼다.<br>1 3 5 <b>9 7</b> =&gt; 1 3 5 <b>7 9</b></p>
+<p>그러면 아래와 같이 index 3 까지 정렬이 완료된 것이다.<br><u>1 3 5 7</u> 9</p>
+<h4 id="완료"><a href="#완료" class="headerlink" title="완료)"></a>완료)</h4><p>이 다음 단계는 할 필요가 없다. length가 5 일때, index 3 까지 정렬된 것이 전체가 정렬된 것이다. index 4 단계에서 남은 값이 1개이기 때문에 여기에서 최솟값을 찾는 것은 의미가 없기 때문이다. 즉, index = arr.length - 2 단계가 끝이다. 따라서 아래와 같이 정렬이 완료되었다.<br><u>1 3 5 7 9</u></p>
 <p><br></p>
 <h2 id="2-선택정렬-시간복잡도"><a href="#2-선택정렬-시간복잡도" class="headerlink" title="2. 선택정렬 시간복잡도"></a>2. 선택정렬 시간복잡도</h2><table>
 <thead>
@@ -200,14 +200,14 @@
 </tbody>
 </table>
 <p><br></p>
-<h2 id="3-선택정렬-JAVA-코드"><a href="#3-선택정렬-JAVA-코드" class="headerlink" title="3. 선택정렬 JAVA 코드"></a>3. 선택정렬 JAVA 코드</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 배열 a에서 i 위치와 j 위치의 값을 서로 바꾼다.</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = a[i];</span><br><span class="line">    a[i] = a[j];</span><br><span class="line">    a[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 배열 a의 start 위치부터 끝까지에서 가장 작은 값의 위치를 리턴한다.</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> start)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> minIndex = start;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=start; i&lt;a.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i] &lt; a[minIndex]) &#123;</span><br><span class="line">            minIndex = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minIndex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 선택 정렬</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;a.length-<span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> minIndex = findMin(a, i);</span><br><span class="line">        swap(a, i, minIndex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] a = &#123; <span class="number">8</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span> &#125;;</span><br><span class="line">    selectionSort(a);</span><br><span class="line">    System.out.println(Arrays.toString(a)); <span class="comment">// 출력 결과 : [1, 3, 5, 8, 9]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-선택정렬-JAVA-코드"><a href="#3-선택정렬-JAVA-코드" class="headerlink" title="3. 선택정렬 JAVA 코드"></a>3. 선택정렬 JAVA 코드</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 배열 a에서 i 위치와 j 위치의 값을 서로 바꾼다.</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = a[i];</span><br><span class="line">    a[i] = a[j];</span><br><span class="line">    a[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 배열 a의 start 위치부터 끝까지에서 가장 작은 값의 위치를 리턴한다.</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">findMin</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> start)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> minIndex = start;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=start; i&lt;a.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i] &lt; a[minIndex]) &#123;</span><br><span class="line">            minIndex = i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minIndex;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 선택 정렬</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectionSort</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;a.length-<span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> minIndex = findMin(a, i);</span><br><span class="line">        swap(a, i, minIndex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] a = &#123; <span class="number">7</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span> &#125;;</span><br><span class="line">    selectionSort(a);</span><br><span class="line">    System.out.println(Arrays.toString(a)); <span class="comment">// 출력결과 : [1, 3, 5, 7, 9]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
         <footer class="article-footer">
             
 
 
 
-    <a data-url="https://jess2.github.io/2018/08/14/Algorithm/알고리즘-선택정렬-Selection-Sort/" data-id="cjkwebp8x0000nxuqwom0v5ps" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://jess2.github.io/2018/08/14/Algorithm/알고리즘-선택정렬-Selection-Sort/" data-id="cjkwgl37w0001yjuqfupz59g2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -344,6 +344,16 @@
         
 <nav id="article-nav">
     
+        <a href="/2018/08/16/Algorithm/알고리즘-버블정렬-Bubble-Sort/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            [알고리즘] 버블정렬(Bubble Sort)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
     
         <a href="/2018/08/06/Java/JAVA-일반-배열에-특정-값이-들어있는-지-확인하기/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">older</strong>
@@ -361,7 +371,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">categories</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/">BackEnd</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Node-js/">Node.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/DataStructure/">DataStructure</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/">FrontEnd</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/React-js/">React.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">5</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/">BackEnd</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Node-js/">Node.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/Algorithm/">Algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/DataStructure/">DataStructure</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/">FrontEnd</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/React-js/">React.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">5</span></li></ul>
         </div>
     </div>
 
@@ -372,6 +382,26 @@
         <h3 class="widget-title">recents</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/16/Algorithm/알고리즘-버블정렬-Bubble-Sort/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.png)" alt="[알고리즘] 버블정렬(Bubble Sort)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/08/16/Algorithm/알고리즘-버블정렬-Bubble-Sort/" class="title">[알고리즘] 버블정렬(Bubble Sort)</a></p>
+                            <p class="item-date"><time datetime="2018-08-16T10:04:46.000Z" itemprop="datePublished">2018-08-16</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -453,26 +483,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2018/06/12/ECMAScript6/ES6-Class/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/images/es6.jpeg)" alt="[ES6] Class" class="thumbnail-image"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a></p>
-                            <p class="item-title"><a href="/2018/06/12/ECMAScript6/ES6-Class/" class="title">[ES6] Class</a></p>
-                            <p class="item-date"><time datetime="2018-06-12T10:53:42.000Z" itemprop="datePublished">2018-06-12</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -482,7 +492,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/BackEnd/" style="font-size: 17.5px;">BackEnd</a> <a href="/tags/CS/" style="font-size: 16.25px;">CS</a> <a href="/tags/DataStructure/" style="font-size: 15px;">DataStructure</a> <a href="/tags/ECMAScript6/" style="font-size: 11.25px;">ECMAScript6</a> <a href="/tags/FrontEnd/" style="font-size: 20px;">FrontEnd</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/React-js/" style="font-size: 15px;">React.js</a> <a href="/tags/exam/" style="font-size: 10px;">exam</a> <a href="/tags/meetup/" style="font-size: 13.75px;">meetup</a> <a href="/tags/seminar/" style="font-size: 13.75px;">seminar</a> <a href="/tags/talk-concert/" style="font-size: 10px;">talk concert</a>
+            <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/BackEnd/" style="font-size: 17.5px;">BackEnd</a> <a href="/tags/CS/" style="font-size: 16.25px;">CS</a> <a href="/tags/DataStructure/" style="font-size: 15px;">DataStructure</a> <a href="/tags/ECMAScript6/" style="font-size: 11.25px;">ECMAScript6</a> <a href="/tags/FrontEnd/" style="font-size: 20px;">FrontEnd</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/React-js/" style="font-size: 15px;">React.js</a> <a href="/tags/exam/" style="font-size: 10px;">exam</a> <a href="/tags/meetup/" style="font-size: 13.75px;">meetup</a> <a href="/tags/seminar/" style="font-size: 13.75px;">seminar</a> <a href="/tags/talk-concert/" style="font-size: 10px;">talk concert</a>
         </div>
     </div>
 

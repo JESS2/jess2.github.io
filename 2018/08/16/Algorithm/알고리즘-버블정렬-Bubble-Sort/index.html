@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>[알고리즘] 버블정렬(Bubble Sort) | Jess2&#39;s IT Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="CS,Algorithm" />
+    
+    <meta name="description" content="버블정렬1. 버블정렬의 개념버블정렬은 인접한 두 개의 값을 비교하며 왼쪽 값이 오른쪽 값보다 크면 서로 위치를 바꾸는 방식이다.그럼 7, 9, 5, 3, 1 을 오름차순으로 버블정렬해보자. 1 단계) 먼저 index 0 과 index 1 의 값을 비교한다. 7, 9, 5, 3, 1 에서 7과 9를 비교하면 되는데, 7은 9보다 작기 때문에 위치를 바꾸지">
+<meta name="keywords" content="CS,Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[알고리즘] 버블정렬(Bubble Sort)">
+<meta property="og:url" content="https://jess2.github.io/2018/08/16/Algorithm/알고리즘-버블정렬-Bubble-Sort/index.html">
+<meta property="og:site_name" content="Jess2&#39;s IT Blog">
+<meta property="og:description" content="버블정렬1. 버블정렬의 개념버블정렬은 인접한 두 개의 값을 비교하며 왼쪽 값이 오른쪽 값보다 크면 서로 위치를 바꾸는 방식이다.그럼 7, 9, 5, 3, 1 을 오름차순으로 버블정렬해보자. 1 단계) 먼저 index 0 과 index 1 의 값을 비교한다. 7, 9, 5, 3, 1 에서 7과 9를 비교하면 되는데, 7은 9보다 작기 때문에 위치를 바꾸지">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://jess2.github.io/images/algorithm.png">
+<meta property="og:updated_time" content="2018-08-16T10:55:26.627Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[알고리즘] 버블정렬(Bubble Sort)">
+<meta name="twitter:description" content="버블정렬1. 버블정렬의 개념버블정렬은 인접한 두 개의 값을 비교하며 왼쪽 값이 오른쪽 값보다 크면 서로 위치를 바꾸는 방식이다.그럼 7, 9, 5, 3, 1 을 오름차순으로 버블정렬해보자. 1 단계) 먼저 index 0 과 index 1 의 값을 비교한다. 7, 9, 5, 3, 1 에서 7과 9를 비교하면 되는데, 7은 9보다 작기 때문에 위치를 바꾸지">
+<meta name="twitter:image" content="https://jess2.github.io/images/algorithm.png">
+    
+
+    
+
+    
+        <link rel="icon" href="/images/jessieImg.png" />
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                        <h2 class="subtitle-wrap">
+                            <p class="subtitle">제씨의 기술블로그</p>
+                        </h2>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://jess2.github.io/resume/">About</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/BackEnd/">BackEnd</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/BackEnd/Java/">Java</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/BackEnd/Node-js/">Node.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/">CS</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/Algorithm/">Algorithm</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/CS/DataStructure/">DataStructure</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/">FrontEnd</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/FrontEnd/React-js/">React.js</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/etc/">etc.</a></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/CS/Algorithm/">Algorithm</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-Algorithm/알고리즘-버블정렬-Bubble-Sort" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        [알고리즘] 버블정렬(Bubble Sort)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2018/08/16/Algorithm/알고리즘-버블정렬-Bubble-Sort/" class="article-date">
+            <time datetime="2018-08-16T10:04:46.000Z" itemprop="datePublished">2018-08-16</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Algorithm/">Algorithm</a>, <a class="tag-link" href="/tags/CS/">CS</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/images/algorithm.png" alt=""></p>
+<h1 id="버블정렬"><a href="#버블정렬" class="headerlink" title="버블정렬"></a>버블정렬</h1><h2 id="1-버블정렬의-개념"><a href="#1-버블정렬의-개념" class="headerlink" title="1. 버블정렬의 개념"></a>1. 버블정렬의 개념</h2><p>버블정렬은 인접한 두 개의 값을 비교하며 왼쪽 값이 오른쪽 값보다 크면 서로 위치를 바꾸는 방식이다.<br>그럼 <code>7, 9, 5, 3, 1</code> 을 오름차순으로 버블정렬해보자.</p>
+<h4 id="1-단계"><a href="#1-단계" class="headerlink" title="1 단계)"></a>1 단계)</h4><ol>
+<li>먼저 index 0 과 index 1 의 값을 비교한다. <code>7, 9, 5, 3, 1</code> 에서 <code>7</code>과 <code>9</code>를 비교하면 되는데, <code>7</code>은 <code>9</code>보다 작기 때문에 위치를 바꾸지 않는다.</li>
+<li>그 다음, index 1 과 index 2 의 값을 비교한다. <code>7, 9, 5, 3, 1</code>에서 <code>9</code>와 <code>5</code>를 비교했을 때, 왼쪽 값인 <code>9</code>가 더 크기 때문에 위치를 바꾼다.</li>
+<li>그 다음, index 2 와 index 3 의 값을 비교한다. <code>7, 5, 9, 3, 1</code>에서 <code>9</code>와 <code>3</code>를 비교했을 때, 왼쪽 값인 <code>9</code>가 더 크기 때문에 위치를 바꾼다.</li>
+<li>그 다음, index 3 와 index 4 의 값을 비교한다. <code>7, 5, 3, 9, 1</code>에서 <code>9</code>와 <code>1</code>를 비교했을 때, 왼쪽 값인 <code>9</code>가 더 크기 때문에 위치를 바꾼다.</li>
+</ol>
+<p>1단계를 마치면 <code>7, 5, 3, 1, 9</code>로 정렬이 되고, 다섯 개의 수 중 가장 큰 수인 <code>9</code>가 가장 오른쪽에 위치하게 되었다. 버블정렬은 선택정렬과 달리 가장 마지막 index부터 정렬이 되는 방식이다. 1단계 정렬 과정은 아래와 같이 나타낼 수 있다.</p>
+<p><b>7 9</b> 5 3 1<br>7 <b>9 5</b> 3 1 =&gt; 7 <b>5 9</b> 3 1<br>7 5 <b>9 3</b> 1 =&gt; 7 5 <b>3 9</b> 1<br>7 5 3 <b>9 1</b> =&gt; 7 5 3 <b>1 9</b></p>
+<p>1단계 정렬 결과 : 7 5 3 1 <u>9</u></p>
+<h4 id="2-단계"><a href="#2-단계" class="headerlink" title="2 단계)"></a>2 단계)</h4><ol>
+<li>먼저 index 0 과 index 1 의 값을 비교한다. 1단계에서 정렬이 완료된 <code>9</code>를 제외한 나머지 네 개의 수 <code>7, 5, 3, 1</code>에서 <code>7</code>과 <code>5</code>를 비교했을 때, 왼쪽 값인 <code>7</code>이 더 크기 때문에 위치를 바꾼다.</li>
+<li>그 다음, index 1 과 index 2 의 값을 비교한다. <code>5, 7, 3, 1</code>에서 <code>7</code>과 <code>3</code>을 비교했을 때, 왼쪽 값인 <code>7</code>이 더 크기 때문에 위치를 바꾼다.</li>
+<li>그 다음, index 2 과 index 3 의 값을 비교한다. <code>5, 3, 7, 1</code>에서 <code>7</code>과 <code>1</code>을 비교했을 때, 왼쪽 값인 <code>7</code>이 더 크기 때문에 위치를 바꾼다.</li>
+</ol>
+<p>2단계를 마치면 <code>5, 3, 1, 7, 9</code>로 정렬이 되고, 1단계에서 정렬이 완료된 <code>9</code>를 제외한 나머지 네 개의 수 중 가장 큰 수인 <code>7</code>이 가장 오른쪽에 위치하게 되었다. 2단계 정렬 과정은 아래와 같이 나타낼 수 있다.</p>
+<p><b>7 5</b> 3 1 <u>9</u> =&gt; <b>5 7</b> 3 1 <u>9</u><br>5 <b>7 3</b> 1 <u>9</u> =&gt; 5 <b>3 7</b> 1 <u>9</u><br>5 3 <b>7 1</b> <u>9</u> =&gt; 5 3 <b>1 7</b> <u>9</u></p>
+<p>2단계 정렬 결과 : 5 3 1 <u>7 9</u></p>
+<h4 id="3-단계"><a href="#3-단계" class="headerlink" title="3 단계)"></a>3 단계)</h4><ol>
+<li>먼저 index 0 과 index 1 의 값을 비교한다. 1, 2단계에서 정렬이 완료된 <code>7, 9</code>를 제외한 나머지 세 개의 수 <code>5, 3, 1</code>에서 <code>5</code>와 <code>3</code>을 비교했을 때, 왼쪽 값인 <code>5</code>가 더 크기 때문에 위치를 바꾼다.</li>
+<li>그 다음, index 1 과 index 2 의 값을 비교한다. <code>3, 5, 1</code>에서 <code>5</code>와 <code>1</code>을 비교했을 때, 왼쪽 값인 <code>5</code>가 더 크기 때문에 위치를 바꾼다.</li>
+</ol>
+<p>3단계를 마치면 <code>3, 1, 5, 7, 9</code>로 정렬이 되고, 1, 2단계에서 정렬이 완료된 <code>7, 9</code>를 제외한 나머지 세 개의 수 중 가장 큰 수인 <code>5</code>가 가장 오른쪽에 위치하게 되었다. 3단계 정렬 과정은 아래와 같이 나타낼 수 있다.</p>
+<p><b>5 3</b> 1 <u>7 9</u> =&gt; <b>3 5</b> 1 <u>7 9</u><br>3 <b>5 1</b> <u>7 9</u> =&gt; 3 <b>1 5</b> <u>7 9</u></p>
+<p>3단계 정렬 결과 : 3 1 <u>5 7 9</u></p>
+<h4 id="4-단계"><a href="#4-단계" class="headerlink" title="4 단계)"></a>4 단계)</h4><ol>
+<li>index 0 과 index 1 의 값을 비교한다. 1, 2, 3단계에서 정렬이 완료된 <code>5, 7, 9</code>를 제외한 나머지 두 개의 수 <code>3, 1</code>에서 <code>3</code>과 <code>1</code>을 비교했을 때, 왼쪽 값인 <code>3</code>이 더 크기 때문에 위치를 바꾼다.</li>
+</ol>
+<p>4단계를 마치면 <code>1, 3, 5, 7, 9</code>로 정렬이 되고, 1, 2, 3단계에서 정렬이 완료된 <code>5, 7, 9</code>를 제외한 나머지 두 개의 수 중 가장 큰 수인 <code>3</code>이 가장 오른쪽에 위치하게 되었다. 4단계 정렬 과정은 아래와 같이 나타낼 수 있다.</p>
+<p><b>3 1</b> <u>5 7 9</u> =&gt; <b>1 3</b> <u>5 7 9</u></p>
+<p>4단계 정렬 결과 : 1 <u>3 5 7 9</u></p>
+<h4 id="완료"><a href="#완료" class="headerlink" title="완료)"></a>완료)</h4><p>이 다음 단계는 할 필요가 없다. 남은 값이 1개이기 때문에 여기에서 정렬을 하는 것은 의미가 없기 때문이다. 따라서 아래와 같이 정렬이 완료되었다.</p>
+<p><u>1 3 5 7 9</u></p>
+<p><br></p>
+<h2 id="2-버블정렬-시간복잡도"><a href="#2-버블정렬-시간복잡도" class="headerlink" title="2. 버블정렬 시간복잡도"></a>2. 버블정렬 시간복잡도</h2><table>
+<thead>
+<tr>
+<th>최선</th>
+<th>평균</th>
+<th>최악</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>O(n)</td>
+<td>O(n^2)</td>
+<td>O(n^2)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="3-버블정렬-JAVA-코드"><a href="#3-버블정렬-JAVA-코드" class="headerlink" title="3. 버블정렬 JAVA 코드"></a>3. 버블정렬 JAVA 코드</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 배열 a에서 i 위치와 j 위치의 값을 서로 바꾼다</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = a[i];</span><br><span class="line">    a[i] = a[j];</span><br><span class="line">    a[j] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// bubble sort</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=a.length-<span class="number">1</span>; i&gt;=<span class="number">1</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">boolean</span> finished = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j] &gt; a[j+<span class="number">1</span>]) &#123;</span><br><span class="line">                swap(a, j, j+<span class="number">1</span>);</span><br><span class="line">                finished = <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(finished) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] a = &#123; <span class="number">7</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span> &#125;;</span><br><span class="line">    bubbleSort(a);</span><br><span class="line">    System.out.println(Arrays.toString(a)); <span class="comment">// 출력결과 : [1, 3, 5, 7, 9]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://jess2.github.io/2018/08/16/Algorithm/알고리즘-버블정렬-Bubble-Sort/" data-id="cjkwgl37t0000yjuqw2v504m2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/jesssss2" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/je_ss2" target="_blank">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/jess2" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="bitbucket" href="https://bitbucket.org/jessie3578" target="_blank">
+                        <i class="icon fa fa-bitbucket"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="laptop" href="https://www.acmicpc.net/user/jess2" target="_blank">
+                        <i class="icon fa fa-laptop"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="archive" href="http://jess2.tistory.com/" target="_blank">
+                        <i class="icon fa fa-archive"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2018/08/14/Algorithm/알고리즘-선택정렬-Selection-Sort/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">[알고리즘] 선택정렬(Selection Sort)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/">BackEnd</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Java/">Java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/BackEnd/Node-js/">Node.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/Algorithm/">Algorithm</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/DataStructure/">DataStructure</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/">FrontEnd</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/ECMAScript6/">ECMAScript6</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/JavaScript/">JavaScript</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/React-js/">React.js</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/etc/">etc.</a><span class="category-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/16/Algorithm/알고리즘-버블정렬-Bubble-Sort/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.png)" alt="[알고리즘] 버블정렬(Bubble Sort)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/08/16/Algorithm/알고리즘-버블정렬-Bubble-Sort/" class="title">[알고리즘] 버블정렬(Bubble Sort)</a></p>
+                            <p class="item-date"><time datetime="2018-08-16T10:04:46.000Z" itemprop="datePublished">2018-08-16</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/14/Algorithm/알고리즘-선택정렬-Selection-Sort/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/algorithm.png)" alt="[알고리즘] 선택정렬(Selection Sort)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/CS/">CS</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/CS/Algorithm/">Algorithm</a></p>
+                            <p class="item-title"><a href="/2018/08/14/Algorithm/알고리즘-선택정렬-Selection-Sort/" class="title">[알고리즘] 선택정렬(Selection Sort)</a></p>
+                            <p class="item-date"><time datetime="2018-08-14T06:13:19.000Z" itemprop="datePublished">2018-08-14</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/06/Java/JAVA-일반-배열에-특정-값이-들어있는-지-확인하기/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/java.png)" alt="[JAVA] 일반 배열에 특정 값이 들어있는 지 확인하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/BackEnd/">BackEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/BackEnd/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2018/08/06/Java/JAVA-일반-배열에-특정-값이-들어있는-지-확인하기/" class="title">[JAVA] 일반 배열에 특정 값이 들어있는 지 확인하기</a></p>
+                            <p class="item-date"><time datetime="2018-08-06T08:38:42.000Z" itemprop="datePublished">2018-08-06</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/13/Java/Java-문자열-뒤집기/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/java.png)" alt="[Java] 문자열 뒤집기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/BackEnd/">BackEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/BackEnd/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2018/06/13/Java/Java-문자열-뒤집기/" class="title">[Java] 문자열 뒤집기</a></p>
+                            <p class="item-date"><time datetime="2018-06-13T14:41:46.000Z" itemprop="datePublished">2018-06-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/06/13/Java/Java-String-int/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/java.png)" alt="[Java] String -&gt; int, int-&gt; String 형변환" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/BackEnd/">BackEnd</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/BackEnd/Java/">Java</a></p>
+                            <p class="item-title"><a href="/2018/06/13/Java/Java-String-int/" class="title">[Java] String -&gt; int, int-&gt; String 형변환</a></p>
+                            <p class="item-date"><time datetime="2018-06-13T14:41:46.000Z" itemprop="datePublished">2018-06-13</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 11.25px;">Algorithm</a> <a href="/tags/BackEnd/" style="font-size: 17.5px;">BackEnd</a> <a href="/tags/CS/" style="font-size: 16.25px;">CS</a> <a href="/tags/DataStructure/" style="font-size: 15px;">DataStructure</a> <a href="/tags/ECMAScript6/" style="font-size: 11.25px;">ECMAScript6</a> <a href="/tags/FrontEnd/" style="font-size: 20px;">FrontEnd</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 18.75px;">JavaScript</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/React-js/" style="font-size: 15px;">React.js</a> <a href="/tags/exam/" style="font-size: 10px;">exam</a> <a href="/tags/meetup/" style="font-size: 13.75px;">meetup</a> <a href="/tags/seminar/" style="font-size: 13.75px;">seminar</a> <a href="/tags/talk-concert/" style="font-size: 10px;">talk concert</a>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2018 Jess2</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'jess2';
+    
+    
+    var disqus_url = 'https://jess2.github.io/2018/08/16/Algorithm/알고리즘-버블정렬-Bubble-Sort/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
